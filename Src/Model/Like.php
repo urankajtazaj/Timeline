@@ -1,9 +1,9 @@
 <?php 
 
-namespace Timeline\Like;
+namespace Timeline\Model\Like;
 
-use Timeline\User;
-use Timeline\Post;
+use Timeline\Model\User;
+use Timeline\Model\Post;
 
 class Like {
 
