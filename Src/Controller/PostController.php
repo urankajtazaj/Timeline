@@ -27,7 +27,7 @@ class PostController {
         $posts = [];
 
         $stmt = $this->con->prepare("select * from post where post.userId = ? order by post.id ? limit ?");
-        $stmt->bind_param("isi", $content, Session::getUser()->getId(), $order, $limit);
+        $stmt->bind_param("isi", Session::getUser()->getId(), $order, $limit);
         $stmt->execute();
         $result = $stmt->get_result();
 

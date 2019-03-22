@@ -1,8 +1,8 @@
-<?php 
+<?php
 
-function __autoload($class) {
+spl_autoload_register(function ($class) {
     require "../Model/" . $class . ".php";
-}
+});
 
 require "../../includes/Database.php";
 require "../Model/User.php";
