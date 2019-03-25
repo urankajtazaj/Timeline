@@ -11,9 +11,10 @@ class User {
     private $image;
     private $bio;
 
-    public function __construct($id, $username, $name, $image = "", $bio = "") {
+    public function __construct($id, $username, $password, $name, $image = "", $bio = "") {
         $this->id = $id;
         $this->username = $username;
+        $this->password = $password;
         $this->name = $name;
         $this->image = $image;
         $this->bio = $bio;
@@ -37,5 +38,9 @@ class User {
 
     public function getBio() : string {
         return $this->bio;
+    }
+
+    public function getPassword() {
+        return $this->password;
     }
 }

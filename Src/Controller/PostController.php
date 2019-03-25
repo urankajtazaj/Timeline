@@ -1,6 +1,6 @@
 <?php 
 
-namespace Timeline\Controller\PostController;
+//namespace Timeline\Controller\PostController;
 
 use Timeline\Model\User;
 use Timeline\Model\Post;
@@ -18,7 +18,7 @@ class PostController {
 
     public function createPost($content) {
         $stmt = $this->con->prepare("insert into post values(null, ?, ?)");
-        $stmt->bind_param("si", $content, Session::getUser()->getId());
+        $stmt->bind_param("si", $content, Session::Get('user')->getId());
         $stmt->execute();
         $stmt->close();
     }
@@ -27,7 +27,7 @@ class PostController {
         $posts = [];
 
         $stmt = $this->con->prepare("select * from post where post.userId = ? order by post.id ? limit ?");
-        $stmt->bind_param("isi", Session::getUser()->getId(), $order, $limit);
+        $stmt->bind_param("isi", Session::get('user')->getId(), $order, $limit);
         $stmt->execute();
         $result = $stmt->get_result();
 
