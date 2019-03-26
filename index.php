@@ -1,9 +1,15 @@
-<?php
+<?php include 'includes/header.php' ?>
 
-require "Autoload.php";
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Index</h2>
+            <hr>
+            <pre>
+                <?= var_dump(Session::Get('user')) ?>
+            </pre>
+        </div>
+    </div>
+</div>
 
-$user = new UserController();
-echo $user->path("index");
-echo $user->getById(4)->getName();
-
-?>
+<?php include 'includes/footer.php' ?>

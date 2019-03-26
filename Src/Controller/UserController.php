@@ -4,9 +4,16 @@
 //    require "../Model/" . $class . ".php";
 //});
 
+require '../../includes/Database.php';
+require '../Model/User.php';
+
 class UserController extends Timeline {
 
     private static $con;
+
+    static function init() {
+        self::$con = Database::Connect();
+    }
 
     public function __construct() {
         self::$con = Database::Connect();
@@ -82,4 +89,6 @@ class UserController extends Timeline {
     }
 
 }
+
+UserController::init();
 ?>

@@ -6,21 +6,27 @@
  * Time: 8:56 AM
  */
 
+require '../Timeline.php';
+require '../Controller/UserController.php';
+require '../Service/Sessions.php';
+//require '../../includes/Database.php';
+
+session_start();
 
 class LoginController extends Timeline
 {
-    private $failMessage;
+    private static $failMessage;
     private $con;
 
     public function __construct() {
         $this->con = Database::Connect();
     }
 
-    public function login() {
-        $username = mysqli_real_escape_string($this->con, $_POST['username']);
-        $password = $_POST['password'];
+    public function login($post) {
+        $username = mysqli_real_escape_string($this->con, $post['username']);
+        $password = $post['password'];
 
-        $user = User::getByUsername($username);
+        $user = UserController::getByUsername($username);
 
         if ($user) {
             if (password_verify($password, $user->getPassword())) {
@@ -29,23 +35,34 @@ class LoginController extends Timeline
                  * User logged in
                  */
                 Session::Add('user', $user);
-                $this->redirect("index");
+                $this->redirect("../../index");
             } else {
                 /**
                  * Password is incorrect
                  */
-                echo $this->failMessage;
+                self::$failMessage = "Wrong user or password";
+                $this->redirect("../../login", 'message=invalid&_username=' . $username);
             }
         } else {
             /**
              * User not found
              */
-            echo $this->failMessage;
+            self::$failMessage = "Wrong user or password";
+            $this->redirect("../../login", 'message=invalid&_username=' . $username);
         }
     }
 
-    public function getError() {
-        return $this->failMessage;
+    public static function getError() {
+        return self::$failMessage;
     }
 
+}
+
+if (isset($_GET['action'])) {
+    $fnc = $_GET['action'];
+    $login = new LoginController();
+
+    if (method_exists($login, $fnc)) {
+        $login->$fnc($_POST);
+    }
 }
