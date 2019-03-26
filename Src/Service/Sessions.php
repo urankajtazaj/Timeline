@@ -5,8 +5,6 @@
  * User session = user
  */
 
-include "../Model/User.php";
-
 class Session
 {
     public static function Add($key, $value)

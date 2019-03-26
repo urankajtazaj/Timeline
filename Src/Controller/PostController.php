@@ -2,10 +2,6 @@
 
 //namespace Timeline\Controller\PostController;
 
-use Timeline\Model\User;
-use Timeline\Model\Post;
-use Timeline\Repository\Database;
-use Timeline\Service\Session;
 
 class PostController {
 
@@ -16,7 +12,10 @@ class PostController {
     }
 
 
-    public function createPost($content) {
+    public function createPost($content = "") {
+
+        $content = empty($content) ? mysqli_real_escape_string($this->con, $_GET['content']) : $content;
+
         $stmt = $this->con->prepare("insert into post values(null, ?, ?)");
         $stmt->bind_param("si", $content, Session::Get('user')->getId());
         $stmt->execute();

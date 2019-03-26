@@ -6,13 +6,6 @@
  * Time: 8:56 AM
  */
 
-spl_autoload_register(function ($class) {
-    require "../Model/" . $class . ".php";
-});
-
-require "../../includes/Database.php";
-require "../Model/User.php";
-require "../Service/Sessions.php";
 
 class LoginController
 {

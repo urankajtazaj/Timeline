@@ -1,18 +1,15 @@
 <?php
 
-spl_autoload_register(function ($class) {
-    require "../Model/" . $class . ".php";
-});
+//spl_autoload_register(function ($class) {
+//    require "../Model/" . $class . ".php";
+//});
 
-require "../../includes/Database.php";
-require "../Model/User.php";
-
-class UserController {
+class UserController extends Timeline {
 
     private static $con;
 
     public function __construct() {
-        $this->con = Database::Connect();
+        self::$con = Database::Connect();
     }
 
     public function createUser($username, $password, $name, $image = "", $bio = "") : self {
@@ -49,7 +46,8 @@ class UserController {
         }
     }
 
-    public static function getByUsername($username) : User {
+    public static function getByUsername($username) : User
+    {
         $stmt = self::$con->prepare("select * from user where user.username = ? limit 1");
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -71,12 +69,6 @@ class UserController {
             return null;
         }
 
-    }
-
-    public function getUsers() : array {
-        /**
-         * TODO: returns a list of users
-         */
     }
 
 }
