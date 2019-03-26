@@ -12,13 +12,21 @@ class UserController extends Timeline {
         self::$con = Database::Connect();
     }
 
-    public function createUser($username, $password, $name, $image = "", $bio = "") : self {
-        $password = password_hash($password, PASSWORD_BCRYPT);
+    public function createUser() : self {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $username = mysqli_real_escape_string(self::$con, $username);
+            $password = mysqli_real_escape_string(self::$con, $password);
+            $name = mysqli_real_escape_string(self::$con, $name);
+            $image = mysqli_real_escape_string(self::$con, $image);
+            $bio = mysqli_real_escape_string(self::$con, $bio);
 
-        $stmt = $this->con->prepare("insert into user values(null, ?, ?, ?, ?, ?)");
-        $stmt->bind_param("sssss", $username, $password, $name, $image, $bio);
-        $stmt->execute();
-        $stmt->close();
+            $password = password_hash($password, PASSWORD_BCRYPT);
+
+            $stmt = $this->con->prepare("insert into user values(null, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("sssss", $username, $password, $name, $image, $bio);
+            $stmt->execute();
+            $stmt->close();
+        }
 
         return $this;
     }
@@ -46,8 +54,7 @@ class UserController extends Timeline {
         }
     }
 
-    public static function getByUsername($username) : User
-    {
+    public static function getByUsername($username) : User {
         $stmt = self::$con->prepare("select * from user where user.username = ? limit 1");
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -68,6 +75,9 @@ class UserController extends Timeline {
         } else {
             return null;
         }
+    }
+
+    public static function addFriend() {
 
     }
 

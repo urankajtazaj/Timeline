@@ -7,9 +7,9 @@
  */
 
 
-class LoginController
+class LoginController extends Timeline
 {
-    private $failMessage = "Username or password is incorrect";
+    private $failMessage;
     private $con;
 
     public function __construct() {
@@ -29,15 +29,23 @@ class LoginController
                  * User logged in
                  */
                 Session::Add('user', $user);
+                $this->redirect("index");
             } else {
                 /**
-                 * TODO: Password is incorrect
+                 * Password is incorrect
                  */
                 echo $this->failMessage;
             }
         } else {
+            /**
+             * User not found
+             */
             echo $this->failMessage;
         }
+    }
+
+    public function getError() {
+        return $this->failMessage;
     }
 
 }

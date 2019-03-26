@@ -11,15 +11,15 @@ class PostController {
         $this->con = Database::Connect();
     }
 
+    public function createPost() {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $content = mysqli_real_escape_string($this->con, $_POST['content']);
 
-    public function createPost($content = "") {
-
-        $content = empty($content) ? mysqli_real_escape_string($this->con, $_GET['content']) : $content;
-
-        $stmt = $this->con->prepare("insert into post values(null, ?, ?)");
-        $stmt->bind_param("si", $content, Session::Get('user')->getId());
-        $stmt->execute();
-        $stmt->close();
+            $stmt = $this->con->prepare("insert into post values(null, ?, ?)");
+            $stmt->bind_param("si", $content, Session::Get('user')->getId());
+            $stmt->execute();
+            $stmt->close();
+        }
     }
 
     public function getPosts($order = "desc", $limit = 15) : array {

@@ -12,4 +12,9 @@ class Timeline {
         return $_SERVER['SERVER_NAME'] . "/" . $route . ".php";
     }
 
+    public function redirect($route) {
+        header("Location: " . $_SERVER['SERVER_NAME'] . "/" . strtolower($route) . ".php");
+        exit();
+    }
+
 }

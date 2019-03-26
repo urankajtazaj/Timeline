@@ -11,6 +11,8 @@ class User {
     private $image;
     private $bio;
 
+    private $friends = [];
+
     public function __construct($id, $username, $password, $name, $image = "", $bio = "") {
         $this->id = $id;
         $this->username = $username;
@@ -24,23 +26,31 @@ class User {
         return $this->id;
     }
 
-    public function getUsername() : string {
+    public function getUsername(): string {
         return $this->username;
     }
 
-    public function getName() : string {
+    public function getName(): string {
         return $this->name;
     }
 
-    public function getImageUrl() : string {
+    public function getImageUrl(): string {
         return $this->image;
     }
 
-    public function getBio() : string {
+    public function getBio(): string {
         return $this->bio;
     }
 
     public function getPassword() {
         return $this->password;
+    }
+
+    public function getFriends(): array {
+        return $this->friends;
+    }
+
+    public function setFriends(array $friends) {
+        $this->friends = $friends;
     }
 }
