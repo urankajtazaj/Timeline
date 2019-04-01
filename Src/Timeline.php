@@ -16,9 +16,13 @@ class Timeline {
         return "Src/Controller/" . strtolower($route) . "Controller.php";
     }
 
-    public function redirect($route, $extra = '') {
+    public static function redirect($route, $extra = '') {
         header("Location: " . strtolower($route) . ".php" . (!empty($extra) ? "?" . $extra : ''));
         exit();
+    }
+
+    public static function goToFunction($controller, $method) {
+        return "Src/Controller/" . ucfirst($controller) . "Controller.php?action=" . $method;
     }
 
 }

@@ -15,7 +15,6 @@ session_start();
 
 class LoginController extends Timeline
 {
-    private static $failMessage;
     private $con;
 
     public function __construct() {
@@ -31,31 +30,31 @@ class LoginController extends Timeline
         if ($user) {
             if (password_verify($password, $user->getPassword())) {
                 /**
-                 * TODO: Redirect to home
                  * User logged in
                  */
                 Session::Add('user', $user);
-                $this->redirect("../../index");
+                $this::redirect("../../index");
             } else {
                 /**
                  * Password is incorrect
                  */
-                self::$failMessage = "Wrong user or password";
-                $this->redirect("../../login", 'message=invalid&_username=' . $username);
+                $this::redirect("../../login", 'message=invalid&_username=' . $username);
             }
         } else {
             /**
              * User not found
              */
-            self::$failMessage = "Wrong user or password";
-            $this->redirect("../../login", 'message=invalid&_username=' . $username);
+            $this::redirect("../../login", 'message=invalid&_username=' . $username);
         }
     }
 
-    public static function getError() {
-        return self::$failMessage;
-    }
+    public function logout() {
+        $_SESSION['user'] = null;
+        session_unset($_SESSION['user']);
+        session_destroy($_SESSION['user']);
 
+        self::redirect("../../login");
+    }
 }
 
 if (isset($_GET['action'])) {

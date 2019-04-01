@@ -80,7 +80,7 @@ class UserController extends Timeline {
                 $data['bio']
             );
         } else {
-            return null;
+            self::redirect("../../login", 'message=invalid&_username=' . $username);
         }
     }
 
