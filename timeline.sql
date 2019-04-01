@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 07:32 AM
+-- Generation Time: Apr 01, 2019 at 11:04 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -44,8 +44,19 @@ CREATE TABLE `likes` (
 CREATE TABLE `post` (
   `id` int(10) NOT NULL,
   `content` varchar(1500) NOT NULL,
-  `userId` int(10) NOT NULL
+  `userId` int(10) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post`
+--
+
+INSERT INTO `post` (`id`, `content`, `userId`, `date`) VALUES
+(1, 'Hello world this is a comment on this social network.', 4, '2019-04-01 22:59:38'),
+(2, 'This is SPARTA!', 4, '2019-04-01 22:59:38'),
+(3, 'What a lovel day.', 4, '2019-04-01 22:59:38'),
+(4, 'A nice day it was today.', 4, '2019-04-01 23:01:41');
 
 -- --------------------------------------------------------
 
@@ -105,7 +116,7 @@ ALTER TABLE `likes`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user`
