@@ -13,7 +13,7 @@ class Timeline {
     }
 
     public static function controllerPath($route) {
-        return "Src/Controller/" . strtolower($route) . "Controller.php";
+        return "Src/Controller/" . ucfirst($route) . "Controller.php";
     }
 
     public static function redirect($route, $extra = '') {

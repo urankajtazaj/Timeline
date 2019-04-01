@@ -6,12 +6,12 @@
  * Time: 8:56 AM
  */
 
-require '../Timeline.php';
-require '../Controller/UserController.php';
-require '../Service/Sessions.php';
+//require '../Timeline.php';
+//require '../Controller/UserController.php';
+//require '../Service/Sessions.php';
 //require '../../includes/Database.php';
 
-session_start();
+include $_SERVER['DOCUMENT_ROOT'] . '/Timeline/Autoload.php';
 
 class LoginController extends Timeline
 {

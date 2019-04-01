@@ -4,8 +4,10 @@
 //    require "../Model/" . $class . ".php";
 //});
 
-require '../../includes/Database.php';
-require '../Model/User.php';
+//require 'includes/Database.php';
+//require 'Src/Model/User.php';
+
+include $_SERVER['DOCUMENT_ROOT'] . '/Timeline/Autoload.php';
 
 class UserController extends Timeline {
 

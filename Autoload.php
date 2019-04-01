@@ -6,16 +6,16 @@
  * Time: 7:24 AM
  */
 
-//if (session_status() != PHP_SESSION_ACTIVE) {
+if (session_status() == PHP_SESSION_NONE) {
     session_start();
-//}
+}
 
-require "Src/Service/Sessions.php";
-require "Src/Timeline.php";
-require "includes/Database.php";
-//require "Src/Controller/LoginController.php";
-//require "Src/Controller/PostController.php";
-//require "Src/Controller/UserController.php";
-require "Src/Model/User.php";
-require "Src/Model/Post.php";
-require "Src/Model/Like.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Service/Sessions.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Timeline.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/includes/Database.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Model/User.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Model/Post.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Model/Like.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Controller/LoginController.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Controller/PostController.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Controller/UserController.php";

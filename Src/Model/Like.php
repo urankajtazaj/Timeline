@@ -1,10 +1,5 @@
 <?php 
 
-namespace Timeline\Model\Like;
-
-use Timeline\Model\User;
-use Timeline\Model\Post;
-
 class Like {
 
     private $id;
