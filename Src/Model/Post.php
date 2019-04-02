@@ -37,4 +37,8 @@ class Post {
         return date_format(date_create($this->date), "d/m/Y (H:i)");
     }
 
+    public function getFormatedDate() {
+        return Timeline::getTimeAgo($this->date);
+    }
+
 }

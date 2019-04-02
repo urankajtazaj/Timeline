@@ -25,4 +25,23 @@ class Timeline {
         return "Src/Controller/" . ucfirst($controller) . "Controller.php?action=" . $method;
     }
 
+    public static function getTimeAgo($date) {
+
+        $date = new DateTime($date);
+
+        $now = new DateTime();
+        $diff = $now->diff($date);
+
+        if ($diff->format("%d") == 1) {
+            return "Yesterday at " . date_format($date, "H:i");
+        } else if ($diff->format("%d") == 0) {
+            if ($diff->format("%h") < 1) {
+                return $diff->format("%i") . " minutes ago";
+            }
+            return "Today at " . date_format($date, "H:i");
+        } else {
+            return  $date->format('d/m/Y');
+        }
+    }
+
 }

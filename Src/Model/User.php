@@ -34,7 +34,7 @@ class User {
         return $this->name;
     }
 
-    public function getImageUrl(): string {
+    public function getImage(): string {
         return $this->image;
     }
 
