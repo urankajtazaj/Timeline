@@ -29,7 +29,7 @@ include 'includes/header.php';
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div class="profile-pic small d-inline-block">
-                                <img src="<?= "uploads/" .  Session::Get('user')->getImage() ?>" alt="">
+                                <img src="<?= "uploads/" . $post->getUser()->getImage() ?>" alt="">
                             </div>
                             <span class="d-inline ml-3">
                                 <b><?= $post->getUser()->getName() ?></b>
@@ -42,7 +42,7 @@ include 'includes/header.php';
                     </div>
                     <div class="post-footer text-right text-muted">
                         <small class="float-left mt-2"><?= $post->getFormatedDate() ?></small>
-                        <span class="btn btn-like"><i class="fas fa-heart"></i></span>
+                        <span onclick="handleLike(1, 1, 1)" class="btn btn-like"><i class="fas fa-heart"></i></span>
                         <span class="btn btn-sm">122</span>
                     </div>
                 </div>
@@ -59,6 +59,22 @@ include 'includes/header.php';
                     </div>
                     <br>
                     <h3 class="text-center"><?= Session::Get('user')->getName() ?></h3>
+                    <hr>
+                    <br>
+                    <?php
+                        $myPosts = UserController::getPosts(Session::Get('user')->getId());
+
+                        if (sizeof($myPosts) > 0) {
+                            ?>
+                            <p class="text-muted">My latest posts</p>
+                            <?php
+                            foreach ($posts as $post) {
+                                ?>
+                                <small class="d-block"><?= $post->getContent() ?></small>
+                                <?php
+                            }
+                        }
+                    ?>
                 </div>
             </div>
         </div>

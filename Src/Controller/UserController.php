@@ -86,6 +86,27 @@ class UserController extends Timeline {
         }
     }
 
+    public static function getPosts($userId) {
+        $stmt = self::$con->prepare("select * from post where post.userId = ?");
+        $stmt->bind_param("i", $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        $posts = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $posts[] = new Post(
+                $row['id'],
+                $row['content'],
+                $userId,
+                $row['date']
+            );
+        }
+
+        return $posts;
+    }
+
     public static function addFriend() {
 
     }
