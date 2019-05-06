@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5 {
 }
 
 body {
-    background-color: #e9ebee;
+    background-color: rgb(245, 248, 250);
     font-family: "Open Sans";
 }
 
@@ -26,6 +26,10 @@ h1.logo {
 .btn {
     border: none;
     border-radius: 25px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-weight: bolder;
+    font-size: 15px;
 }
 
 .btn:focus {
@@ -33,11 +37,12 @@ h1.logo {
 }
 
 .btn-primary {
-    background-color: rgb(113, 20, 234);
+    background-color: rgb(29, 161, 242);
+    box-shadow: 0 6px 20px rgba(29, 161, 242, .6);
 }
 
 .btn-primary:hover {
-    background-color: rgb(101, 20, 201);
+    background-color: rgb(29, 161, 242);
 }
 
 h1.logo {
@@ -50,42 +55,32 @@ h1.logo {
 
 .card {
     position: relative;
-    /*border-color: ;*/
-    border: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    border: 1px solid #e9e9e9;
+    border-bottom: none;
+    border-radius: 0;
 }
 
-.card.post {
-    /*border-radius: 0;*/
-    margin-bottom: 15px;
+.card.post:hover {
+    background-color: rgb(245, 248, 250);
 }
 
 .post-content p {
     font-size: 14px;
 }
 
-.card.post:hover {
-    /*background-color: rgb(241, 248, 255);*/
-    box-shadow: 0 10px 20px rgba(0,0,0,.05);
-}
-
 .post .post-footer {
-    cursor: pointer;
     padding: 5px 20px;
-    border-top: 1px solid #ddd;
-}
-
-.post .post-footer:hover {
-    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
 }
 
 .post-content {
-    padding-top: 25px;
+    padding-left: 55px;
 }
 
 .post-content img {
     max-width: 100%;
     min-width: 100%;
+    border-radius: 15px;
 }
 
 .full-width {
@@ -123,23 +118,15 @@ h1.logo {
 .profile-pic img {
     min-height: 100%;
     max-height: 105%;
-    /*max-: 100%;*/
 }
 
 .profile-pic.small {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
 }
 
 .btn-circle {
-    width: 120px;
-    height: 60px;
-    border-radius: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    font-size: 20px;
+    padding: 15px 50px;
 }
 
 .btn-like {
@@ -159,13 +146,10 @@ h1.logo {
 .corner {
     right: 0;
     bottom: 0;
-    margin-bottom: -20px;
-    margin-right: -20px;
     position: absolute;
 }
 
 textarea.new-status {
-    /*font-size: 30px;*/
     border-color: transparent;
     padding: 20px;
 }
