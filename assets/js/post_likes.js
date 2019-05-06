@@ -1,6 +1,6 @@
-function handleLike(post_id, user_id, status) {
+function handleLike(post_id, user_id, status, link) {
     $.ajax({
-        url: "/Src/Controller/LikeController?action=handleLike",
+        url: link,
         method: "GET",
         data: {
             "post_id": post_id,

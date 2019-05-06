@@ -7,7 +7,7 @@ h1, h2, h3, h4, h5 {
 }
 
 body {
-    background-color: #fafafa;
+    background-color: #e9ebee;
     font-family: "Open Sans";
 }
 
@@ -50,7 +50,9 @@ h1.logo {
 
 .card {
     position: relative;
-    border-color: #eee;
+    /*border-color: ;*/
+    border: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
 }
 
 .card.post {
@@ -58,9 +60,32 @@ h1.logo {
     margin-bottom: 15px;
 }
 
+.post-content p {
+    font-size: 14px;
+}
+
+.card.post:hover {
+    /*background-color: rgb(241, 248, 255);*/
+    box-shadow: 0 10px 20px rgba(0,0,0,.05);
+}
+
 .post .post-footer {
-    padding: 10px 20px;
-    border-top: 1px solid #f2f2f2;
+    cursor: pointer;
+    padding: 5px 20px;
+    border-top: 1px solid #ddd;
+}
+
+.post .post-footer:hover {
+    background-color: #f5f5f5;
+}
+
+.post-content {
+    padding-top: 25px;
+}
+
+.post-content img {
+    max-width: 100%;
+    min-width: 100%;
 }
 
 .full-width {
@@ -102,24 +127,24 @@ h1.logo {
 }
 
 .profile-pic.small {
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
 }
 
 .btn-circle {
-    width: 60px;
+    width: 120px;
     height: 60px;
     border-radius: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    font-size: 20px;
 }
 
 .btn-like {
-    background-color: #f2f2f2;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -127,8 +152,7 @@ h1.logo {
 }
 
 .btn-like:hover, .btn-like.liked {
-    background-color: #ff454a;
-    color: #fff;
+    color: #ff454a;
     cursor: pointer;
 }
 
@@ -141,7 +165,7 @@ h1.logo {
 }
 
 textarea.new-status {
-    font-size: 30px;
+    /*font-size: 30px;*/
     border-color: transparent;
     padding: 20px;
 }
@@ -153,4 +177,15 @@ textarea.new-status:focus {
 
 textarea.new-status::placeholder {
     color: #ddd;
+}
+
+.btn-image {
+    cursor: pointer;
+    border: 1px solid #bbb;
+    color: #bbb;
+}
+
+.btn-image:hover {
+    color: #444;
+    border-color: #444;
 }

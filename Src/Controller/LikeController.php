@@ -9,8 +9,7 @@ class LikeController
         $post_id = $get['post_id'];
         $status = $get['status'];
 
-        return "like/disliked";
-
+        echo $user_id;
     }
 }
 

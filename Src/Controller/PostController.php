@@ -43,7 +43,6 @@ class PostController extends Timeline {
 
         $stmt = self::$con->prepare("select * from post where userId = ? order by id {$order} limit ?");
         $stmt->bind_param("ii", $userId,  $limit);
-//        $stmt->bind_param("isi", Session::get('user')->getId(), $order, $limit);
         $stmt->execute();
         $result = $stmt->get_result();
 
@@ -54,6 +53,19 @@ class PostController extends Timeline {
         $stmt->close();
 
         return $posts;
+    }
+
+    public static function getLikeCount($post) {
+//        $content = mysqli_real_escape_string($this->con, $post['content']);
+//
+//        $userId = Session::Get('user')->getId();
+//
+//        $stmt = $this->con->prepare("insert into post (id, content, userId) values(null, ?, ?)");
+//        $stmt->bind_param("si", $content, $userId);
+//        $stmt->execute();
+//        $stmt->close();
+//
+//        self::redirect('../../index');
     }
 }
 
