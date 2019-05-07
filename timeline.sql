@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2019 at 02:27 PM
+-- Generation Time: May 07, 2019 at 10:36 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -45,6 +45,7 @@ CREATE TABLE `answer` (
 CREATE TABLE `post` (
   `id` int(10) NOT NULL,
   `content` varchar(1500) NOT NULL,
+  `image` varchar(250) DEFAULT NULL,
   `userId` int(10) NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -53,14 +54,12 @@ CREATE TABLE `post` (
 -- Dumping data for table `post`
 --
 
-INSERT INTO `post` (`id`, `content`, `userId`, `date`) VALUES
-(1, 'Hello world this is a comment on this social network.', 4, '2019-04-01 22:59:38'),
-(2, 'This is SPARTA!', 4, '2019-04-01 22:59:38'),
-(3, 'What a lovel day.', 4, '2019-04-01 22:59:38'),
-(4, 'A nice day it was today.', 4, '2019-04-01 23:01:41'),
-(5, 'kkjjkj', 4, '2019-04-02 20:48:58'),
-(6, 'hello world this is apost', 4, '2019-04-18 20:21:28'),
-(7, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida tempor dapibus. Nulla quis nisi ac enim placerat accumsan vel vel tortor', 4, '2019-04-18 20:50:20');
+INSERT INTO `post` (`id`, `content`, `image`, `userId`, `date`) VALUES
+(7, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida tempor dapibus. Nulla quis nisi ac enim placerat accumsan vel vel tortor', NULL, 4, '2019-04-18 20:50:20'),
+(12, 'A post that is without image', '', 4, '2019-05-07 21:31:35'),
+(15, 'Testing the reset image option.', '', 4, '2019-05-07 21:36:38'),
+(16, 'Testing the minute counter', '', 4, '2019-05-07 21:37:52'),
+(17, 'A beautiful image of the mother nature.', 'uploads/James Doe/2019/05/07/6a0a0d5112be7fba61d6488fcbce735e-agriculture-color-cropland-2229732.jpg', 4, '2019-05-07 22:33:15');
 
 -- --------------------------------------------------------
 
@@ -74,6 +73,17 @@ CREATE TABLE `post_like` (
   `postId` int(10) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `post_like`
+--
+
+INSERT INTO `post_like` (`id`, `userId`, `postId`, `status`) VALUES
+(1, 4, 16, 0),
+(2, 4, 15, 0),
+(3, 4, 12, 0),
+(4, 4, 7, 0),
+(5, 4, 17, 1);
 
 -- --------------------------------------------------------
 
@@ -139,13 +149,13 @@ ALTER TABLE `answer`
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `post_like`
 --
 ALTER TABLE `post_like`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `user`
