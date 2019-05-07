@@ -165,11 +165,19 @@ textarea.new-status::placeholder {
 
 .btn-image {
     cursor: pointer;
-    border: 1px solid #bbb;
-    color: #bbb;
+    color: rgb(29, 161, 242);
+    font-size: 22px;
+    position: relative;
 }
 
 .btn-image:hover {
-    color: #444;
+    color: rgb(29, 114, 186);
     border-color: #444;
+}
+
+.btn-image input {
+    cursor: pointer;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
 }

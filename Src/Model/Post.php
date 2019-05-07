@@ -8,6 +8,7 @@ class Post {
     private $content;
     private $date;
     private $userId;
+    private $image;
 
     public function __construct($id, $content, $userId, $date) {
         $this->id = $id;
@@ -22,6 +23,14 @@ class Post {
 
     public function getContent() : string {
         return $this->content;
+    }
+
+    public function getImage() {
+        return $this->image;
+    }
+
+    public function setImage($image) {
+        $this->image = $image;
     }
 
     public function getUserId() : int {
