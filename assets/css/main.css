@@ -165,9 +165,15 @@ textarea.new-status::placeholder {
 
 .btn-image {
     cursor: pointer;
-    color: rgb(29, 161, 242);
-    font-size: 22px;
+    padding: 0;
     position: relative;
+    width: 65px;
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 0px;
 }
 
 .btn-image:hover {
@@ -180,4 +186,18 @@ textarea.new-status::placeholder {
     height: 100%;
     position: absolute;
     opacity: 0;
+}
+
+.btn-image img {
+    min-width: 100%;
+    max-width: 150%;
+    cursor: pointer;
+}
+
+.reset-pic {
+    cursor: pointer;
+}
+
+.reset-pic:hover {
+    text-decoration: underline;
 }

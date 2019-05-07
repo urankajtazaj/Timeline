@@ -100,6 +100,7 @@ class UserController extends Timeline {
                 $row['id'],
                 $row['content'],
                 $userId,
+                $row['image'],
                 $row['date']
             );
         }

@@ -35,6 +35,11 @@ class Timeline {
         if ($diff->format("%d") == 1) {
             return "Yesterday at " . date_format($date, "H:i");
         } else if ($diff->format("%d") == 0) {
+
+            if ($diff->format("%i") == 0) {
+                return "Just now";
+            }
+
             if ($diff->format("%h") < 1) {
                 return $diff->format("%i") . " minutes ago";
             }

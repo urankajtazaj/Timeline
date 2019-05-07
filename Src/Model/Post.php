@@ -1,7 +1,5 @@
 <?php 
 
-//include 'Src/Controller/UserController.php';
-
 class Post {
     
     private $id;
@@ -10,10 +8,11 @@ class Post {
     private $userId;
     private $image;
 
-    public function __construct($id, $content, $userId, $date) {
+    public function __construct($id, $content, $userId, $image, $date) {
         $this->id = $id;
         $this->content = $content;
         $this->userId = $userId;
+        $this->image = $image;
         $this->date = $date;
     }
 
@@ -48,6 +47,14 @@ class Post {
 
     public function getFormatedDate() {
         return Timeline::getTimeAgo($this->date);
+    }
+
+    public function getLikeCount() {
+        PostController::getLikeCount($this->id);
+    }
+
+    public function isLiked(){
+        return PostController::isLikedByMe($this->id);
     }
 
 }
