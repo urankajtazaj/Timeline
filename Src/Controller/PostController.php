@@ -42,8 +42,8 @@ class PostController extends Timeline {
 
         $userId = Session::get('user')->getId();
 
-        $stmt = self::$con->prepare("select * from post where userId = ? order by id {$order} limit ?");
-        $stmt->bind_param("ii", $userId,  $limit);
+        $stmt = self::$con->prepare("select * from post order by id {$order} limit ?");
+        $stmt->bind_param("i", $limit);
         $stmt->execute();
         $result = $stmt->get_result();
 

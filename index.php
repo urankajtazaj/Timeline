@@ -8,10 +8,12 @@ include 'includes/PostModal.php';
 
 <div class="container">
     <div class="row">
-        <div class="col-3 pr-1 sidebar">
-            <?php include 'includes/Sidebar.php' ?>
+        <div class="col-md-3 col-12 pr-1 sidebar">
+            <div class="position-sticky" style="top: 0">
+                <?php include 'includes/Sidebar.php' ?>
+            </div>
         </div>
-        <div class="col-6 pl-1 pr-1 position-relative">
+        <div class="col-md-6 col-12 pl-1 pr-1 position-relative">
             <div class="card">
                 <div class="card-body p-0">
                     <form method="post" enctype="multipart/form-data" action="<?= Timeline::goToFunction('post', 'createPost') ?>">
@@ -46,9 +48,9 @@ include 'includes/PostModal.php';
                 <div class="card post">
                     <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <div class="profile-pic small d-inline-block">
+                        <div class="profile-pic small d-inline-flex">
                             <?php if ($post->getUser()->getImage()) { ?>
-                            <img class="pic" src="<?= "uploads/" . $post->getUser()->getImage() ?>" alt="">
+                            <img class="pic" src="<?= "uploads/" . $post->getUser()->getImage() ?>" alt="<?= $post->getUser()->getName() ?>">
                             <?php } ?>
                         </div>
                         <span class="d-inline ml-3">
@@ -78,30 +80,22 @@ include 'includes/PostModal.php';
 
             ?>
         </div>
-        <div class="col-md-3 pl-1">
-            <div class="card">
-                <div class="card-body">
-                    <div class="profile-pic ml-auto mr-auto">
-                        <img src="<?= "uploads/" . Session::Get('user')->getImage() ?>" alt="<?= Session::Get('user')->getName() ?>">
+        <div class="col-md-3 col-12 pl-1 position-relative">
+            <div class="position-sticky" style="top: 0">
+                <div class="card">
+                    <div class="card-header">
+                        My Latest Posts
                     </div>
-                    <br>
-                    <h3 class="text-center"><?= Session::Get('user')->getName() ?></h3>
-                    <hr>
-                    <br>
-                    <?php
-                        $myPosts = UserController::getPosts(Session::Get('user')->getId());
-
-                        if (sizeof($myPosts) > 0) {
-                            ?>
-                            <p class="text-muted">My latest posts</p>
-                            <?php
-                            foreach ($posts as $post) {
-                                ?>
-                                <small class="d-block"><?= $post->getContent() ?></small>
-                                <?php
+                    <div class="list-group">
+                        <?php
+                            $posts = UserController::getPosts(Session::Get('user')->getId());
+                            if (sizeof($posts) > 0) {
+                                foreach ($posts as $post) { ?>
+                                    <a href="#" class="list-group-item list-group-item-action"><?= $post->getContent() ?></a>
+                                <?php }
                             }
-                        }
-                    ?>
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>

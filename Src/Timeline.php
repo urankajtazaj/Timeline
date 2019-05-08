@@ -32,15 +32,15 @@ class Timeline {
         $now = new DateTime();
         $diff = $now->diff($date);
 
-        if ($diff->format("%d") == 1) {
+        if ($diff->d == 1) {
             return "Yesterday at " . date_format($date, "H:i");
-        } else if ($diff->format("%d") == 0) {
+        } else if ($diff->d == 0) {
 
-            if ($diff->format("%i") == 0) {
+            if ($diff->i == 0) {
                 return "Just now";
             }
 
-            if ($diff->format("%h") < 1) {
+            if ($diff->h < 1) {
                 return $diff->format("%i") . " minutes ago";
             }
             return "Today at " . date_format($date, "H:i");

@@ -1,11 +1,15 @@
 <?php
 require "Autoload.php";
 
-if (basename($_SERVER['PHP_SELF']) != 'login.php') {
-    if (!$_SESSION['user']) {
-        Timeline::redirect("login");
-    }
+$basename = basename($_SERVER['PHP_SELF']);
+
+if (basename($_SERVER['PHP_SELF']) != 'login.php' && !$_SESSION['user']) {
+    Timeline::redirect("login");
 }
+
+//if (($basename != 'register.php') && !$_SESSION['user']) {
+//    Timeline::redirect("login");
+//}
 ?>
 
 <html>

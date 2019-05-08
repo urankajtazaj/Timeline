@@ -38,11 +38,20 @@ h1.logo {
 
 .btn-primary {
     background-color: rgb(29, 161, 242);
-    box-shadow: 0 6px 20px rgba(29, 161, 242, .6);
+    box-shadow: 0 6px 20px rgba(29, 161, 242, .5);
 }
 
 .btn-primary:hover {
     background-color: rgb(29, 161, 242);
+}
+
+.btn-danger {
+    background-color: rgb(242, 69, 87);
+    box-shadow: 0 6px 20px rgba(242, 69, 87, .5);
+}
+
+.btn-danger:hover {
+    background-color: rgb(242, 69, 87);
 }
 
 h1.logo {
@@ -121,7 +130,7 @@ h1.logo {
 
 .profile-pic img {
     min-height: 100%;
-    max-height: 105%;
+    max-height: 150%;
 }
 
 .profile-pic.small {
@@ -204,4 +213,8 @@ textarea.new-status::placeholder {
 
 .reset-pic:hover {
     text-decoration: underline;
+}
+
+.sidebar {
+
 }

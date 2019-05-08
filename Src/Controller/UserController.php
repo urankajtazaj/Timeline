@@ -21,23 +21,21 @@ class UserController extends Timeline {
         self::$con = Database::Connect();
     }
 
-    public function createUser() : self {
+    public static function createUser($post) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = mysqli_real_escape_string(self::$con, $username);
-            $password = mysqli_real_escape_string(self::$con, $password);
-            $name = mysqli_real_escape_string(self::$con, $name);
-            $image = mysqli_real_escape_string(self::$con, $image);
-            $bio = mysqli_real_escape_string(self::$con, $bio);
+            $username = mysqli_real_escape_string(self::$con, $post['username']);
+            $password = mysqli_real_escape_string(self::$con, $post['password']);
+            $name = mysqli_real_escape_string(self::$con, $post['name']);
+            $image = mysqli_real_escape_string(self::$con, $post['image']);
+            $bio = mysqli_real_escape_string(self::$con, $post['bio']);
 
             $password = password_hash($password, PASSWORD_BCRYPT);
 
-            $stmt = $this->con->prepare("insert into user values(null, ?, ?, ?, ?, ?)");
+            $stmt = self::$con->prepare("insert into user values(null, ?, ?, ?, ?, ?)");
             $stmt->bind_param("sssss", $username, $password, $name, $image, $bio);
             $stmt->execute();
             $stmt->close();
         }
-
-        return $this;
     }
 
     public static function getById($id) : User {
@@ -115,4 +113,12 @@ class UserController extends Timeline {
 }
 
 UserController::init();
-?>
+
+if (isset($_GET['action'])) {
+    $fnc = $_GET['action'];
+    $user = new UserController();
+
+    if (method_exists($user, $fnc)) {
+        $user->$fnc($_POST);
+    }
+}
