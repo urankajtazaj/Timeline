@@ -53,18 +53,22 @@ h1.logo {
     background-color: #fff;
 }
 
-.card {
+.card.post {
     position: relative;
     border: 1px solid #e9e9e9;
     border-bottom: none;
     border-radius: 0;
 }
 
+.card.post .card-body {
+    cursor: pointer;
+}
+
 .card.post:hover {
     background-color: rgb(245, 248, 250);
 }
 
-.post-content p {
+.post .post-content p {
     font-size: 14px;
 }
 

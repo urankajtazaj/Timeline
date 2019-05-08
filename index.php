@@ -1,6 +1,9 @@
 <?php
 include 'includes/header.php';
 $posts = PostController::getPosts();
+
+include 'includes/PostModal.php';
+
 ?>
 
 <div class="container">
@@ -45,18 +48,18 @@ $posts = PostController::getPosts();
                     <div class="d-flex align-items-center">
                         <div class="profile-pic small d-inline-block">
                             <?php if ($post->getUser()->getImage()) { ?>
-                            <img src="<?= "uploads/" . $post->getUser()->getImage() ?>" alt="">
+                            <img class="pic" src="<?= "uploads/" . $post->getUser()->getImage() ?>" alt="">
                             <?php } ?>
                         </div>
                         <span class="d-inline ml-3">
-                            <b class="mr-1"><?= $post->getUser()->getName() ?></b>
+                            <b class="mr-1 user"><?= $post->getUser()->getName() ?></b>
                             -
-                            <small class="ml-1 text-muted">
+                            <small class="ml-1 text-muted time">
                                 <?= $post->getFormatedDate() ?>
                             </small>
                         </span>
                     </div>
-                    <div class="post-content">
+                    <div class="post-content" data-toggle="modal" data-target=".postModal">
                         <p>
                             <?= $post->getContent() ?>
                         </p>
@@ -66,7 +69,7 @@ $posts = PostController::getPosts();
                     </div>
                     </div>
                     <div class="post-footer text-right text-muted">
-                        <span class="=" id="comment-count-<?= $post->getId() ?>"><i class="far fa-comment"></i><span class="btn-sm">3</span></span>
+                        <span class="=" id="comment-count-<?= $post->getId() ?>"><i class="far fa-comment"></i><span class="btn-sm comment-count">2</span></span>
                         <span onclick="handleLike(<?= $post->getId() ?>, this)" class="btn btn-like <?= $post->isLiked() ? "liked" : "" ?> ml-4"><i class="far fa-heart"></i><span class="btn-sm count"><?= $post->getLikeCount() ?></span></span>
                     </div>
                 </div>
