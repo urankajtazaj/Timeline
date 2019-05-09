@@ -1,5 +1,5 @@
 ### Timeline, a Social Network
 #
-`user: uran`
+`user: admin`
 
 `password: admin`
