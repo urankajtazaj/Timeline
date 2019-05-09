@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2019 at 10:36 PM
+-- Generation Time: May 09, 2019 at 02:49 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -39,6 +39,18 @@ CREATE TABLE `answer` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `follows`
+--
+
+CREATE TABLE `follows` (
+  `id` int(20) NOT NULL,
+  `userId` int(5) NOT NULL,
+  `followsUserId` int(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `post`
 --
 
@@ -55,11 +67,7 @@ CREATE TABLE `post` (
 --
 
 INSERT INTO `post` (`id`, `content`, `image`, `userId`, `date`) VALUES
-(7, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent gravida tempor dapibus. Nulla quis nisi ac enim placerat accumsan vel vel tortor', NULL, 4, '2019-04-18 20:50:20'),
-(12, 'A post that is without image', '', 4, '2019-05-07 21:31:35'),
-(15, 'Testing the reset image option.', '', 4, '2019-05-07 21:36:38'),
-(16, 'Testing the minute counter', '', 4, '2019-05-07 21:37:52'),
-(17, 'A beautiful image of the mother nature.', 'uploads/James Doe/2019/05/07/6a0a0d5112be7fba61d6488fcbce735e-agriculture-color-cropland-2229732.jpg', 4, '2019-05-07 22:33:15');
+(18, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit!!!', '', 8, '2019-05-09 14:45:58');
 
 -- --------------------------------------------------------
 
@@ -83,7 +91,8 @@ INSERT INTO `post_like` (`id`, `userId`, `postId`, `status`) VALUES
 (2, 4, 15, 0),
 (3, 4, 12, 0),
 (4, 4, 7, 0),
-(5, 4, 17, 1);
+(5, 4, 17, 1),
+(6, 8, 18, 1);
 
 -- --------------------------------------------------------
 
@@ -105,7 +114,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `image`, `bio`) VALUES
-(4, 'uran', '$2y$10$vAhmcqmNDmrcMVgxoUKoNOwXUv1bMPktgcehy8kr0ufVu3GTd84mq', 'James Doe', 'profile1.jpg', '');
+(8, 'admin', '$2y$10$aFiumWqiXjOwDPrmc.7M8ecH5GViyPGSLMnbZEc7UGXfmIHxfNgES', 'Jenna Doe', 'uploads/Jenna Doe/2019/05/09/6353120262b072b2de58313f486021b1-2201644_1.jpg', '');
 
 --
 -- Indexes for dumped tables
@@ -115,6 +124,12 @@ INSERT INTO `user` (`id`, `username`, `password`, `name`, `image`, `bio`) VALUES
 -- Indexes for table `answer`
 --
 ALTER TABLE `answer`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `follows`
+--
+ALTER TABLE `follows`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -146,22 +161,28 @@ ALTER TABLE `answer`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `follows`
+--
+ALTER TABLE `follows`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `post_like`
 --
 ALTER TABLE `post_like`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
