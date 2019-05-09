@@ -10,11 +10,15 @@ image_input.on("change", function(e) {
 })
 
 reset_thumb.on("click", function () {
+    resetThumbnail();
+})
+
+function resetThumbnail() {
     image_input.val('');
     image_thumb.attr('src', 'assets/icons/placeholder.png');
     image_thumb.attr('alt', '');
     file_path.val('');
-})
+}
 
 function handleUpload() {
     let file_data = image_input.prop('files')[0];

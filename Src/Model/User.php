@@ -1,6 +1,6 @@
 <?php
 
-class User {
+class User implements JsonSerializable {
 
     private $id;
 
@@ -52,5 +52,11 @@ class User {
 
     public function setFriends(array $friends) {
         $this->friends = $friends;
+    }
+
+
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
     }
 }

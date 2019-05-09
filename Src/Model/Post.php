@@ -1,12 +1,16 @@
 <?php 
 
-class Post {
+class Post implements JsonSerializable {
     
     private $id;
     private $content;
     private $date;
     private $userId;
     private $image;
+    private $formatedDate;
+    private $isLiked;
+    private $likeCount;
+    private $user;
 
     public function __construct($id, $content, $userId, $image, $date) {
         $this->id = $id;
@@ -14,6 +18,10 @@ class Post {
         $this->userId = $userId;
         $this->image = $image;
         $this->date = $date;
+        $this->formatedDate = Timeline::getTimeAgo($this->date);
+        $this->isLiked = PostController::isLikedByMe($this->id);
+        $this->likeCount = PostController::getLikeCount($this->id);
+        $this->user = UserController::getById($this->userId);
     }
 
     public function getId() : int {
@@ -37,8 +45,7 @@ class Post {
     }
 
     public function getUser() : User {
-        $user = UserController::getById($this->userId);
-        return $user;
+        return $this->user;
     }
 
     public function getDate() {
@@ -46,15 +53,19 @@ class Post {
     }
 
     public function getFormatedDate() {
-        return Timeline::getTimeAgo($this->date);
+        return $this->formatedDate;
     }
 
     public function getLikeCount() {
-        PostController::getLikeCount($this->id);
+        return $this->likeCount;
     }
 
     public function isLiked(){
-        return PostController::isLikedByMe($this->id);
+        return $this->isLiked;
     }
 
+    public function jsonSerialize()
+    {
+        return get_object_vars($this);
+    }
 }

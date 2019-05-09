@@ -21,19 +21,42 @@ class PostController extends Timeline {
         self::$con = Database::Connect();
     }
 
-    public function createPost($post) {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $content = mysqli_real_escape_string($this->con, $post['content']);
+    public static function getPost($id) {
+        $userId = Session::Get('user')->getId();
 
-            $userId = Session::Get('user')->getId();
-            $image = $post['file_path'];
+        $stmt = self::$con->prepare("select * from post where id = ? limit 1");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
 
-            $stmt = $this->con->prepare("insert into post (id, content, image, userId) values(null, ?, ?, ?)");
-            $stmt->bind_param("ssi", $content, $image, $userId);
-            $stmt->execute();
-            $stmt->close();
+        $p = $result->fetch_assoc();
+        return new Post(
+            $p['id'],
+            $p['content'],
+            $p['userId'],
+            $p['image'],
+            $p['date']
+        );
+    }
 
+    public static function createPost($post, $redirect = true, $jsonify = false) {
+        $content = mysqli_real_escape_string(self::$con, $post['content']);
+
+        $userId = Session::Get('user')->getId();
+        $image = $post['file_path'];
+
+        $stmt = self::$con->prepare("insert into post (id, content, image, userId) values(null, ?, ?, ?)");
+        $stmt->bind_param("ssi", $content, $image, $userId);
+        $stmt->execute();
+        $stmt->close();
+
+        if ($redirect) {
             self::redirect('../../index');
+        }
+
+        if ($jsonify) {
+            return json_encode(self::getPost(self::$con->insert_id));
         }
     }
 
@@ -97,9 +120,9 @@ class PostController extends Timeline {
         $result = $stmt->get_result();
 
         $row = $result->fetch_assoc();
-        echo $row['total'] ? $row['total'] : "0";
-
         $stmt->close();
+
+        return $row['total'] ? $row['total'] : "0";
     }
 
     public static function isLikedByMe($post) : bool {

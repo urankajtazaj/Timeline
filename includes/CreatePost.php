@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-body p-0">
-        <form method="post" enctype="multipart/form-data" action="<?= Timeline::goToFunction('post', 'createPost') ?>">
+        <form method="post" id="post-new" enctype="multipart/form-data" action="<?= Timeline::goToFunction('post', 'createPost') ?>">
             <div class="form-group">
                 <textarea required class="form-control full-width new-status" name="content" id="content" rows="3" placeholder="#How is the day going?"></textarea>
             </div>
