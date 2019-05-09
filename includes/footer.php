@@ -9,5 +9,6 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/post_likes.js"></script>
 <script src="assets/js/post_modal.js"></script>
+<script src="assets/js/search_user.js"></script>
 </body>
 </html>

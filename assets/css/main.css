@@ -12,7 +12,16 @@ body {
 }
 
 .logo {
-    font-family: "Kaushan Script";
+    font-family: "Righteous";
+    /*font-weight: bolder;*/
+}
+
+.logo a {
+    color: #333;
+}
+
+.logo a:hover {
+    text-decoration: none;
 }
 
 .navbar-brand {
@@ -20,7 +29,8 @@ body {
 }
 
 h1.logo {
-    font-weight: lighter;
+    font-weight: bolder;
+    font-size: 45px;
 }
 
 .btn {
@@ -52,10 +62,6 @@ h1.logo {
 
 .btn-danger:hover {
     background-color: rgb(242, 69, 87);
-}
-
-h1.logo {
-    font-size: 60px;
 }
 
 .card-header {

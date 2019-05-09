@@ -13,7 +13,7 @@ include 'includes/header.php';
                     <h4>Register</h4>
                 </div>
                 <div class="card-body">
-                    <form method="post" action="<?= Timeline::controllerPath("user") . "?action=createUser" ?>">
+                    <form method="post" enctype="multipart/form-data" action="<?= Timeline::controllerPath("user") . "?action=createUser" ?>">
                         <div class="form-group">
                             <label for="username" class="text-muted">Username</label>
                             <input type="text" required value="<?= isset($_GET['_username']) ? $_GET['_username'] : '' ?>" name="username" class="form-control" id="username">

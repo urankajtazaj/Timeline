@@ -21,12 +21,13 @@ class UserController extends Timeline {
         self::$con = Database::Connect();
     }
 
-    public static function createUser($post) {
+    public static function createUser($post, $file) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = mysqli_real_escape_string(self::$con, $post['username']);
             $password = mysqli_real_escape_string(self::$con, $post['password']);
             $name = mysqli_real_escape_string(self::$con, $post['name']);
-            $image = mysqli_real_escape_string(self::$con, $post['image']);
+            $newImageName = self::uploadImage($file['image'], $name, false);
+            $image = mysqli_real_escape_string(self::$con, $newImageName);
             $bio = mysqli_real_escape_string(self::$con, $post['bio']);
 
             $password = password_hash($password, PASSWORD_BCRYPT);
@@ -38,7 +39,44 @@ class UserController extends Timeline {
         }
     }
 
-    public static function getById($id) : User {
+    public static function uploadImage($file, $folderName = null, $echo = true) {
+        if ( 0 < $file['error'] ) {
+            echo 'Error: ' . $file['error'] . '<br>';
+        }
+        else {
+            $now = new DateTime();
+            $year = date_format($now, 'Y');
+            $month = date_format($now, 'm');
+            $day = date_format($now, 'd');
+
+            $time = date_format($now, 'H:i:s');
+
+            $dateDirs = '/' . $year . '/' . $month . '/' . $day . '/';
+
+            if (!$folderName) {
+                $user = Session::Get('user')->getName();
+            } else {
+                $user = $folderName;
+            }
+
+            $filename = md5($time) . '-' . $file['name'];
+            $path = 'uploads/' . $user . $dateDirs;
+
+            if (!is_dir("../../" . $path)) {
+                mkdir("../../" . $path, 0777, true);
+            }
+
+            move_uploaded_file($file['tmp_name'], "../../" . $path . $filename);
+
+            if ($echo) {
+                echo $path . $filename;
+            } else {
+                return $path . $filename;
+            }
+        }
+    }
+
+    public static function getById($id, $file = null) : User {
         $stmt = self::$con->prepare("select * from user where user.id = ?");
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -61,7 +99,7 @@ class UserController extends Timeline {
         }
     }
 
-    public static function getByUsername($username) : User {
+    public static function getByUsername($username, $file = null) : User {
         $stmt = self::$con->prepare("select * from user where user.username = ? limit 1");
         $stmt->bind_param("s", $username);
         $stmt->execute();
@@ -84,7 +122,7 @@ class UserController extends Timeline {
         }
     }
 
-    public static function getPosts($userId) {
+    public static function getPosts($userId, $file = null) {
         $stmt = self::$con->prepare("select * from post where post.userId = ?");
         $stmt->bind_param("i", $userId);
         $stmt->execute();
@@ -106,8 +144,22 @@ class UserController extends Timeline {
         return $posts;
     }
 
-    public static function addFriend() {
+    public static function follow($userId) {
 
+    }
+
+    public static function searchUserByName($name, $file = null) {
+
+        $name = "%{$name}%";
+        $stmt = self::$con->prepare("select * from user where name like ?");
+        $stmt->bind_param("s", $name);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $users = $result->fetch_all(MYSQLI_ASSOC);
+
+        $stmt->close();
+        return $users;
     }
 
 }
@@ -119,6 +171,6 @@ if (isset($_GET['action'])) {
     $user = new UserController();
 
     if (method_exists($user, $fnc)) {
-        $user->$fnc($_POST);
+        $user->$fnc($_POST, $_FILES);
     }
 }

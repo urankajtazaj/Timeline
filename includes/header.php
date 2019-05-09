@@ -2,14 +2,15 @@
 require "Autoload.php";
 
 $basename = basename($_SERVER['PHP_SELF']);
+$redirect = false;
 
-if (basename($_SERVER['PHP_SELF']) != 'login.php' && !$_SESSION['user']) {
-    Timeline::redirect("login");
+if ($basename != 'login.php' && $basename != 'register.php' && !$_SESSION['user']) {
+    $redirect = true;
 }
 
-//if (($basename != 'register.php') && !$_SESSION['user']) {
-//    Timeline::redirect("login");
-//}
+if ($redirect) {
+    Timeline::redirect("login");
+}
 ?>
 
 <html>
@@ -22,6 +23,7 @@ if (basename($_SERVER['PHP_SELF']) != 'login.php' && !$_SESSION['user']) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/main.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <title>Document</title>
 </head>
