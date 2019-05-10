@@ -21,7 +21,7 @@ class UserController extends Timeline {
         self::$con = Database::Connect();
     }
 
-    public static function createUser($post, $file) {
+    public static function createUser($post, $file, $redirect = true) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = mysqli_real_escape_string(self::$con, $post['username']);
             $password = mysqli_real_escape_string(self::$con, $post['password']);
@@ -36,6 +36,10 @@ class UserController extends Timeline {
             $stmt->bind_param("sssss", $username, $password, $name, $image, $bio);
             $stmt->execute();
             $stmt->close();
+
+            if ($redirect) {
+                self::redirect("../../login");
+            }
         }
     }
 
