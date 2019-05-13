@@ -17,8 +17,8 @@
                     <img src="" />
                     <br><br>
                     <div class="post-footer text-right text-muted">
-                        <span class=""><i class="far fa-comment"></i><span class="btn-sm comment-count">3</span></span>
-                        <span onclick="handleLike(16, this)" class="btn btn-like ml-4"><i class="far fa-heart"></i><span class="btn-sm like-count">0</span></span>
+                        <span class=""><i class="far fa-comment"></i><span class="btn-sm comment-count">0</span></span>
+                        <span class="btn btn-like ml-4"><i class="far fa-heart"></i><span class="btn-sm like-count count">0</span></span>
                     </div>
                 </div>
             </div>

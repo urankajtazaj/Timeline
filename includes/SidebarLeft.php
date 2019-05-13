@@ -1,8 +1,8 @@
 <div class="card">
     <div class="card-body">
-        <h1 class="logo">
+        <h1 class="logo text-center">
             <a href="index.php">
-                <span style="color: rgb(29, 161, 242)">#</span>Timeline
+                timeline
             </a>
         </h1>
         <hr>

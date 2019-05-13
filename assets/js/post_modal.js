@@ -27,6 +27,10 @@ function activateModal() {
             postId.val(el.find("#post_id").val());
             getReplies(replies, postId.val());
 
+            likeBtn.on("click", function (e) {
+                handleLike(postId.val(), likeBtn);
+            })
+
             if (el.find(".btn-like").hasClass("liked")) {
                 likeBtn.addClass("liked");
             } else {

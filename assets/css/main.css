@@ -12,12 +12,11 @@ body {
 }
 
 .logo {
-    font-family: "Righteous";
-    /*font-weight: bolder;*/
+    font-family: "Pacifico";
 }
 
 .logo a {
-    color: #333;
+    color: #444;
 }
 
 .logo a:hover {
