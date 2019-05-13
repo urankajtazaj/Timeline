@@ -11,6 +11,7 @@ class Post implements JsonSerializable {
     private $isLiked;
     private $likeCount;
     private $user;
+    private $replyCount = 0;
 
     public function __construct($id, $content, $userId, $image, $date) {
         $this->id = $id;
@@ -22,6 +23,7 @@ class Post implements JsonSerializable {
         $this->isLiked = PostController::isLikedByMe($this->id);
         $this->likeCount = PostController::getLikeCount($this->id);
         $this->user = UserController::getById($this->userId);
+        $this->replyCount = PostController::getRepliesCount($this->id);
     }
 
     public function getId() : int {
@@ -62,6 +64,10 @@ class Post implements JsonSerializable {
 
     public function isLiked(){
         return $this->isLiked;
+    }
+
+    public function getReplyCount() {
+        return $this->replyCount;
     }
 
     public function jsonSerialize()

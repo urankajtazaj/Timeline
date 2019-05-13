@@ -50,7 +50,7 @@ function getReplies(container, post_id) {
 
             for (let i = 0; i < comment.length; i++) {
                 container.append(
-                    `<div class="card post">
+                    `<div class="card post pb-0">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="profile-pic small d-inline-flex">

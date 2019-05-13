@@ -1,12 +1,5 @@
 <?php
 
-//include dirname(__DIR__) . '/Timeline.php';
-//include dirname(__DIR__) . '/Controller/UserController.php';
-//include dirname(__DIR__) . '/Service/Sessions.php';
-//include dirname(__DIR__) . '/Model/Post.php';
-//
-//session_start();
-
 include $_SERVER['DOCUMENT_ROOT'] . '/Timeline/Autoload.php';
 
 class PostController extends Timeline {
@@ -41,6 +34,7 @@ class PostController extends Timeline {
     }
 
     public static function createPost($post, $redirect = true, $jsonify = false) {
+
         $content = mysqli_real_escape_string(self::$con, $post['content']);
 
         $userId = Session::Get('user')->getId();
@@ -66,7 +60,7 @@ class PostController extends Timeline {
 
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->prepare("insert into answer values (null, ?, ?, ?, current_date)");
+        $stmt = self::$con->prepare("insert into answer values (null, ?, ?, ?, now())");
         $stmt->bind_param("iis", $postId, $userId, $comment);
         $stmt->execute();
         $stmt->close();
@@ -89,6 +83,16 @@ class PostController extends Timeline {
         return json_encode(
             $result->fetch_all(MYSQLI_ASSOC)
         );
+    }
+
+    public static function getRepliesCount($post_id) {
+        $stmt = self::$con->prepare("select count(id) as total from answer where answer.post_id = ? order by answer.date desc");
+        $stmt->bind_param("i", $post_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        return $result->fetch_assoc()['total'];
     }
 
     public static function getPosts($order = "desc", $limit = 15) : array {

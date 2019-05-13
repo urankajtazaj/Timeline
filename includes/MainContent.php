@@ -36,7 +36,7 @@
                     </div>
                 </div>
                 <div class="post-footer text-right text-muted">
-                    <span class="=" id="comment-count-<?= $post->getId() ?>"><i class="far fa-comment"></i><span class="btn-sm comment-count">2</span></span>
+                    <span class="=" id="comment-count-<?= $post->getId() ?>"><i class="far fa-comment"></i><span class="btn-sm comment-count"><?= $post->getReplyCount() ?></span></span>
                     <span onclick="handleLike(<?= $post->getId() ?>, this)" class="btn btn-like <?= $post->isLiked() ? "liked" : "" ?> ml-4"><i class="far fa-heart"></i><span class="btn-sm count"><?= $post->getLikeCount() ?></span></span>
                 </div>
             </div>

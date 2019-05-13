@@ -4,8 +4,8 @@ var form = $("#post-new");
 form.on("submit", function (e) {
     e.preventDefault();
 
-    let content = form.find("textarea#content");
-    let image = form.find("input#file_path");
+    let content = $("textarea#content");
+    let image = $("input#file_path");
 
     $.ajax({
         method: "POST",
@@ -18,7 +18,8 @@ form.on("submit", function (e) {
             content.val('');
             image.val('');
             resetThumbnail();
-            prependPost(JSON.parse(response));
+            // prependPost(JSON.parse(response));
+            console.log(response);
         }
     });
 
