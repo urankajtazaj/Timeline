@@ -47,11 +47,11 @@ h1.logo {
 
 .btn-primary {
     background-color: rgb(29, 161, 242);
-    box-shadow: 0 6px 20px rgba(29, 161, 242, .5);
+    /*box-shadow: 0 6px 20px rgba(29, 161, 242, .5);*/
 }
 
 .btn-primary:hover {
-    background-color: rgb(29, 161, 242);
+    background-color: rgb(30, 136, 216);
 }
 
 .btn-danger {
@@ -222,6 +222,6 @@ textarea.new-status::placeholder {
     text-decoration: underline;
 }
 
-.sidebar {
-
+.form-control {
+    border-radius: 20px !important;
 }

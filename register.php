@@ -27,19 +27,20 @@ include 'includes/header.php';
                             <input type="text" required name="name" class="form-control" id="name">
                         </div>
                         <div class="form-group">
+                            <label for="bio" class="text-muted">Position (Optional)</label>
+                            <input type="text" class="form-control" name="bio" id="bio" />
+                        </div>
+                        <div class="form-group">
                             <label for="image" class="text-muted">Profile pic (Optional)</label>
                             <input type="file" accept=".png,.jpg,.jpeg" name="image" class="form-control" id="image">
                         </div>
-                        <div class="form-group">
-                            <label for="bio" class="text-muted">Bio (Optional)</label>
-                            <textarea rows="4" class="form-control" name="bio" id="bio"></textarea>
-                        </div>
+                        <small class="d-block text-center">
+                            <a href="login.php">Already have an account? Login now!</a>
+                        </small>
+                        <br>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary full-width">Register now</button>
                         </div>
-<!--                        <p class="text-danger text-center">-->
-<!--                            --><?//= isset($_GET['message']) ? 'Username or password is incorrect' : '' ?>
-<!--                        </p>-->
                     </form>
                 </div>
             </div>

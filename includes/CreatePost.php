@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col-6">
                     <div class="btn btn-image ml-3" title="Upload image">
-                        <input accept=".png, .jpg, .jpeg" type="file" name="image" id="image">
+                        <input accept=".png, .jpg, .jpeg, .jfif" type="file" name="image" id="image">
                         <input type="hidden" name="file_path" id="file_path">
                         <img src="assets/icons/placeholder.png" id="image_thumb" alt="">
                     </div>

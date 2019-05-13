@@ -15,7 +15,7 @@ function activateModal() {
     post.each(function (i, el) {
         el = $(el);
 
-        el.find(".card-body").on("click", function (e) {
+        el.find(".card-body").on("click", function () {
             image.attr('src', '');
             content.text(el.find("p").text());
             user.text(el.find(".user").text());

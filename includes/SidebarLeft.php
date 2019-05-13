@@ -8,7 +8,7 @@
         <hr>
         <br>
         <div class="profile-pic ml-auto mr-auto">
-            <img src="<?= Session::Get('user')->getImage() ?>" alt="<?= Session::Get('user')->getName() ?>">
+            <img src="<?= Session::Get('user')->getImage() ? Session::Get('user')->getImage() : 'uploads/avatar.png' ?>" alt="<?= Session::Get('user')->getName() ?>">
         </div>
         <br>
         <h3 class="text-center"><?= Session::Get('user')->getName() ?></h3>

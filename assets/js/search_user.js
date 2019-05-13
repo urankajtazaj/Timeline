@@ -27,7 +27,7 @@ form.on("submit", function (e) {
                 '   <div class="card-body">' +
                 '       <div class="d-flex align-items-center">' +
                 '           <div class="profile-pic small d-inline-flex">' +
-                '               <img class="pic" src="' + user.image + '" alt="' + user.name + '">' +
+                '               <img class="pic" src="' + (user.image ? user.image : "uploads/avatar.png") + '" alt="' + user.name + '">' +
                 '           </div>' +
                 '           <span class="d-inline ml-3">' +
                 '               <b class="mr-1 user">' + user.name + '</b><br>' +

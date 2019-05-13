@@ -13,9 +13,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div class="profile-pic small d-inline-flex">
-                            <?php if ($post->getUser()->getImage()) { ?>
-                                <img class="pic" src="<?= $post->getUser()->getImage() ?>" alt="<?= $post->getUser()->getName() ?>">
-                            <?php } ?>
+                            <img class="pic" src="<?= !empty($post->getUser()->getImage()) ? $post->getUser()->getImage() : 'uploads/avatar.png' ?>" alt="<?= $post->getUser()->getName() ?>">
                         </div>
                         <span class="d-inline ml-3">
                             <b class="mr-1 user"><?= $post->getUser()->getName() ?></b>
