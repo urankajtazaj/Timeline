@@ -18,8 +18,7 @@ form.on("submit", function (e) {
             content.val('');
             image.val('');
             resetThumbnail();
-            // prependPost(JSON.parse(response));
-            console.log(response);
+            prependPost(JSON.parse(response));
         }
     });
 

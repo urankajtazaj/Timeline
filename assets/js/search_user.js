@@ -30,7 +30,8 @@ form.on("submit", function (e) {
                 '               <img class="pic" src="' + user.image + '" alt="' + user.name + '">' +
                 '           </div>' +
                 '           <span class="d-inline ml-3">' +
-                '               <b class="mr-1 user">' + user.name + '</b>' +
+                '               <b class="mr-1 user">' + user.name + '</b><br>' +
+                '               <small class="text-muted">' + user.bio + '</small>'
                 '           </span>' +
                 '           <a href="#" class="btn btn-primary ml-auto">Follow</a>' +
                 '       </div>' +

@@ -19,7 +19,7 @@ function activateModal() {
             image.attr('src', '');
             content.text(el.find("p").text());
             user.text(el.find(".user").text());
-            time.text(el.find(".time").text());
+            time.html(el.find(".time").html());
             likeCount.text(el.find(".count").text());
             commentCount.text(el.find(".comment-count").text());
             pic.attr('src', el.find(".pic").attr('src'));
@@ -61,7 +61,8 @@ function getReplies(container, post_id) {
                                     <img class="pic" src="${comment[i].image}" alt="${comment[i].name}">
                                 </div>
                                 <span class="d-inline ml-3">
-                                    <b class="mr-1 user">${comment[i].name}</b>
+                                    <b class="mr-1 user">${comment[i].name}</b><br>
+                                    <small class="${comment[i].bio != '' ? 'text-muted d-inline-block pb-2' : '' }">${comment[i].bio}</small>
                                 </span>
                             </div>
                             <div class="post-content" data-toggle="modal" data-target=".postModal">

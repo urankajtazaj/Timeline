@@ -21,7 +21,10 @@
                             <b class="mr-1 user"><?= $post->getUser()->getName() ?></b>
                             -
                             <small class="ml-1 text-muted time">
-                                <?= $post->getFormatedDate() ?>
+                                <?= $post->getFormatedDate() ?><br>
+                                <?php if (!empty($post->getUser()->getBio())) { ?>
+                                    <span class="d-inline-block pb-2"><?= $post->getUser()->getBio() ?></span>
+                                <?php } ?>
                             </small>
                         </span>
                     </div>

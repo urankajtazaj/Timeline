@@ -12,6 +12,7 @@
         </div>
         <br>
         <h3 class="text-center"><?= Session::Get('user')->getName() ?></h3>
+        <small class="text-muted d-block text-center"><?= Session::Get('user')->getBio() ?></small>
         <hr>
         <form id="searchForm" method="get">
             <div class="form-group">
