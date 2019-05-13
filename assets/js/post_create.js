@@ -46,6 +46,7 @@ function prependPost(post) {
                     ${post.content}
                 </p>
                 <img src="${post.image}" alt="">
+                <input type="hidden" name="post_id" id="post_id" value="${post.id}" >
             </div>
         </div>
         <div class="post-footer text-right text-muted">

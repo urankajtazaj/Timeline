@@ -60,6 +60,37 @@ class PostController extends Timeline {
         }
     }
 
+    public static function createComment($post) {
+        $comment = mysqli_real_escape_string(self::$con, $post['comment']);
+        $postId = mysqli_real_escape_string(self::$con, $post['postId']);
+
+        $userId = Session::Get('user')->getId();
+
+        $stmt = self::$con->prepare("insert into answer values (null, ?, ?, ?, current_date)");
+        $stmt->bind_param("iis", $postId, $userId, $comment);
+        $stmt->execute();
+        $stmt->close();
+
+        return json_encode([
+            "user" => Session::Get('user'),
+            "comment" => $comment
+        ]);
+    }
+
+    public static function getReplies($post) {
+        $postId = mysqli_real_escape_string(self::$con, $post['postId']);
+
+        $stmt = self::$con->prepare("select * from answer, user where answer.post_id = ? and answer.user_id = user.id order by answer.date desc");
+        $stmt->bind_param("i", $postId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        return json_encode(
+            $result->fetch_all(MYSQLI_ASSOC)
+        );
+    }
+
     public static function getPosts($order = "desc", $limit = 15) : array {
         $posts = [];
 

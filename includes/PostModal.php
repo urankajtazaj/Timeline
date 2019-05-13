@@ -7,11 +7,9 @@
                         <img id="pic" src="" alt="">
                     </div>
                     <span class="d-inline ml-3">
-                            <b class="mr-1" id="user">James Doe</b>
+                            <b class="mr-1" id="user"></b>
                             -
-                            <small class="ml-1 text-muted" id="time">
-                                now
-                            </small>
+                            <small class="ml-1 text-muted" id="time"></small>
                         </span>
                 </div>
                 <div class="post-content">
@@ -22,6 +20,22 @@
                         <span class=""><i class="far fa-comment"></i><span class="btn-sm comment-count">3</span></span>
                         <span onclick="handleLike(16, this)" class="btn btn-like ml-4"><i class="far fa-heart"></i><span class="btn-sm like-count">0</span></span>
                     </div>
+                </div>
+            </div>
+            <div class="modal-footer flex-column pl-0 pr-0" style="align-items: unset">
+                <form action="" id="comment_form" class="full-width pl-3 pr-3">
+                    <div class="d-flex align-items-center">
+                        <div class="profile-pic small d-inline-flex">
+                            <img src="<?= Session::Get('user')->getImage() ?>">
+                        </div>
+                        <input type="hidden" name="user" id="user_id" value="<?= Session::Get('user')->getId() ?>">
+                        <input type="hidden" name="post" id="post_id" value="">
+                        <input required type="text" id="comment_new" name="comment_new" class="form-control ml-3 mr-3" placeholder="Say something nice">
+                        <button type="submit" class="btn btn-primary">Reply</button>
+                    </div>
+                </form>
+                <div id="replies">
+
                 </div>
             </div>
         </div>

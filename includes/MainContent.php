@@ -32,6 +32,7 @@
                         <?php if ($post->getImage()) { ?>
                             <img src="<?= $post->getImage() ?>" alt="">
                         <?php } ?>
+                        <input type="hidden" name="post_id" id="post_id" value="<?= $post->getId() ?>" >
                     </div>
                 </div>
                 <div class="post-footer text-right text-muted">

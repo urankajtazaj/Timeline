@@ -11,5 +11,6 @@
 <script src="assets/js/post_modal.js"></script>
 <script src="assets/js/search_user.js"></script>
 <script src="assets/js/post_create.js"></script>
+<script src="assets/js/comment_create.js"></script>
 </body>
 </html>

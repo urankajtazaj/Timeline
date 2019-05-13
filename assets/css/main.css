@@ -142,6 +142,8 @@ h1.logo {
 .profile-pic.small {
     height: 40px;
     width: 40px;
+    min-height: 40px;
+    min-width: 40px;
 }
 
 .btn-circle {
