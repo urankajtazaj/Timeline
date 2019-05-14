@@ -11,7 +11,8 @@ class User implements JsonSerializable {
     private $image;
     private $bio;
 
-    private $friends = [];
+    private $following = [];
+    private $followers = [];
 
     public function __construct($id, $username, $password, $name, $image = "", $bio = "") {
         $this->id = $id;
@@ -20,6 +21,8 @@ class User implements JsonSerializable {
         $this->name = $name;
         $this->image = $image;
         $this->bio = $bio;
+        $this->followers = UserController::getFollowers($this->id);
+        $this->following = UserController::getFollowing($this->id);
     }
 
     public function getId() : int {
@@ -46,12 +49,12 @@ class User implements JsonSerializable {
         return $this->password;
     }
 
-    public function getFriends(): array {
-        return $this->friends;
+    public function getFollowing() {
+        return $this->following;
     }
 
-    public function setFriends(array $friends) {
-        $this->friends = $friends;
+    public function getFollowers() {
+        return $this->followers;
     }
 
 

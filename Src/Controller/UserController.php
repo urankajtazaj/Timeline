@@ -113,7 +113,7 @@ class UserController extends Timeline {
         $data = $result->fetch_assoc();
 
         if ($result->num_rows > 0) {
-            return new User(
+            $user = new User(
                 $data['id'],
                 $data['username'],
                 $data['password'],
@@ -121,6 +121,7 @@ class UserController extends Timeline {
                 $data['image'],
                 $data['bio']
             );
+            return $user;
         } else {
             self::redirect("../../login", 'message=invalid&_username=' . $username);
         }
@@ -199,16 +200,53 @@ class UserController extends Timeline {
     }
 
     public static function searchUserByName($name, $file = null) {
+
+        $users = [];
+
         $name = "%{$name}%";
         $stmt = self::$con->prepare("select * from user where name like ?");
         $stmt->bind_param("s", $name);
         $stmt->execute();
         $result = $stmt->get_result();
 
-        $users = $result->fetch_all(MYSQLI_ASSOC);
+        while ($row = $result->fetch_assoc()) {
+            $users[] = new User(
+                $row['id'],
+                $row['username'],
+                "secret",
+                $row['name'],
+                $row['image'],
+                $row['bio']
+            );
+        }
 
         $stmt->close();
         return $users;
+    }
+
+    public static function getFollowing($id) {
+        $users = [];
+
+        $stmt = self::$con->prepare("select count(user.id) as total from user, follows where follows.userId = ? and user.id = follows.followerId");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        return $result->fetch_assoc()['total'];
+    }
+
+    public static function getFollowers($id) {
+        $users = [];
+
+        $stmt = self::$con->prepare("select count(user.id) as total from user, follows where follows.followerId = ? and user.id = follows.userId");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $stmt->close();
+
+        return $result->fetch_assoc()['total'];
     }
 
 }

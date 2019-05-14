@@ -1,16 +1,15 @@
 <div class="card">
     <div class="card-header">
-        My Latest Posts
+        Snapshot
     </div>
-    <div class="list-group">
+    <div class="card-body">
         <?php
         $posts = UserController::getPosts(Session::Get('user')->getId());
-        if (sizeof($posts) > 0) {
-            foreach ($posts as $post) { ?>
-                <a href="#" class="list-group-item list-group-item-action"><?= $post->getContent() ?></a>
-            <?php }
-        } else { ?>
-            <p class="lead list-group-item">You have made no posts</p>
-        <?php } ?>
+        $following = UserController::getFollowing(Session::Get('user')->getId());
+        $followers = UserController::getFollowers(Session::Get('user')->getId());
+        ?>
+        <p class="lead"><?= sizeof($posts) ?> Posts</p>
+        <p class="lead"><?= $following ?> Following</p>
+        <p class="lead"><?= $followers ?> Followers</p>
     </div>
 </div>

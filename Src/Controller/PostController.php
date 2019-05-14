@@ -7,7 +7,7 @@ class PostController extends Timeline {
     private static $con;
 
     public function __construct() {
-        $this->con = Database::Connect();
+        self::$con = Database::Connect();
     }
 
     public static function init() {

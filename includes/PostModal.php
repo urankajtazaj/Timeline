@@ -7,7 +7,7 @@
                         <img id="pic" src="" alt="">
                     </div>
                     <span class="d-block full-width ml-3">
-                        <b class="mr-1" id="user"></b>
+                        <b class="mr-1" id="user"></b> <small id="username" class="text-muted"></small>
                         -
                         <small class="ml-1 text-muted" id="time"></small>
                     </span>

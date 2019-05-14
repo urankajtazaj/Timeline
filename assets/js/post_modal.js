@@ -11,6 +11,7 @@ function activateModal() {
     var commentCount = modal.find(".post-content .comment-count");
     var likeBtn = modal.find(".post-content .btn-like");
     var postId = modal.find("#post_id");
+    var username = modal.find("#username");
 
     post.each(function (i, el) {
         el = $(el);
@@ -25,6 +26,7 @@ function activateModal() {
             pic.attr('src', el.find(".pic").attr('src'));
             image.attr('src', $(this).find(".post-content img").attr('src'));
             postId.val(el.find("#post_id").val());
+            username.text(el.find("#uname").text());
             getReplies(replies, postId.val());
 
             likeBtn.on("click", function (e) {

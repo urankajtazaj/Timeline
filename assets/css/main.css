@@ -84,7 +84,7 @@ h1.logo {
     color: rgba(242, 69, 87, .9);
 }
 
-.card.post .btn-sm, .modal .btn-sm {
+.btn-sm {
     transform: scale(.85);
 }
 
