@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2019 at 02:49 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Generation Time: May 14, 2019 at 03:55 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -43,9 +43,9 @@ CREATE TABLE `answer` (
 --
 
 CREATE TABLE `follows` (
-  `id` int(20) NOT NULL,
-  `userId` int(5) NOT NULL,
-  `followsUserId` int(5) NOT NULL
+  `id` int(10) NOT NULL,
+  `userId` int(10) NOT NULL,
+  `followerId` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -62,13 +62,6 @@ CREATE TABLE `post` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `post`
---
-
-INSERT INTO `post` (`id`, `content`, `image`, `userId`, `date`) VALUES
-(18, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit!!!', '', 8, '2019-05-09 14:45:58');
-
 -- --------------------------------------------------------
 
 --
@@ -81,18 +74,6 @@ CREATE TABLE `post_like` (
   `postId` int(10) NOT NULL,
   `status` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `post_like`
---
-
-INSERT INTO `post_like` (`id`, `userId`, `postId`, `status`) VALUES
-(1, 4, 16, 0),
-(2, 4, 15, 0),
-(3, 4, 12, 0),
-(4, 4, 7, 0),
-(5, 4, 17, 1),
-(6, 8, 18, 1);
 
 -- --------------------------------------------------------
 
@@ -108,13 +89,6 @@ CREATE TABLE `user` (
   `image` varchar(250) NOT NULL,
   `bio` varchar(700) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `user`
---
-
-INSERT INTO `user` (`id`, `username`, `password`, `name`, `image`, `bio`) VALUES
-(8, 'admin', '$2y$10$aFiumWqiXjOwDPrmc.7M8ecH5GViyPGSLMnbZEc7UGXfmIHxfNgES', 'Jenna Doe', 'uploads/Jenna Doe/2019/05/09/6353120262b072b2de58313f486021b1-2201644_1.jpg', '');
 
 --
 -- Indexes for dumped tables
@@ -164,25 +138,25 @@ ALTER TABLE `answer`
 -- AUTO_INCREMENT for table `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `post_like`
 --
 ALTER TABLE `post_like`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
