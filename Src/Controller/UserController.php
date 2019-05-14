@@ -148,12 +148,57 @@ class UserController extends Timeline {
         return $posts;
     }
 
-    public static function follow($userId) {
+    public static function follow($id) {
+        $userId = Session::Get('user')->getId();
 
+        $stmt = self::$con->prepare("insert into follows values(null, ?, ?)");
+        $stmt->bind_param("ii",$userId, $id);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        $stmt->close();
+    }
+
+    public static function unfollow($id) {
+        $userId = Session::Get('user')->getId();
+
+        $stmt = self::$con->prepare("delete from follows where userId = ? and followerId = ?");
+        $stmt->bind_param("ii",$userId, $id);
+        $stmt->execute();
+
+        if ($stmt->affected_rows > 0) {
+            return true;
+        } else {
+            return false;
+        }
+        $stmt->close();
+    }
+
+    public static function followStatus($id) {
+        $userId = Session::Get('user')->getId();
+
+        if ($id == $userId) {
+            return true;
+        }
+
+        $stmt = self::$con->prepare("select count(id) as total from follows where followerId = ? and userId = ? limit 1");
+        $stmt->bind_param("ii", $id, $userId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        if ($result->fetch_assoc()['total'] > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static function searchUserByName($name, $file = null) {
-
         $name = "%{$name}%";
         $stmt = self::$con->prepare("select * from user where name like ?");
         $stmt->bind_param("s", $name);

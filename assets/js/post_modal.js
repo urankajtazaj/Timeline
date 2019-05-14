@@ -29,7 +29,9 @@ function activateModal() {
 
             likeBtn.on("click", function (e) {
                 handleLike(postId.val(), likeBtn);
-            })
+            });
+
+            addFollowingEvents();
 
             if (el.find(".btn-like").hasClass("liked")) {
                 likeBtn.addClass("liked");

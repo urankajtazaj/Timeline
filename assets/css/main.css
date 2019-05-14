@@ -56,11 +56,11 @@ h1.logo {
 
 .btn-danger {
     background-color: rgb(242, 69, 87);
-    box-shadow: 0 6px 20px rgba(242, 69, 87, .5);
+    /*box-shadow: 0 6px 20px rgba(242, 69, 87, .5);*/
 }
 
 .btn-danger:hover {
-    background-color: rgb(242, 69, 87);
+    background-color: rgb(216, 63, 81);
 }
 
 .card-header {
@@ -72,6 +72,20 @@ h1.logo {
     border: 1px solid #e9e9e9;
     border-bottom: none;
     border-radius: 0;
+}
+
+.card.post .btn-danger, .modal .btn-danger {
+    background-color: rgba(242, 69, 87, 0.08);
+    color: rgba(242, 69, 87, .8);
+}
+
+.card.post .btn-danger:hover, .modal .btn-danger:hover {
+    background-color: rgba(242, 69, 87, 0.15);
+    color: rgba(242, 69, 87, .9);
+}
+
+.card.post .btn-sm, .modal .btn-sm {
+    transform: scale(.85);
 }
 
 .card.post .card-body {

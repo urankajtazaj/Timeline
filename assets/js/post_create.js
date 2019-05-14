@@ -33,11 +33,13 @@ function prependPost(post) {
                 <div class="profile-pic small d-inline-flex">
                     <img class="pic" src="${post.user.image}" alt="${post.user.name}">
                 </div>
-                <span class="d-inline ml-3">
+                <span class="d-block full-width ml-3">
+<!--                    <span class="btn btn-sm btn-danger btn-follow float-right" style="cursor: pointer" data-id="${post.user.id}">Unfollow</span>-->
                     <b class="mr-1 user">${post.user.name}</b>
                     -
                     <small class="ml-1 text-muted time">
-                        ${post.formatedDate}
+                        ${post.formatedDate} <br>
+                        <span class="d-inline-block ${post.user.bio != '' ? 'pb-2' : ''}">${post.user.bio}</span>
                     </small>
                 </span>
             </div>

@@ -6,11 +6,11 @@
                     <div class="profile-pic small d-inline-flex">
                         <img id="pic" src="" alt="">
                     </div>
-                    <span class="d-inline ml-3">
-                            <b class="mr-1" id="user"></b>
-                            -
-                            <small class="ml-1 text-muted" id="time"></small>
-                        </span>
+                    <span class="d-block full-width ml-3">
+                        <b class="mr-1" id="user"></b>
+                        -
+                        <small class="ml-1 text-muted" id="time"></small>
+                    </span>
                 </div>
                 <div class="post-content">
                     <p class="lead"></p>

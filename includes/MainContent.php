@@ -15,10 +15,13 @@
                         <div class="profile-pic small d-inline-flex">
                             <img class="pic" src="<?= !empty($post->getUser()->getImage()) ? $post->getUser()->getImage() : 'uploads/avatar.png' ?>" alt="<?= $post->getUser()->getName() ?>">
                         </div>
-                        <span class="d-inline ml-3">
+                        <span class="d-block full-width ml-3">
                             <b class="mr-1 user"><?= $post->getUser()->getName() ?></b>
                             -
                             <small class="ml-1 text-muted time">
+                                <?php if ($post->getUser()->getId() != Session::Get('user')->getId()) { ?>
+                                    <span class="btn btn-sm btn-danger btn-follow float-right" style="cursor: pointer" data-id="<?= $post->getUser()->getId() ?>">Unfollow</span>
+                                <?php } ?>
                                 <?= $post->getFormatedDate() ?><br>
                                 <?php if (!empty($post->getUser()->getBio())) { ?>
                                     <span class="d-inline-block pb-2"><?= $post->getUser()->getBio() ?></span>
