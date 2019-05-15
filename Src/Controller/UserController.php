@@ -46,7 +46,7 @@ class UserController extends Timeline {
     public static function updateUser($post, $file) {
 
         $name = mysqli_real_escape_string(self::$con, $post['name']);
-        $newImageName = $file['image_profile']['error'] == 0 ? self::uploadImage($file['image_profile'], $name, false) : $post['file_path'];
+        $newImageName = $file['image_profile']['error'] == 0 ? self::uploadImage($file['image_profile'], $name, false) : $post['file_path_profile'];
         $image = mysqli_real_escape_string(self::$con, $newImageName);
         $bio = mysqli_real_escape_string(self::$con, $post['bio']);
 

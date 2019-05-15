@@ -52,9 +52,6 @@ function checkFollowerStatus(id, btn) {
             "userId": id
         },
         success: function (response) {
-
-            console.log(response);
-
             if (response == 1) {
                 if (btn.hasClass("btn")) {
                     btn.removeClass("btn-primary");
