@@ -30,9 +30,7 @@
                         </span>
                     </div>
                     <div class="post-content" data-toggle="modal" data-target=".postModal">
-                        <p>
-                            <?= nl2br(stripcslashes($post->getContent())) ?>
-                        </p>
+                        <?= Timeline::validateUrl($post->getContent()) ?>
                         <?php if ($post->getImage()) { ?>
                             <img src="<?= $post->getImage() ?>" alt="">
                         <?php } ?>

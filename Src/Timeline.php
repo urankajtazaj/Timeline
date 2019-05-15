@@ -25,6 +25,25 @@ class Timeline {
         return "Src/Controller/" . ucfirst($controller) . "Controller.php?action=" . $method;
     }
 
+    public static function validateUrl($text) : string {
+        $pattern = "/^(http:\\/\\/www\.|https:\\/\\/www\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/";
+        $words = explode(" ", $text);
+
+        $finalHtml = "<p>";
+
+        foreach ($words as $word) {
+            if (preg_match($pattern, $word)) {
+                $finalHtml .= "<a target=\"_blank\" href=\"" . (substr($word, 0, 4) == "http" ? $word : "http://" . $word) . "\">" . $word . " </a>";
+            } else {
+                $finalHtml .= nl2br(stripcslashes($word)) . " ";
+            }
+        }
+
+        $finalHtml .= "</p>";
+
+        return $finalHtml;
+    }
+
     public static function getTimeAgo($date) {
 
         $date = new DateTime($date);
