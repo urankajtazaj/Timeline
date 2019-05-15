@@ -2,7 +2,7 @@
     <div class="card-body p-0">
         <form method="post" id="post-new" enctype="multipart/form-data" action="<?= Timeline::goToFunction('post', 'createPost') ?>">
             <div class="form-group">
-                <textarea class="form-control full-width new-status" name="content" id="content" rows="3" placeholder="#How is the day going?"></textarea>
+                <textarea class="form-control full-width new-status" name="content" id="content" rows="8" placeholder="#How is the day going?"></textarea>
             </div>
             <div class="row align-items-center">
                 <div class="col-6">

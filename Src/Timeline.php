@@ -27,15 +27,20 @@ class Timeline {
 
     public static function validateUrl($text) : string {
         $pattern = "/^(http:\\/\\/www\.|https:\\/\\/www\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/";
+        $mentionPattern = "/^[#|@][\w\d]+$/";
         $words = explode(" ", $text);
 
         $finalHtml = "<p>";
 
         foreach ($words as $word) {
-            if (preg_match($pattern, $word)) {
-                $finalHtml .= "<a target=\"_blank\" href=\"" . (substr($word, 0, 4) == "http" ? $word : "http://" . $word) . "\">" . $word . " </a>";
+            $nlstr = nl2br(stripcslashes($word));
+            $url = str_replace('\n', '', $word);
+            if (preg_match($pattern, $url)) {
+                $finalHtml .= "<a target=\"_blank\" href=\"" . (substr($url, 0, 4) == "http" ? $url : "http://" . $url) . "\">" . $nlstr . " </a>";
+            } else if (preg_match($mentionPattern, $word)) {
+                $finalHtml .= "<a href='#!'>{$nlstr}</a> ";
             } else {
-                $finalHtml .= nl2br(stripcslashes($word)) . " ";
+                $finalHtml .= $nlstr . " ";
             }
         }
 
@@ -46,23 +51,25 @@ class Timeline {
 
     public static function getTimeAgo($date) {
 
-        $date = new DateTime($date);
+        $fullDate = new DateTime($date);
 
+        $datetime = new DateTime($fullDate->format("Y-m-d"));
         $now = new DateTime();
-        $diff = $now->diff($date);
+
+        $diff = $now->diff($datetime, true);
 
         if ($diff->d == 1) {
-            return "Yesterday at " . date_format($date, "H:i");
+            return "Yesterday at " . $fullDate->format("H:i");
         } else if ($diff->d == 0) {
 
             if ($diff->i == 0) {
                 return "Just now";
             }
 
-            if ($diff->h < 1) {
-                return $diff->format("%i") . " minutes ago";
+            if ($now->diff($fullDate)->h < 1) {
+                return $now->diff($fullDate)->format("%i") . " minutes ago";
             }
-            return "Today at " . date_format($date, "H:i");
+            return "Today at " . $fullDate->format("H:i");
         } else {
             return  $date->format('d/m/Y');
         }
