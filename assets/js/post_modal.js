@@ -18,7 +18,7 @@ function activateModal() {
 
         el.find(".card-body").on("click", function () {
             image.attr('src', '');
-            content.text(el.find("p").text());
+            content.html(el.find("p").html());
             user.text(el.find(".user").text());
             time.html(el.find(".time").html());
             likeCount.text(el.find(".count").text());

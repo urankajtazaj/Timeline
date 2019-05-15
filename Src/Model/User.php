@@ -57,6 +57,18 @@ class User implements JsonSerializable {
         return $this->followers;
     }
 
+    public function setName($name) {
+        $this->name = $name;
+    }
+
+    public function setImage(string $image) {
+        $this->image = $image;
+    }
+
+    public function setBio(string $bio) {
+        $this->bio = $bio;
+    }
+
 
     public function jsonSerialize()
     {

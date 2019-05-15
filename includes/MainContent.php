@@ -31,7 +31,7 @@
                     </div>
                     <div class="post-content" data-toggle="modal" data-target=".postModal">
                         <p>
-                            <?= $post->getContent() ?>
+                            <?= nl2br(stripcslashes($post->getContent())) ?>
                         </p>
                         <?php if ($post->getImage()) { ?>
                             <img src="<?= $post->getImage() ?>" alt="">

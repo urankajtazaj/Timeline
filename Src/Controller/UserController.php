@@ -43,6 +43,27 @@ class UserController extends Timeline {
         }
     }
 
+    public static function updateUser($post, $file) {
+
+        $name = mysqli_real_escape_string(self::$con, $post['name']);
+        $newImageName = $file['image_profile']['error'] == 0 ? self::uploadImage($file['image_profile'], $name, false) : $post['file_path'];
+        $image = mysqli_real_escape_string(self::$con, $newImageName);
+        $bio = mysqli_real_escape_string(self::$con, $post['bio']);
+
+        $userId = Session::Get('user')->getId();
+
+        $stmt = self::$con->prepare("update user set image = ?, name = ?, bio = ? where id = ?");
+        $stmt->bind_param("sssi", $image, $name, $bio, $userId);
+        $stmt->execute();
+        $stmt->close();
+
+        $updatedUser = new User($userId, Session::Get('user')->getUsername(), Session::Get('user')->getPassword(), $name, $image, $bio);
+
+        Session::Add('user', $updatedUser);
+
+        self::redirect("../../index");
+    }
+
     public static function uploadImage($file, $folderName = null, $echo = true) {
         if ( 0 < $file['error'] ) {
             echo 'Error: ' . $file['error'] . '<br>';

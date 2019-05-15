@@ -13,6 +13,12 @@
         <br>
         <h3 class="text-center"><?= Session::Get('user')->getName() ?></h3>
         <small class="text-muted d-block text-center"><?= Session::Get('user')->getBio() ?></small>
+        <div class="text-center">
+            <br>
+            <small>
+                <a href="#" data-toggle="modal" data-target=".profileModal">Edit Profile</a>
+            </small>
+        </div>
         <hr>
         <form id="searchForm" method="get">
             <div class="form-group">

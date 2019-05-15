@@ -4,8 +4,6 @@ var image_thumb = $("img#image_thumb");
 var reset_thumb = $("#reset_thumb");
 
 image_input.on("change", function(e) {
-    let file = $(this).prop('files')[0];
-    console.log(file);
     handleUpload();
 })
 

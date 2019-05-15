@@ -28,3 +28,10 @@ if ($redirect) {
     <title>Document</title>
 </head>
 <body>
+<?php
+
+if (Session::Get('user')) {
+    include 'includes/PostModal.php';
+    include 'includes/ProfileModal.php';
+}
+?>
