@@ -24,7 +24,7 @@ form.on("submit", function (e) {
                 let user = users[index];
                 console.log(user);
                 let card =
-                `<div class="card">
+                `<div class="card post">
                    <div class="card-body">
                        <div class="d-flex align-items-center">
                            <div class="profile-pic small d-inline-flex">

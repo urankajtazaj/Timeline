@@ -34,8 +34,7 @@ function prependPost(post) {
                     <img class="pic" src="${post.user.image}" alt="${post.user.name}">
                 </div>
                 <span class="d-block full-width ml-3">
-<!--                    <span class="btn btn-sm btn-danger btn-follow float-right" style="cursor: pointer" data-id="${post.user.id}">Unfollow</span>-->
-                    <b class="mr-1 user">${post.user.name}</b>
+                    <b class="mr-1 user">${post.user.name}</b> <small id="uname" class="text-muted">@${post.user.username}</small>
                     -
                     <small class="ml-1 text-muted time">
                         ${post.formatedDate} <br>

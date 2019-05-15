@@ -14,8 +14,10 @@ function handleFollow(id, btn) {
             "userId": id
         },
         success: function (response) {
-            btn.removeClass("btn-primary");
-            btn.addClass("btn-danger");
+            if (btn.hasClass("btn")) {
+                btn.removeClass("btn-primary");
+                btn.addClass("btn-danger");
+            }
             btn.text("Unfollow");
             addFollowingEvents();
         }
@@ -31,8 +33,10 @@ function handleUnfollow(id, btn) {
         },
         success: function (response) {
             if (response) {
-                btn.removeClass("btn-danger");
-                btn.addClass("btn-primary");
+                if (btn.hasClass("btn")) {
+                    btn.removeClass("btn-danger");
+                    btn.addClass("btn-primary");
+                }
                 btn.text("Follow");
                 addFollowingEvents();
             }
@@ -52,12 +56,16 @@ function checkFollowerStatus(id, btn) {
             console.log(response);
 
             if (response == 1) {
-                btn.removeClass("btn-primary");
-                btn.addClass("btn-danger");
+                if (btn.hasClass("btn")) {
+                    btn.removeClass("btn-primary");
+                    btn.addClass("btn-danger");
+                }
                 btn.text("Unfollow");
             } else {
-                btn.removeClass("btn-danger");
-                btn.addClass("btn-primary");
+                if (btn.hasClass("btn")) {
+                    btn.removeClass("btn-danger");
+                    btn.addClass("btn-primary");
+                }
                 btn.text("Follow");
             }
 

@@ -124,6 +124,31 @@ class UserController extends Timeline {
         }
     }
 
+    public static function getPopular() {
+        $users = [];
+
+        $stmt = self::$con->prepare("select user.*, count(user.id) as followers from user, follows where user.id = follows.followerId group by user.id order by followers desc limit 10");
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+
+        if ($result->num_rows > 0) {
+            while ($data = $result->fetch_assoc()) {
+                $users[] = new User(
+                    $data['id'],
+                    $data['username'],
+                    $data['password'],
+                    $data['name'],
+                    $data['image'],
+                    $data['bio']
+                );
+            }
+            return $users;
+        } else {
+            return null;
+        }
+    }
+
     public static function getByUsername($username, $file = null) : User {
         $stmt = self::$con->prepare("select * from user where user.username = ? limit 1");
         $stmt->bind_param("s", $username);

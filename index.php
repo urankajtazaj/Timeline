@@ -1,9 +1,6 @@
 <?php
 include 'includes/header.php';
 $posts = PostController::getPosts();
-
-include 'includes/PostModal.php';
-
 ?>
 
 <div class="container">
