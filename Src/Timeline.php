@@ -27,12 +27,13 @@ class Timeline {
 
     public static function validateUrl($text) : string {
         $pattern = "/^(http:\\/\\/www\.|https:\\/\\/www\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/";
-        $mentionPattern = "/^[#|@][\w\d]+$/";
+        $mentionPattern = "/^([\\n]+)?[#|@][\w\d]+$/";
         $words = explode(" ", $text);
 
         $finalHtml = "<p>";
 
         foreach ($words as $word) {
+            $word = trim($word);
             $nlstr = nl2br(stripcslashes($word));
             $url = str_replace('\n', '', $word);
             if (preg_match($pattern, $url)) {
@@ -62,7 +63,7 @@ class Timeline {
             return "Yesterday at " . $fullDate->format("H:i");
         } else if ($diff->d == 0) {
 
-            if ($diff->i == 0) {
+            if ($now->diff($fullDate)->i == 0) {
                 return "Just now";
             }
 

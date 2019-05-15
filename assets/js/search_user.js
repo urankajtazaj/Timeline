@@ -17,7 +17,7 @@ form.on("submit", function (e) {
 
             center.append(
                 '<div class="card">' +
-                '<div class="card-body"><h4>' + users.length + ' search results for "' + query + '"</h4></div>' +
+                '<div class="card-body"><h4 class="mb-0">' + users.length + ' search results for "' + query + '"</h4></div>' +
                 '</div>');
 
             for (index in users) {

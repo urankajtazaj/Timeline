@@ -1,5 +1,7 @@
 <footer class="text-center p-3">
-    <p class="lead">Uran Kajtazaj &copy; 2019</p>
+    <br>
+    <p class="lead m-0">Uran Kajtazaj &copy; 2019</p>
+    <br>
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>

@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" style="top: 20">
     <div class="card-body">
         <h1 class="logo text-center">
             <a href="index.php">

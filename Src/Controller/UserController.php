@@ -137,7 +137,7 @@ class UserController extends Timeline {
                 $users[] = new User(
                     $data['id'],
                     $data['username'],
-                    $data['password'],
+                    "secret",
                     $data['name'],
                     $data['image'],
                     $data['bio']

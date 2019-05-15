@@ -45,7 +45,7 @@
             <?php
         }
     } else { ?>
-        <div class="card">
+        <div class="card" id="no-posts">
             <div class="card-body">
                 <p class="lead text-center">No posts in your feed<br><small class="text-muted">Start by following someone</small></p>
             </div>

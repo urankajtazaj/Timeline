@@ -17,6 +17,7 @@ form.on("submit", function (e) {
         success: function (response) {
             content.val('');
             image.val('');
+            $("#no-posts").remove();
             resetThumbnail();
             prependPost(JSON.parse(response));
         }

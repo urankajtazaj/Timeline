@@ -35,4 +35,3 @@ if (Session::Get('user')) {
     include 'includes/ProfileModal.php';
 }
 ?>
-<br>

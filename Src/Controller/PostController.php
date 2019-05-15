@@ -109,7 +109,13 @@ class PostController extends Timeline {
         $result = $stmt->get_result();
 
         while ($row = $result->fetch_assoc()) {
-            $posts[] = new Post($row['id'], $row['content'], $row['userId'], $row['image'], $row['date']);
+            $posts[] = new Post(
+                        $row['id'],
+                        $row['content'],
+                        $row['userId'],
+                        $row['image'],
+                        $row['date']
+                    );
         }
 
         $stmt->close();
