@@ -34,7 +34,7 @@ form.on("submit", function (e) {
                                <b class="mr-1 user">${user.name}</b> - <small class="text-muted pl-1">${user.followers} Follower${user.followers > 1 || user.followers == 0 ? 's' : ''}</small><br>
                                <small class="text-muted">${user.bio}</small>
                            </span>
-                           <a href="#" id="follow-btn-${user.id}" class="btn btn-primary ml-auto btn-follow" data-id="${user.id}">Follow</a>
+                           <a href="#!" id="follow-btn-${user.id}" class="btn btn-primary ml-auto btn-follow" data-id="${user.id}">Follow</a>
                        </div>
                    </div>
                 </div>`;

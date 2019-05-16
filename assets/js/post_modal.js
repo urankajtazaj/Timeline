@@ -67,7 +67,7 @@ function getReplies(container, post_id) {
                                     <img class="pic" src="${comment.image}" alt="${comment.name}">
                                 </div>
                                 <span class="d-inline ml-3">
-                                    <b class="mr-1 user">${comment.name}</b> - <small class="ml-1 text-muted" id="time">${comment.date}</small><br>
+                                    <b style="${comment.myReply ? 'color: rgb(29, 161, 242)' : ''}" class="mr-1 user">${comment.name}</b> - <small class="ml-1 text-muted" id="time">${comment.date}</small><br>
                                     <small class="${comment.bio != '' ? 'text-muted d-inline-block pb-2' : '' }">${comment.bio}</small>
                                 </span>
                             </div>

@@ -89,17 +89,11 @@ class PostController extends Timeline {
                 "comment" => $r["comment"],
                 "bio" => $r["bio"],
                 "date" => Timeline::getTimeAgo($r["date"]),
+                "myReply" => Session::Get('user')->getId() == $r["id"] ? true : false
             ];
         }
 
         return json_encode($replies);
-
-//        return json_encode(
-//            [
-//                $result->fetch_all(MYSQLI_ASSOC),
-//                "Hello" => "world"
-//            ]
-//        );
     }
 
     public static function getRepliesCount($post_id) {
