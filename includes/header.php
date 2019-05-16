@@ -30,7 +30,7 @@ if ($redirect) {
 <body>
 <?php
 
-if (Session::Get('user')) {
+if (isset($_SESSION['user'])) {
     include 'includes/PostModal.php';
     include 'includes/ProfileModal.php';
 }

@@ -54,32 +54,31 @@ function getReplies(container, post_id) {
             "post_id": post_id
         },
         success: function (response) {
-            let comment = JSON.parse(response);
+            let comments = JSON.parse(response);
 
-            for (let i = 0; i < comment.length; i++) {
+            for (let i = 0; i < comments.length; i++) {
+                let comment = comments[i];
+
                 container.append(
                     `<div class="card post pb-0">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div class="profile-pic small d-inline-flex">
-                                    <img class="pic" src="${comment[i].image}" alt="${comment[i].name}">
+                                    <img class="pic" src="${comment.image}" alt="${comment.name}">
                                 </div>
                                 <span class="d-inline ml-3">
-                                    <b class="mr-1 user">${comment[i].name}</b><br>
-                                    <small class="${comment[i].bio != '' ? 'text-muted d-inline-block pb-2' : '' }">${comment[i].bio}</small>
+                                    <b class="mr-1 user">${comment.name}</b> - <small class="ml-1 text-muted" id="time">${comment.date}</small><br>
+                                    <small class="${comment.bio != '' ? 'text-muted d-inline-block pb-2' : '' }">${comment.bio}</small>
                                 </span>
                             </div>
                             <div class="post-content" data-toggle="modal" data-target=".postModal">
                                 <p>
-                                    ${comment[i].comment}
+                                    ${comment.comment}
                                 </p>
                             </div>
                         </div>
                     </div>`);
             }
-        },
-        error: function (a, b, c) {
-            console.log(a, b, c)
         }
     })
 }

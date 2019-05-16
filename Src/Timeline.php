@@ -72,7 +72,7 @@ class Timeline {
             }
             return "Today at " . $fullDate->format("H:i");
         } else {
-            return  $date->format('d/m/Y');
+            return  $fullDate->format('d/m/Y');
         }
     }
 

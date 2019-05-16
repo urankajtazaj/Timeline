@@ -80,9 +80,26 @@ class PostController extends Timeline {
         $result = $stmt->get_result();
         $stmt->close();
 
-        return json_encode(
-            $result->fetch_all(MYSQLI_ASSOC)
-        );
+        $replies = [];
+
+        while ($r = $result->fetch_assoc()) {
+            $replies[] = [
+                "image" => $r["image"],
+                "name" => $r["name"],
+                "comment" => $r["comment"],
+                "bio" => $r["bio"],
+                "date" => Timeline::getTimeAgo($r["date"]),
+            ];
+        }
+
+        return json_encode($replies);
+
+//        return json_encode(
+//            [
+//                $result->fetch_all(MYSQLI_ASSOC),
+//                "Hello" => "world"
+//            ]
+//        );
     }
 
     public static function getRepliesCount($post_id) {
