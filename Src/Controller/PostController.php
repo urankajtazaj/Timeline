@@ -86,7 +86,7 @@ class PostController extends Timeline {
             $replies[] = [
                 "image" => $r["image"],
                 "name" => $r["name"],
-                "comment" => $r["comment"],
+                "comment" => stripslashes($r["comment"]),
                 "bio" => $r["bio"],
                 "date" => Timeline::getTimeAgo($r["date"]),
                 "myReply" => Session::Get('user')->getId() == $r["id"] ? true : false
@@ -161,6 +161,7 @@ class PostController extends Timeline {
         $stmt = self::$con->prepare(
             "insert into post_like values(null, ?, ?, 1)"
         );
+
         $stmt->bind_param("ii", $userId, $post);
         $stmt->execute();
 
