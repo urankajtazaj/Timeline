@@ -271,9 +271,7 @@ class UserController extends Timeline {
     }
 
     public static function getFollowing($id) {
-        $users = [];
-
-        $stmt = self::$con->prepare("select count(user.id) as total from user, follows where follows.userId = ? and user.id = follows.followerId");
+        $stmt = self::$con->prepare("select count(distinct user.id) as total from user, follows where follows.userId = ? and user.id = follows.followerId");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -283,9 +281,7 @@ class UserController extends Timeline {
     }
 
     public static function getFollowers($id) {
-        $users = [];
-
-        $stmt = self::$con->prepare("select count(user.id) as total from user, follows where follows.followerId = ? and user.id = follows.userId");
+        $stmt = self::$con->prepare("select count(distinct user.id) as total from user, follows where follows.followerId = ? and user.id = follows.userId");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
