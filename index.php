@@ -10,7 +10,7 @@ $posts = PostController::getPosts();
                 <?php include 'includes/SidebarLeft.php' ?>
             </div>
         </div>
-        <div class="col-md-6 col-12 pl-1 pr-1 position-relative" id="center">
+        <div class="col-md-6 col-12 pl-1 pr-1 position-relative" id="center" style="top: 20">
             <?php include 'includes/CreatePost.php'; ?>
             <?php include 'includes/MainContent.php'; ?>
         </div>

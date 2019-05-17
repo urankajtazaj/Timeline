@@ -1,9 +1,4 @@
 <br>
-<div class="card position-sticky" style="z-index: 100; width: 100%">
-    <div class="card-body">
-        <h5 class="mb-0 pb-0"><b>All Posts</b></h5>
-    </div>
-</div>
 <div id="post-list">
     <?php
     if (sizeof($posts) > 0) {
