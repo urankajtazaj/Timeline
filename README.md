@@ -12,7 +12,7 @@ ltt
 mkbhd
 css-tricks
 goal
-unboxthreapy 
+unboxtherapy 
 lenovo
 pewdiepie
 ```
