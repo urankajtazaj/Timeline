@@ -1,15 +1,4 @@
 <?php
-
-// namespace Includes\Database;
-
-// function __autoload($class) {
-//     require "../Model/" . $class . ".php";
-// }
-
-// use Src\Model\User;
-// use Src\Model\Post;
-// use Src\Model\Like;
-
 class Database {
 
     private static $server = "localhost";
