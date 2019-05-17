@@ -14,6 +14,7 @@ class PostController extends Timeline {
         self::$con = Database::Connect();
     }
 
+    // Get a single post
     public static function getPost($id) {
         $userId = Session::Get('user')->getId();
 
@@ -33,8 +34,8 @@ class PostController extends Timeline {
         );
     }
 
+    // Create a new post
     public static function createPost($post, $redirect = true, $jsonify = false) {
-
         $content = mysqli_real_escape_string(self::$con, $post['content']);
 
         $userId = Session::Get('user')->getId();
@@ -54,6 +55,7 @@ class PostController extends Timeline {
         }
     }
 
+    // Create a new comment on a post
     public static function createComment($post) {
         $comment = mysqli_real_escape_string(self::$con, $post['comment']);
         $postId = mysqli_real_escape_string(self::$con, $post['postId']);
@@ -71,6 +73,7 @@ class PostController extends Timeline {
         ]);
     }
 
+    // Get all replies for a single post
     public static function getReplies($post) {
         $postId = mysqli_real_escape_string(self::$con, $post['postId']);
 
@@ -96,6 +99,7 @@ class PostController extends Timeline {
         return json_encode($replies);
     }
 
+    // Get replies count of a single post
     public static function getRepliesCount($post_id) {
         $stmt = self::$con->prepare("select count(id) as total from answer where answer.post_id = ? order by answer.date desc");
         $stmt->bind_param("i", $post_id);
@@ -106,6 +110,7 @@ class PostController extends Timeline {
         return $result->fetch_assoc()['total'];
     }
 
+    // Get all post made from the users that you follow
     public static function getPosts($order = "desc", $limit = 15) : array {
         $posts = [];
 
@@ -134,6 +139,7 @@ class PostController extends Timeline {
         return $posts;
     }
 
+    // Toggle like of a post
     public static function toggleLike($post) {
         $userId = Session::get('user')->getId();
 
@@ -155,6 +161,7 @@ class PostController extends Timeline {
         $stmt->close();
     }
 
+    // Add a new like to a post
     public static function addNewLike($post) {
         $userId = Session::get('user')->getId();
 
@@ -169,6 +176,7 @@ class PostController extends Timeline {
         $stmt->close();
     }
 
+    // Get like count of a single post
     public static function getLikeCount($post) {
         $stmt = self::$con->prepare("select sum(status) as total from post_like where postId = ?");
         $stmt->bind_param("i",  $post);
@@ -181,6 +189,7 @@ class PostController extends Timeline {
         return $row['total'] ? $row['total'] : "0";
     }
 
+    // Check if the post is liked by the current user
     public static function isLikedByMe($post) : bool {
         $userId = Session::get('user')->getId();
         $stmt = self::$con->prepare("select status from post_like where postId = ? and userId = ?");

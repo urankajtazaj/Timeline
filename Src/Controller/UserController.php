@@ -21,6 +21,7 @@ class UserController extends Timeline {
         self::$con = Database::Connect();
     }
 
+    // Create a new user
     public static function createUser($post, $file, $redirect = true) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $username = mysqli_real_escape_string(self::$con, $post['username']);
@@ -43,8 +44,8 @@ class UserController extends Timeline {
         }
     }
 
+    // Update user data from a post request
     public static function updateUser($post, $file) {
-
         $name = mysqli_real_escape_string(self::$con, $post['name']);
         $newImageName = $file['image_profile']['error'] == 0 ? self::uploadImage($file['image_profile'], $name, false) : $post['file_path_profile'];
         $image = mysqli_real_escape_string(self::$con, $newImageName);
@@ -64,6 +65,7 @@ class UserController extends Timeline {
         self::redirect("../../index");
     }
 
+    // Upload an image form a new post or from the user profile
     public static function uploadImage($file, $folderName = null, $echo = true) {
         if ( 0 < $file['error'] ) {
             echo 'Error: ' . $file['error'] . '<br>';
@@ -101,6 +103,7 @@ class UserController extends Timeline {
         }
     }
 
+    // Get a user by id
     public static function getById($id, $file = null) : User {
         $stmt = self::$con->prepare("select * from user where user.id = ?");
         $stmt->bind_param("i", $id);

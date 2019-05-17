@@ -11,19 +11,23 @@ class Timeline {
         return strtolower($route) . ".php";
     }
 
+    // Return a string of the full path of the given controller name
     public static function controllerPath($route) {
         return "Src/Controller/" . ucfirst($route) . "Controller.php";
     }
 
+    // Redirect to another php file
     public static function redirect($route, $extra = '') {
         header("Location: " . strtolower($route) . ".php" . (!empty($extra) ? "?" . $extra : ''));
         exit();
     }
 
+    // Go to a specific function of a controller
     public static function goToFunction($controller, $method) {
         return "Src/Controller/" . ucfirst($controller) . "Controller.php?action=" . $method;
     }
 
+    // Checks every word of the post if it's a url
     public static function validateUrl($text) : string {
         $pattern = "/^(http:\\/\\/www\.|https:\\/\\/www\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/";
         $mentionPattern = "/^([\\n]+)?[#|@][\w\d]+$/";
@@ -49,6 +53,7 @@ class Timeline {
         return $finalHtml;
     }
 
+    // Converts time to a human readable format
     public static function getTimeAgo($date) {
 
         $fullDate = new DateTime($date);
