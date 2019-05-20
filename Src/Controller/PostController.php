@@ -47,7 +47,7 @@ class PostController extends Timeline {
         $stmt->close();
 
         if ($redirect) {
-            self::redirect('../../index');
+            self::redirect('index');
         }
 
         if ($jsonify) {

@@ -39,7 +39,7 @@ class UserController extends Timeline {
             $stmt->close();
 
             if ($redirect) {
-                self::redirect("../../login");
+                self::redirect("login");
             }
         }
     }
@@ -62,7 +62,7 @@ class UserController extends Timeline {
 
         Session::Add('user', $updatedUser);
 
-        self::redirect("../../index");
+        self::redirect("index");
     }
 
     // Upload an image form a new post or from the user profile
@@ -130,7 +130,7 @@ class UserController extends Timeline {
     public static function getPopular() {
         $users = [];
 
-        $stmt = self::$con->prepare("select user.*, count(user.id) as followers from user, follows where user.id = follows.followerId group by user.id order by followers desc limit 10");
+        $stmt = self::$con->prepare("select distinct user.*, count(follows.userId) as followers from user, follows where user.id = follows.followerId group by user.id order by followers desc limit 8");
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
@@ -172,7 +172,7 @@ class UserController extends Timeline {
             );
             return $user;
         } else {
-            self::redirect("../../login", 'message=invalid&_username=' . $username);
+            self::redirect("login", 'message=invalid&_username=' . $username);
         }
     }
 
@@ -274,7 +274,7 @@ class UserController extends Timeline {
     }
 
     public static function getFollowing($id) {
-        $stmt = self::$con->prepare("select count(distinct user.id) as total from user, follows where follows.userId = ? and user.id = follows.followerId");
+        $stmt = self::$con->prepare("select count(user.id) as total from user, follows where follows.userId = ? and user.id = follows.followerId");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();
@@ -284,7 +284,7 @@ class UserController extends Timeline {
     }
 
     public static function getFollowers($id) {
-        $stmt = self::$con->prepare("select count(distinct user.id) as total from user, follows where follows.followerId = ? and user.id = follows.userId");
+        $stmt = self::$con->prepare("select count(follows.userId) as total from user, follows where follows.followerId = ? and user.id = follows.userId");
         $stmt->bind_param("i", $id);
         $stmt->execute();
         $result = $stmt->get_result();

@@ -33,18 +33,18 @@ class LoginController extends Timeline
                  * User logged in
                  */
                 Session::Add('user', $user);
-                $this::redirect("../../index");
+                $this::redirect("index");
             } else {
                 /**
                  * Password is incorrect
                  */
-                $this::redirect("../../login", 'message=invalid&_username=' . $username);
+                $this::redirect("login", 'message=invalid&_username=' . $username);
             }
         } else {
             /**
              * User not found
              */
-            $this::redirect("../../login", 'message=invalid&_username=' . $username);
+            $this::redirect("login", 'message=invalid&_username=' . $username);
         }
     }
 
@@ -53,7 +53,7 @@ class LoginController extends Timeline
         session_unset($_SESSION['user']);
         session_destroy($_SESSION['user']);
 
-        self::redirect("../../login");
+        self::redirect("login");
     }
 }
 

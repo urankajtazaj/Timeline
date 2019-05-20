@@ -66,6 +66,8 @@ function checkFollowerStatus(id, btn) {
                 btn.text("Follow");
             }
 
+            btn.unbind("click");
+
             btn.on("click", function (e) {
                 if (response == 1) {
                     handleUnfollow(id, btn);

@@ -18,7 +18,7 @@ class Timeline {
 
     // Redirect to another php file
     public static function redirect($route, $extra = '') {
-        header("Location: " . strtolower($route) . ".php" . (!empty($extra) ? "?" . $extra : ''));
+        header("Location: ../../" . strtolower($route) . ".php" . (!empty($extra) ? "?" . $extra : ''));
         exit();
     }
 
