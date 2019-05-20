@@ -22,6 +22,12 @@ class Timeline {
         exit();
     }
 
+    // Redirect to another php file
+    public static function redirectAbs($route, $extra = '') {
+        header("Location: " . strtolower($route) . ".php" . (!empty($extra) ? "?" . $extra : ''));
+        exit();
+    }
+
     // Go to a specific function of a controller
     public static function goToFunction($controller, $method) {
         return "Src/Controller/" . ucfirst($controller) . "Controller.php?action=" . $method;

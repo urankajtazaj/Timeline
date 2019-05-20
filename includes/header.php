@@ -9,7 +9,7 @@ if ($basename != 'login.php' && $basename != 'register.php' && !$_SESSION['user'
 }
 
 if ($redirect) {
-    Timeline::redirect("login");
+    Timeline::redirectAbs("login");
 }
 ?>
 
