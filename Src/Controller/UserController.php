@@ -24,12 +24,29 @@ class UserController extends Timeline {
     // Create a new user
     public static function createUser($post, $file, $redirect = true) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = mysqli_real_escape_string(self::$con, $post['username']);
+            $username = mysqli_real_escape_string(self::$con, $post['_username']);
             $password = mysqli_real_escape_string(self::$con, $post['password']);
-            $name = mysqli_real_escape_string(self::$con, $post['name']);
+            $name = mysqli_real_escape_string(self::$con, $post['_name']);
             $newImageName = self::uploadImage($file['image'], $name, false);
             $image = mysqli_real_escape_string(self::$con, $newImageName);
-            $bio = mysqli_real_escape_string(self::$con, $post['bio']);
+            $bio = mysqli_real_escape_string(self::$con, $post['_bio']);
+
+            $invalid = false;
+            $invalid_msg = "";
+
+            if (strlen($username) < 3) {
+                $invalid = true;
+                $invalid_msg .= "Username should be longer than 3 characters<br/>";
+            }
+
+            if (strlen($name) < 3) {
+                $invalid = true;
+                $invalid_msg .= "Name should be longer than 3 characters<br/>";
+            }
+
+            if ($invalid) {
+                self::redirect("register", "message={$invalid_msg}&_username={$username}&_name={$name}&_bio={$bio}");
+            }
 
             $password = password_hash($password, PASSWORD_BCRYPT);
 

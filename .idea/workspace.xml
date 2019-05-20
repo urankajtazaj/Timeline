@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de8c73a5-762e-43d9-a600-34ba71ac7263" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/Autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Controller/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Controller/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Controller/PostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Controller/PostController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Model/Like.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Src/Timeline.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Timeline.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/user_follow.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/user_follow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/timeline.sql" beforeDir="false" afterPath="$PROJECT_DIR$/timeline.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/register.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Src/Controller/PostController.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="48" column="24" lean-forward="true" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
+            <state relative-caret-position="637">
+              <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
             </state>
           </provider>
         </entry>
@@ -37,17 +30,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="25" column="51" lean-forward="true" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
+            <state relative-caret-position="459">
+              <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Src/Timeline.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src/Controller/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+            <state relative-caret-position="456">
+              <caret line="46" column="77" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="77" />
             </state>
           </provider>
         </entry>
@@ -121,7 +123,6 @@
         <option value="$PROJECT_DIR$/Src/Model/Post.php" />
         <option value="$PROJECT_DIR$/assets/js/post_likes.js" />
         <option value="$PROJECT_DIR$/login.php" />
-        <option value="$PROJECT_DIR$/register.php" />
         <option value="$PROJECT_DIR$/Src/Service/HandleFollow.php" />
         <option value="$PROJECT_DIR$/Src/Service/HandleFollowStatus.php" />
         <option value="$PROJECT_DIR$/Src/Service/HandleUnfollow.php" />
@@ -144,10 +145,11 @@
         <option value="$PROJECT_DIR$/timeline.sql" />
         <option value="$PROJECT_DIR$/assets/js/user_follow.js" />
         <option value="$PROJECT_DIR$/Src/Timeline.php" />
-        <option value="$PROJECT_DIR$/Src/Controller/LoginController.php" />
         <option value="$PROJECT_DIR$/Src/Controller/PostController.php" />
-        <option value="$PROJECT_DIR$/Src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/Autoload.php" />
+        <option value="$PROJECT_DIR$/Src/Controller/LoginController.php" />
+        <option value="$PROJECT_DIR$/Src/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/register.php" />
       </list>
     </option>
   </component>
@@ -272,7 +274,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157770000" />
+    <option name="totallyTimeSpent" value="158953000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -300,7 +302,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32936078" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25097427" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.25027084" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -536,13 +538,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -623,13 +618,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Controller/UserController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="25" column="51" lean-forward="true" selection-start-line="25" selection-start-column="51" selection-end-line="25" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -637,17 +625,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Timeline.php">
+    <entry file="file://$PROJECT_DIR$/Src/Controller/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="60" column="61" lean-forward="true" selection-start-line="60" selection-start-column="61" selection-end-line="60" selection-end-column="61" />
+        <state relative-caret-position="456">
+          <caret line="46" column="77" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="77" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Src/Controller/LoginController.php">
+    <entry file="file://$PROJECT_DIR$/Src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="30" column="65" selection-start-line="30" selection-start-column="65" selection-end-line="30" selection-end-column="65" />
+        <state relative-caret-position="459">
+          <caret line="42" column="32" lean-forward="true" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Src/Timeline.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="27" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="637">
+          <caret line="43" column="69" selection-start-line="43" selection-start-column="69" selection-end-line="43" selection-end-column="69" />
         </state>
       </provider>
     </entry>
