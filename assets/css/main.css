@@ -110,10 +110,9 @@ h1.logo {
 }
 
 .post-content img {
-    width: calc(100% + 55px);
+    width: 100%;
     min-width: 100%;
     border-radius: 15px;
-    margin-left: -55px;
 }
 
 .full-width {
@@ -240,4 +239,11 @@ textarea.new-status::placeholder {
 
 .form-control {
     border-radius: 20px !important;
+}
+
+/* Remove padding on a post on small screen sizes */
+@media (max-width: 480px) {
+    .post-content {
+        padding-left: 0;
+    }
 }

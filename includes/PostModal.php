@@ -2,6 +2,9 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-body">
+                <button type="button" class="close d-block d-md-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 <div class="d-flex align-items-center">
                     <div class="profile-pic small d-inline-flex">
                         <img id="pic" src="" alt="">
