@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 17, 2019 at 09:27 AM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Generation Time: May 20, 2019 at 10:55 PM
+-- Server version: 10.1.37-MariaDB
+-- PHP Version: 7.3.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -56,7 +56,9 @@ INSERT INTO `answer` (`id`, `post_id`, `user_id`, `comment`, `date`) VALUES
 (21, 54, 8, 'This phone is silly fast and the screen is one of the best on any smartphone', '2019-05-16 09:15:31'),
 (22, 57, 16, 'Space is awesome', '2019-05-16 09:51:02'),
 (23, 58, 8, 'Lenovo is one of the best hardware manufacturer.', '2019-05-16 09:56:41'),
-(24, 57, 21, 'Yes it is', '2019-05-16 11:08:35');
+(24, 57, 21, 'Yes it is', '2019-05-16 11:08:35'),
+(25, 47, 8, 'Hello mkbhd, this is a post from the mobile phone', '2019-05-20 22:06:15'),
+(26, 64, 8, 'Go hard or go harder!', '2019-05-20 22:54:01');
 
 -- --------------------------------------------------------
 
@@ -79,9 +81,7 @@ INSERT INTO `follows` (`id`, `userId`, `followerId`) VALUES
 (54, 12, 16),
 (55, 9, 15),
 (61, 8, 19),
-(62, 8, 14),
 (68, 8, 17),
-(72, 8, 16),
 (73, 8, 13),
 (74, 12, 14),
 (75, 9, 17),
@@ -92,10 +92,22 @@ INSERT INTO `follows` (`id`, `userId`, `followerId`) VALUES
 (80, 9, 16),
 (81, 9, 16),
 (82, 16, 21),
-(83, 8, 21),
 (84, 8, 18),
 (86, 8, 22),
-(87, 8, 15);
+(105, 8, 14),
+(106, 8, 21),
+(107, 8, 16),
+(108, 8, 15),
+(109, 8, 24),
+(110, 12, 25),
+(111, 8, 25),
+(112, 9, 25),
+(113, 9, 24),
+(114, 12, 24),
+(115, 15, 21),
+(116, 21, 15),
+(117, 21, 25),
+(118, 21, 24);
 
 -- --------------------------------------------------------
 
@@ -117,7 +129,7 @@ CREATE TABLE `post` (
 
 INSERT INTO `post` (`id`, `content`, `image`, `userId`, `date`) VALUES
 (43, 'ARTEMIS: Twin sister of Apollo and goddess of the Moon. Now, the name for our #Moon2024 mission to return NASA_Astronauts to the surface of the Moon by 2024, including the first woman and next man.', 'uploads/Nasa/2019/05/14/638c96c996b13cdf5c28dd4a0235d7e2-D6fEtUhXkAMRSPU.jfif', 15, '2019-05-14 15:25:27'),
-(44, 'Today, the @WhiteHouse announces a new budget amendment for the fiscal year 2020 proposal that supports our plan to land @NASA_Astronauts on the Moon by 2024. Listen in to learn more about it at 7pm ET during a media call\\n#Moon2024', 'uploads/Nasa/2019/05/14/d97bfe248bc91a09902a491cf320ba33-D6eq0CZWwAEmZL_.jfif', 15, '2019-05-14 15:26:50'),
+(44, 'Today, the @WhiteHouse announces a new budget amendment for the fiscal year 2020 proposal that supports our plan to land @NASA_Astronauts on the Moon by 2024. Listen in to learn more about it at 7pm ET during a media call \\n#Moon2024', 'uploads/Nasa/2019/05/14/d97bfe248bc91a09902a491cf320ba33-D6eq0CZWwAEmZL_.jfif', 15, '2019-05-14 15:26:50'),
 (45, 'Evra: \"Name me one or two players who can play for Real Madrid, Juventus or Bayern Munich? It\'s a few. I would say Paul Pogba and David de Gea.\"\\n\\nWould any other Man Utd players get into the Real, Juve or Bayern XI? ðŸ¤”', 'uploads/Goal.com/2019/05/14/5435a4c779631c2196324d824a013a0f-D6hTDJdWwAAerO9.jfif', 14, '2019-05-14 15:47:19'),
 (46, 'Me waking up to zero notifications and messages because no one gives a damn about me', 'uploads/9GAG/2019/05/14/26b0ecbcb8d48b49078380d356ff4044-D6f9tYMWwAAPkbR.jfif', 16, '2019-05-14 16:42:04'),
 (47, 'Purple-ish Pixel\\\'s price and performance will predict if people pick it proudly past..... other phones', 'uploads/Marques Brownlee/2019/05/14/8bd9518661aa093fad703247773e402f-D6IP5w7W4AAakDp.jfif', 17, '2019-05-14 17:22:13'),
@@ -130,7 +142,11 @@ INSERT INTO `post` (`id`, `content`, `image`, `userId`, `date`) VALUES
 (55, 'We want to know your ultimate Jose Mourinho XI...\\n\\nPick your team using any player to have played under Jose Mourinho ðŸ‘€\\n\\nGO ðŸ‘‡', 'uploads/Goal.com/2019/05/15/9599bcc283c18239a922c0d73d100a15-D6nLqzJWkAERtU4.jfif', 14, '2019-05-15 16:20:02'),
 (56, 'A browser specially designed to show the same size at different viewport sizes and keep them in sync. \\n\\npolypane.rocks', 'uploads/CSS Tricks/2019/05/15/d695a65b800b5db10c83639997d7dc32-D6kftAKXsAEoGRY.jfif', 20, '2019-05-15 16:22:44'),
 (57, 'Weather is 80% favorable for tomorrowâ€™s Falcon 9 launch of Starlink. Launch window opens at 10:30 p.m. EDT \\nhttp://spacex.com/webcast', 'uploads/SpaceX/2019/05/16/9843e5441adf66c41f4bb96510fd6d0f-D6lSGNXUUAAPvTU.jfif', 21, '2019-05-16 09:49:02'),
-(58, 'Meet the Worldâ€™s First Foldable PC. #LenovoAccelerate', 'uploads/Lenovo/2019/05/16/b1f1b60be0000a325698eb195978f4e1-D6e0z3FWsAAz9Y1.jfif', 22, '2019-05-16 09:54:30');
+(58, 'Meet the Worldâ€™s First Foldable PC. #LenovoAccelerate', 'uploads/Lenovo/2019/05/16/b1f1b60be0000a325698eb195978f4e1-D6e0z3FWsAAz9Y1.jfif', 22, '2019-05-16 09:54:30'),
+(61, 'Don\\\'t forget to vote for your favorite VR game!  Winners will be revealed in February 2019.\\n\\nðŸ† Steam Awards 2018: \\nhttps://store.steampowered.com/SteamAwards/2018/) \\n\\n#SteamAwards2018', 'uploads/SteamVR/2019/05/20/96bc1c24d516b31e17d82329a9de096e-Du9RWl8VsAADFor.jpg', 24, '2019-05-20 22:10:32'),
+(62, 'New grads are rad. Help them get ready for the next phase of their life when you save up to $350 on select #Windows10', 'uploads/Windows/2019/05/20/05932a9fc15a9beb2831bab2f9018f02-D6OB3bDWsAAFkOr.jpg', 25, '2019-05-20 22:28:02'),
+(63, 'SteamVR Home has a new snowy environment!\\nâ„â„Winter Peakâ„â„\\n\\nLearn more about it here: \\nhttps://steamcommunity.com/games/250820/announcements/detail/1705074470255000955', 'uploads/SteamVR/2019/05/20/18936d258057fe04fd9a65644c5a4ec1-Du9QPRZV4AAzHAQ.jpg', 24, '2019-05-20 22:45:25'),
+(64, 'Great stream today peeps! 50% more till 30 and the WW quest. Excited to finish up and got more plans. Vegas this week so we go hard next few days.', '', 26, '2019-05-20 22:53:15');
 
 -- --------------------------------------------------------
 
@@ -175,7 +191,10 @@ INSERT INTO `post_like` (`id`, `userId`, `postId`, `status`) VALUES
 (27, 16, 57, 1),
 (28, 8, 57, 1),
 (29, 8, 56, 1),
-(30, 8, 58, 1);
+(30, 8, 58, 1),
+(31, 25, 62, 1),
+(32, 26, 64, 1),
+(33, 8, 64, 1);
 
 -- --------------------------------------------------------
 
@@ -198,7 +217,7 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `image`, `bio`) VALUES
 (8, 'urankajtazaj', '$2y$10$zXa/f0DKThQ2z44lYFLj4.hXdenuC3U63tT1CiOhoyHYuT.BbeXIW', 'Uran Kajtazaj', 'uploads/Uran Kajtazaj/2019/05/15/4f044c65644d79089b015a13c88c158a-education-eyeglasses-facial-expression-1987343.jpg', 'Fullstack Developer'),
-(9, 'jenna', '$2y$10$sxTN6SYQJN67ouOpeCXkE.W.md/zY6l2Ms5FH1x5YFpVHuefYu3Xq', 'Jenna Smith', 'uploads/root/2019/05/13/4a47444cd9814017712187e0414763b6-attractive-beautiful-beauty-2238300.jpg', 'Software Developer'),
+(9, 'jenna', '$2y$10$sxTN6SYQJN67ouOpeCXkE.W.md/zY6l2Ms5FH1x5YFpVHuefYu3Xq', 'Jenna Smith', 'uploads/root/2019/05/13/4a47444cd9814017712187e0414763b6-attractive-beautiful-beauty-2238300.jpg', ''),
 (12, 'james', '$2y$10$xV.tZpwW.1KdeOyLhNdo3unYt5E3gpdkX8y0VAm1ij2TqSIRsL51G', 'James Doe', 'uploads/James Doe/2019/05/13/1e703ea8f19de2bdbb346feb9735825a-fashion-fashionable-man-2191051.jpg', ''),
 (13, 'pewdiepie', '$2y$10$nqKMpT6MDYCuTJvh0L//b.yzcYmLJGbUwHEnHrhAw6O/cowwzSbXm', 'Pewdiepie', 'uploads/Pewdiepie/2019/05/13/6eb77adc4c5d624980436fe3a0adb215-t-Agpngx_400x400.jpg', 'Youtuber'),
 (14, 'goal', '$2y$10$Bk7YHyCvaydfTKrInj.hDuua65jAmPUAVJuQrKgZK9.283lo4jpfi', 'Goal.com', 'uploads/Goal.com/2019/05/13/8c07d5998f2c80c28fd1eae83da75fcf-A5hcSxhA_400x400.jpg', 'One sport. One destination. One obsession.'),
@@ -206,10 +225,13 @@ INSERT INTO `user` (`id`, `username`, `password`, `name`, `image`, `bio`) VALUES
 (16, '9gag', '$2y$10$uf2eG9ho9yhuJXySqI9UJ.xqvEYt9vzp9jGiSIZqF7vPuVZLkWuF.', '9GAG', 'uploads/9GAG/2019/05/14/a0c64f490f6d185f0929c2a94b8a8694-UsIvWpWX_200x200.jpg', 'Go Fun The World'),
 (17, 'mkbhd', '$2y$10$e/HwP5jzwaHyAclYxqhAz.nJ2AnDpfWdxPtgqaEolXhjf3INb3vXK', 'Marques Brownlee', 'uploads/Marques Brownlee/2019/05/14/deacd76de49d40f39d8bcc34500a6a28-BvJ8T3jO_200x200.jpg', 'Web Video Producer'),
 (18, 'ltt', '$2y$10$FPgQv7p/bxuKg3eQp6d2J.K47czBw8gVp0aubK4C.D.a69UMO50vu', 'Linus Tech Tips', 'uploads/Linus Tech Tips/2019/05/14/2e2b641c3d3d68eae7e381046940cd79-cDlQGimm_200x200.jpg', 'The official Timeline of the Linus Tech Tips.'),
-(19, 'unboxthreapy', '$2y$10$Ab9csuZQodWIhkB5QhY52e/pivmxF4AdKSNcgcr63MVMLNgZYHeY2', 'Unbox Therapy', 'uploads/Unbox Therapy/2019/05/15/764fd6bba0c7a689f2d89adee96a700f-E3cZ6GmU_200x200.png', 'Where products get naked'),
+(19, 'unboxtherapy', '$2y$10$Ab9csuZQodWIhkB5QhY52e/pivmxF4AdKSNcgcr63MVMLNgZYHeY2', 'Unbox Therapy', 'uploads/Unbox Therapy/2019/05/15/764fd6bba0c7a689f2d89adee96a700f-E3cZ6GmU_200x200.png', 'Where products get naked'),
 (20, 'css-tricks', '$2y$10$BPGjpri6lYO4r/InONjCkesMdA4Fyz6im38r/jGjWX3b056uocA7m', 'CSS Tricks', 'uploads/CSS Tricks/2019/05/15/3dea7c56e40938187c1608fb57c525fd-akqRGyta_200x200.jpg', 'A web design community curated by a crack team'),
 (21, 'spacex', '$2y$10$O7LP/347o/GyEKyjpU37yue0aPrtyOGLSz4sEg9evfnHIt2lrMIZ.', 'SpaceX', 'uploads/SpaceX/2019/05/16/73d116929e6e414882b13784c3b4861e-rH_k3PtQ_200x200.jpg', 'The worldâ€™s most advanced rockets and spacecraft'),
-(22, 'lenovo', '$2y$10$FDFj2bLs.SqtKcsN76mcxOBg5eJzdxUruclNxAAT5swZI1NcmljrW', 'Lenovo', 'uploads/Lenovo/2019/05/16/5345c25a16d2753d7e70576a7dcf4e77-NWhHpRiE_200x200.png', 'Create, tweak, improve, defy.');
+(22, 'lenovo', '$2y$10$FDFj2bLs.SqtKcsN76mcxOBg5eJzdxUruclNxAAT5swZI1NcmljrW', 'Lenovo', 'uploads/Lenovo/2019/05/16/5345c25a16d2753d7e70576a7dcf4e77-NWhHpRiE_200x200.png', 'Create, tweak, improve, defy.'),
+(24, 'steamvr', '$2y$10$nJ.i8etujcntA6m2AHHQzeYfNU6vco8w.T8Gri78aetRUJFmMpU/K', 'SteamVR', 'uploads/SteamVR/2019/05/20/ac94fddc7da26c8d24b9100575954d54-vCmZ4uXI_200x200.jpg', ''),
+(25, 'windows', '$2y$10$Fls4LyyrPm0P97TqQCpaMuCqPL.tYnfimdpzwhJfrucjD7EnQ0E7K', 'Windows', 'uploads/Windows/2019/05/20/353502ba447b01d5cc7cf13d0a3f394d-U54M_YbJ_200x200.jpg', 'Windows news, product info & global stories'),
+(26, 'towelliee', '$2y$10$NWXxafvffxR2U/qA5BkI5.qN1VqYwPr.sgWDJbszVHYPDX9LuY9fK', 'Towelliee', 'uploads/Towelliee/2019/05/20/c008577151a069d567b7ecad9c4316e5-cNixOJsl_200x200.jpg', '');
 
 --
 -- Indexes for dumped tables
@@ -253,31 +275,31 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `answer`
 --
 ALTER TABLE `answer`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `post_like`
 --
 ALTER TABLE `post_like`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
