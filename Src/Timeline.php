@@ -22,7 +22,7 @@ class Timeline {
         exit();
     }
 
-    // Redirect to another php file
+    // Redirect to another php file (absolute path)
     public static function redirectAbs($route, $extra = '') {
         header("Location: " . strtolower($route) . ".php" . (!empty($extra) ? "?" . $extra : ''));
         exit();

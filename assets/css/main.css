@@ -110,9 +110,10 @@ h1.logo {
 }
 
 .post-content img {
-    max-width: 100%;
+    width: calc(100% + 55px);
     min-width: 100%;
     border-radius: 15px;
+    margin-left: -55px;
 }
 
 .full-width {
