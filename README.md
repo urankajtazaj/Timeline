@@ -15,6 +15,9 @@ goal
 unboxtherapy 
 lenovo
 pewdiepie
+windows
+steamvr
+towelliee
 ```
 
 **Password:**
