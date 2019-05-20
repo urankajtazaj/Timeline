@@ -7,21 +7,23 @@ form.on("submit", function (e) {
     let content = $("textarea#content");
     let image = $("input#file_path");
 
-    $.ajax({
-        method: "POST",
-        url: "Src/Service/HandlePostCreate.php",
-        data: {
-            "content": content.val(),
-            "file_path": image.val()
-        },
-        success: function (response) {
-            content.val('');
-            image.val('');
-            $("#no-posts").remove();
-            resetThumbnail();
-            prependPost(JSON.parse(response));
-        }
-    });
+    if (content.val().length > 0 || image.val().length > 0) {
+        $.ajax({
+            method: "POST",
+            url: "Src/Service/HandlePostCreate.php",
+            data: {
+                "content": content.val(),
+                "file_path": image.val()
+            },
+            success: function (response) {
+                content.val('');
+                image.val('');
+                $("#no-posts").remove();
+                resetThumbnail();
+                prependPost(JSON.parse(response));
+            }
+        });
+    }
 
 })
 
