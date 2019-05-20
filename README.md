@@ -1,6 +1,6 @@
 ### Timeline, a Social Network
 #
-**Users:**
+**Usernames:**
 ```
 urankajtazaj
 james
