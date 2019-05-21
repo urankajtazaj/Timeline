@@ -1,7 +1,8 @@
-## Timeline, a Social Network
+# Timeline
 
 
-### Kerkesat
+### Kërkesat e projektit
+
 #### PHP konceptet themelore
 - [x] Variablat dhe qasja e tyre, funksionet built-in ne PHP, konstantet dhe degezimet
 - [x] Vargjet (te gjitha llojet), manipulimi me vargje, sortimet
