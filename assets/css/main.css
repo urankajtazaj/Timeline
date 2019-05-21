@@ -47,7 +47,6 @@ h1.logo {
 
 .btn-primary {
     background-color: rgb(29, 161, 242);
-    /*box-shadow: 0 6px 20px rgba(29, 161, 242, .5);*/
 }
 
 .btn-primary:hover {
@@ -56,7 +55,6 @@ h1.logo {
 
 .btn-danger {
     background-color: rgb(242, 69, 87);
-    /*box-shadow: 0 6px 20px rgba(242, 69, 87, .5);*/
 }
 
 .btn-danger:hover {

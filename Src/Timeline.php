@@ -46,7 +46,7 @@ class Timeline {
             $nlstr = nl2br(stripcslashes($word));
             $url = str_replace('\n', '', $word);
             if (preg_match($pattern, $url)) {
-                $finalHtml .= "<a target=\"_blank\" href=\"" . (substr($url, 0, 4) == "http" ? $url : "http://" . $url) . "\">" . $nlstr . " </a>";
+                $finalHtml .= "<a style='word-break: break-word' target=\"_blank\" href=\"" . (substr($url, 0, 4) == "http" ? $url : "http://" . $url) . "\">" . $nlstr . " </a>";
             } else if (preg_match($mentionPattern, $word)) {
                 $finalHtml .= "<a href='#!'>{$nlstr}</a> ";
             } else {
