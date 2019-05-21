@@ -37,7 +37,7 @@ class Timeline {
     public static function validateUrl($text) : string {
         $pattern = "/^(http:\\/\\/www\.|https:\\/\\/www\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/";
         $mentionPattern = "/([\n]+)?[#|@][\w\d]+/";
-        $words = preg_split('/[\s]+/', $text);
+        $words = explode(' ', $text);
 
         $finalHtml = "<p>";
 
