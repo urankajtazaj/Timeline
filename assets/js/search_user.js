@@ -44,11 +44,6 @@ form.on("submit", function (e) {
 
             addFollowingEvents();
 
-        },
-        error: function (a, b, c) {
-            console.log(a);
-            console.log(b);
-            console.log(c);
         }
     })
 
