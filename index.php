@@ -5,7 +5,7 @@ $posts = PostController::getPosts();
 
 <div class="container">
     <div class="row">
-        <div class="col-md-3 col-12 pr-1 sidebar">
+        <div class="col-md-3 col-12 pr-1 pl-1 mb-3 sidebar">
             <div class="position-sticky" style="top: 0">
                 <?php include 'includes/SidebarLeft.php' ?>
             </div>
