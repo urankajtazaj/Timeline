@@ -1,6 +1,5 @@
-# Timeline
-
-
+![Timeline](https://i.imgur.com/ox4kBYA.png)
+---
 ### Kërkesat e projektit
 
 #### PHP konceptet themelore
