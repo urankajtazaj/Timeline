@@ -39,9 +39,6 @@ function handleUpload() {
             image_thumb.attr("alt", name);
             image_thumb.attr("src", response);
             console.log(response);
-        },
-        error: function (a, b, c) {
-            console.log(a, b, c);
         }
     });
 }
