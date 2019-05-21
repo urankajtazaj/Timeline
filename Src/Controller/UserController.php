@@ -269,9 +269,9 @@ class UserController extends Timeline {
 
         $users = [];
 
-        $name = "%{$name}%";
+        $name = "%" . trim($name) . "%";
         $stmt = self::$con->prepare("select * from user where name like ?");
-        $stmt->bind_param("s", trim($name));
+        $stmt->bind_param("s", $name);
         $stmt->execute();
         $result = $stmt->get_result();
 
