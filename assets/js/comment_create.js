@@ -18,9 +18,6 @@ form.on("submit", function (e) {
         success: function (response) {
             input.val('');
             getReplies($("#replies"), postId.val());
-        },
-        error: function (a, b, c) {
-            console.log(a, b, c);
         }
     });
 })
