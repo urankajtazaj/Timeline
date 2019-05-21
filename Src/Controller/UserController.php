@@ -24,12 +24,12 @@ class UserController extends Timeline {
     // Create a new user
     public static function createUser($post, $file, $redirect = true) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = mysqli_real_escape_string(self::$con, $post['_username']);
-            $password = mysqli_real_escape_string(self::$con, $post['password']);
-            $name = mysqli_real_escape_string(self::$con, $post['_name']);
+            $username = mysqli_real_escape_string(self::$con, trim($post['_username']));
+            $password = mysqli_real_escape_string(self::$con, trim($post['password']));
+            $name = mysqli_real_escape_string(self::$con, trim($post['_name']));
             $newImageName = self::uploadImage($file['image'], $name, false);
             $image = mysqli_real_escape_string(self::$con, $newImageName);
-            $bio = mysqli_real_escape_string(self::$con, $post['_bio']);
+            $bio = mysqli_real_escape_string(self::$con, trim(['_bio']));
 
             $invalid = false;
             $invalid_msg = "";
@@ -63,10 +63,10 @@ class UserController extends Timeline {
 
     // Update user data from a post request
     public static function updateUser($post, $file) {
-        $name = mysqli_real_escape_string(self::$con, $post['name']);
+        $name = mysqli_real_escape_string(self::$con, trim($post['name']));
         $newImageName = $file['image_profile']['error'] == 0 ? self::uploadImage($file['image_profile'], $name, false) : $post['file_path_profile'];
         $image = mysqli_real_escape_string(self::$con, $newImageName);
-        $bio = mysqli_real_escape_string(self::$con, $post['bio']);
+        $bio = mysqli_real_escape_string(self::$con, trim($post['bio']));
 
         $userId = Session::Get('user')->getId();
 
@@ -171,7 +171,7 @@ class UserController extends Timeline {
 
     public static function getByUsername($username, $file = null) : User {
         $stmt = self::$con->prepare("select * from user where user.username = ? limit 1");
-        $stmt->bind_param("s", $username);
+        $stmt->bind_param("s", trim($username));
         $stmt->execute();
         $result = $stmt->get_result();
         $stmt->close();
@@ -271,7 +271,7 @@ class UserController extends Timeline {
 
         $name = "%{$name}%";
         $stmt = self::$con->prepare("select * from user where name like ?");
-        $stmt->bind_param("s", $name);
+        $stmt->bind_param("s", trim($name));
         $stmt->execute();
         $result = $stmt->get_result();
 
