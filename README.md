@@ -63,6 +63,7 @@ pewdiepie
 windows
 steamvr
 towelliee
+discord
 ```
 
 **Password:**
