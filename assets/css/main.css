@@ -100,7 +100,17 @@ h1.logo {
 
 .post .post-footer {
     padding: 5px 20px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.card {
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-header,
+.card {
+    border-color: rgba(0,0,0,0.07);
 }
 
 .post-content {
@@ -184,12 +194,15 @@ h1.logo {
 
 textarea.new-status {
     border-color: transparent;
+    transition: 1000ms ease;
     padding: 20px;
+    border-width: 5px;
 }
 
 textarea.new-status:focus {
     box-shadow: none;
     border-color: transparent;
+    border-color: rgba(29, 161, 242, .5);
 }
 
 textarea.new-status::placeholder {
@@ -236,7 +249,7 @@ textarea.new-status::placeholder {
 }
 
 .form-control {
-    border-radius: 20px !important;
+    border-radius: 15px !important;
 }
 
 /* Remove padding on a post on small screen sizes */

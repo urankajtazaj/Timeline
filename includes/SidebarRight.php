@@ -5,7 +5,7 @@ $followers = UserController::getFollowers(Session::Get('user')->getId());
 $popular = UserController::getPopular();
 ?>
 
-<div class="card d-none d-md-block" style="top: 20; margin-bottom: 20px">
+<div class="card d-none d-md-block" style="top: 20; margin-bottom: 8px">
     <div class="card-header">
         Snapshot
     </div>
