@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 20, 2019 at 10:55 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.3.0
+-- Generation Time: May 22, 2019 at 03:05 PM
+-- Server version: 10.1.36-MariaDB
+-- PHP Version: 7.2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -107,7 +107,13 @@ INSERT INTO `follows` (`id`, `userId`, `followerId`) VALUES
 (115, 15, 21),
 (116, 21, 15),
 (117, 21, 25),
-(118, 21, 24);
+(120, 8, 27),
+(121, 21, 24),
+(122, 21, 27),
+(123, 8, 28),
+(124, 12, 28),
+(125, 9, 28),
+(126, 24, 21);
 
 -- --------------------------------------------------------
 
@@ -146,7 +152,10 @@ INSERT INTO `post` (`id`, `content`, `image`, `userId`, `date`) VALUES
 (61, 'Don\\\'t forget to vote for your favorite VR game!  Winners will be revealed in February 2019.\\n\\nðŸ† Steam Awards 2018: \\nhttps://store.steampowered.com/SteamAwards/2018/) \\n\\n#SteamAwards2018', 'uploads/SteamVR/2019/05/20/96bc1c24d516b31e17d82329a9de096e-Du9RWl8VsAADFor.jpg', 24, '2019-05-20 22:10:32'),
 (62, 'New grads are rad. Help them get ready for the next phase of their life when you save up to $350 on select #Windows10', 'uploads/Windows/2019/05/20/05932a9fc15a9beb2831bab2f9018f02-D6OB3bDWsAAFkOr.jpg', 25, '2019-05-20 22:28:02'),
 (63, 'SteamVR Home has a new snowy environment!\\nâ„â„Winter Peakâ„â„\\n\\nLearn more about it here: \\nhttps://steamcommunity.com/games/250820/announcements/detail/1705074470255000955', 'uploads/SteamVR/2019/05/20/18936d258057fe04fd9a65644c5a4ec1-Du9QPRZV4AAzHAQ.jpg', 24, '2019-05-20 22:45:25'),
-(64, 'Great stream today peeps! 50% more till 30 and the WW quest. Excited to finish up and got more plans. Vegas this week so we go hard next few days.', '', 26, '2019-05-20 22:53:15');
+(64, 'Great stream today peeps! 50% more till 30 and the WW quest. Excited to finish up and got more plans. Vegas this week so we go hard next few days.', '', 26, '2019-05-20 22:53:15'),
+(65, 'We\\\'re teaming up with @DonorsChoose to help every student see themselves supported in their learning environment through the #ISeeMe campaign, a new effort to enable teachers & students to celebrate their identities. Learn more: http://goo.gle/2VwZkTn #GoogleEdu', 'uploads/Google/2019/05/21/2b72e61f319157aeea6ad923a4d846eb-D6sZCAYXsAEQD4D.jfif', 27, '2019-05-21 16:49:13'),
+(66, 'Calling all engineers: We wrote a blog post about how we improved scalability and performance. If words like ordset, MapSet, and microseconds get your heart racing, go take a read: \\nhttp://dis.gd/ScalingWithRust', 'uploads/Discord/2019/05/22/d634751d4d653b3cc6a79adeeb0749f6-D6zIv-OU8AAVEV9.jfif', 28, '2019-05-22 09:55:30'),
+(67, 'From TEN AM to TWELEVE PM EASTERN STANDARD TIME play a game at our booth AT PAX in BOSTON, MASSACHUSETTS and win a Nitro patch (while they last)', 'uploads/Discord/2019/05/22/7fb80a975f890441dbe5810e3cc9c804-D2_he0JX0AASP6E.jfif', 28, '2019-05-22 09:59:30');
 
 -- --------------------------------------------------------
 
@@ -194,7 +203,13 @@ INSERT INTO `post_like` (`id`, `userId`, `postId`, `status`) VALUES
 (30, 8, 58, 1),
 (31, 25, 62, 1),
 (32, 26, 64, 1),
-(33, 8, 64, 1);
+(33, 8, 64, 1),
+(34, 8, 62, 1),
+(35, 8, 65, 1),
+(36, 8, 67, 1),
+(37, 8, 53, 0),
+(38, 15, 57, 1),
+(39, 24, 57, 1);
 
 -- --------------------------------------------------------
 
@@ -216,9 +231,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `image`, `bio`) VALUES
-(8, 'urankajtazaj', '$2y$10$zXa/f0DKThQ2z44lYFLj4.hXdenuC3U63tT1CiOhoyHYuT.BbeXIW', 'Uran Kajtazaj', 'uploads/Uran Kajtazaj/2019/05/15/4f044c65644d79089b015a13c88c158a-education-eyeglasses-facial-expression-1987343.jpg', 'Fullstack Developer'),
-(9, 'jenna', '$2y$10$sxTN6SYQJN67ouOpeCXkE.W.md/zY6l2Ms5FH1x5YFpVHuefYu3Xq', 'Jenna Smith', 'uploads/root/2019/05/13/4a47444cd9814017712187e0414763b6-attractive-beautiful-beauty-2238300.jpg', ''),
-(12, 'james', '$2y$10$xV.tZpwW.1KdeOyLhNdo3unYt5E3gpdkX8y0VAm1ij2TqSIRsL51G', 'James Doe', 'uploads/James Doe/2019/05/13/1e703ea8f19de2bdbb346feb9735825a-fashion-fashionable-man-2191051.jpg', ''),
+(8, 'urankajtazaj', '$2y$10$zXa/f0DKThQ2z44lYFLj4.hXdenuC3U63tT1CiOhoyHYuT.BbeXIW', 'Uran Kajtazaj', 'uploads/Uran Kajtazaj/2019/05/21/636b61606e078266e567bfb05b6579ef-education-eyeglasses-facial-expression-1987343.jpg', 'Fullstack Developer'),
+(9, 'jenna', '$2y$10$sxTN6SYQJN67ouOpeCXkE.W.md/zY6l2Ms5FH1x5YFpVHuefYu3Xq', 'Jenna Smith', 'uploads/Jenna Smith/2019/05/21/1d56a88af4b56f97715b808f7a6af65c-attractive-beautiful-beauty-2238300.jpg', ''),
+(12, 'james', '$2y$10$xV.tZpwW.1KdeOyLhNdo3unYt5E3gpdkX8y0VAm1ij2TqSIRsL51G', 'James Doe', 'uploads/James Doe/2019/05/21/1d7303b0f4a96e9739d52b79acb9a505-attractive-beautiful-beauty-2240170 (2).jpg', ''),
 (13, 'pewdiepie', '$2y$10$nqKMpT6MDYCuTJvh0L//b.yzcYmLJGbUwHEnHrhAw6O/cowwzSbXm', 'Pewdiepie', 'uploads/Pewdiepie/2019/05/13/6eb77adc4c5d624980436fe3a0adb215-t-Agpngx_400x400.jpg', 'Youtuber'),
 (14, 'goal', '$2y$10$Bk7YHyCvaydfTKrInj.hDuua65jAmPUAVJuQrKgZK9.283lo4jpfi', 'Goal.com', 'uploads/Goal.com/2019/05/13/8c07d5998f2c80c28fd1eae83da75fcf-A5hcSxhA_400x400.jpg', 'One sport. One destination. One obsession.'),
 (15, 'nasa', '$2y$10$ysczJ8I625TB/bqiSeedtuQRbJCwaRBaGSnCsep1ebYPO1.cyOUtW', 'Nasa', 'uploads/Nasa/2019/05/14/ff7f9ca1892d53f098a2e062e32cd495-TI2qItoi_400x400.jpg', 'Explore the universe and discover our home planet'),
@@ -231,7 +246,9 @@ INSERT INTO `user` (`id`, `username`, `password`, `name`, `image`, `bio`) VALUES
 (22, 'lenovo', '$2y$10$FDFj2bLs.SqtKcsN76mcxOBg5eJzdxUruclNxAAT5swZI1NcmljrW', 'Lenovo', 'uploads/Lenovo/2019/05/16/5345c25a16d2753d7e70576a7dcf4e77-NWhHpRiE_200x200.png', 'Create, tweak, improve, defy.'),
 (24, 'steamvr', '$2y$10$nJ.i8etujcntA6m2AHHQzeYfNU6vco8w.T8Gri78aetRUJFmMpU/K', 'SteamVR', 'uploads/SteamVR/2019/05/20/ac94fddc7da26c8d24b9100575954d54-vCmZ4uXI_200x200.jpg', ''),
 (25, 'windows', '$2y$10$Fls4LyyrPm0P97TqQCpaMuCqPL.tYnfimdpzwhJfrucjD7EnQ0E7K', 'Windows', 'uploads/Windows/2019/05/20/353502ba447b01d5cc7cf13d0a3f394d-U54M_YbJ_200x200.jpg', 'Windows news, product info & global stories'),
-(26, 'towelliee', '$2y$10$NWXxafvffxR2U/qA5BkI5.qN1VqYwPr.sgWDJbszVHYPDX9LuY9fK', 'Towelliee', 'uploads/Towelliee/2019/05/20/c008577151a069d567b7ecad9c4316e5-cNixOJsl_200x200.jpg', '');
+(26, 'towelliee', '$2y$10$NWXxafvffxR2U/qA5BkI5.qN1VqYwPr.sgWDJbszVHYPDX9LuY9fK', 'Towelliee', 'uploads/Towelliee/2019/05/20/c008577151a069d567b7ecad9c4316e5-cNixOJsl_200x200.jpg', ''),
+(27, 'google', '$2y$10$onM7HaYn/PdpRrFcCW/X/OB9Fub6ySqeCVTeCW../yGCEvGjCWCeC', 'Google', 'uploads/Google/2019/05/21/b98a4bef3873a92281e7a38f7dabb453-PSpUS-Hp_200x200.jpg', ''),
+(28, 'discord', '$2y$10$zc8ysalARh4Ax5/U9olEcODKu1b6bMV0OIHjNyY16UiC8D8ShOwLi', 'Discord', 'uploads/Discord/2019/05/22/dea6aeb475d4d944dfbf3faee7d3bef0-oWWL9D_8_200x200.jpg', 'Connect with your friends and communities');
 
 --
 -- Indexes for dumped tables
@@ -281,25 +298,25 @@ ALTER TABLE `answer`
 -- AUTO_INCREMENT for table `follows`
 --
 ALTER TABLE `follows`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=127;
 
 --
 -- AUTO_INCREMENT for table `post`
 --
 ALTER TABLE `post`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `post_like`
 --
 ALTER TABLE `post_like`
-  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
