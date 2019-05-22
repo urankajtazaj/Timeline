@@ -24,7 +24,7 @@
 - [x] Perdorimi i klasave dhe objekteve (min. 3)
 - [x] Thirrja e konstruktoreve dhe destruktoreve
 - [x] Realizimi i enkapsulimit permes Get dhe Set
-- [ ] Implementimi i nje trashegimie ne klasa
+- [x] Implementimi i nje trashegimie ne klasa
 - [ ] Perdorimi i funksioneve per shkrim dhe lexim nga fajllat, implementimi ne projekt i nje shembulli te tille
 
 #### PHP Sessions dhe Cookies
