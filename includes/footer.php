@@ -14,5 +14,12 @@
 <script src="assets/js/search_user.js"></script>
 <script src="assets/js/post_create.js"></script>
 <script src="assets/js/comment_create.js"></script>
+
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover()
+    })
+</script>
+
 </body>
 </html>

@@ -13,6 +13,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Service/Sessions.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Timeline.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/includes/Database.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Model/User.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Model/Upvoter.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Model/Post.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Controller/LoginController.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Controller/PostController.php";

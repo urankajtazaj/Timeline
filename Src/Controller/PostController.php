@@ -161,6 +161,30 @@ class PostController extends Timeline {
         $stmt->close();
     }
 
+    // Get a list of upvoters
+    public static function getUpvoters($postId) {
+        $upvoters = [];
+        $stmt = self::$con->prepare("select user.* from user, post_like where user.id = post_like.userId and status = 1 and post_like.postId = ? limit 4");
+        $stmt->bind_param("i", $postId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        while ($data = $result->fetch_assoc()) {
+            $upvoters[] = new Upvoter(
+                $data['id'],
+                $data['username'],
+                "secret",
+                $data['name'],
+                $data['image'],
+                $data['bio']
+            );
+        }
+
+        $stmt->close();
+        return $upvoters;
+
+    }
+
     // Add a new like to a post
     public static function addNewLike($post) {
         $userId = Session::get('user')->getId();
