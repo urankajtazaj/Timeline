@@ -29,3 +29,5 @@
         <a class="btn btn-danger full-width" href="<?= Timeline::goToFunction('login', 'logout') ?>">Logout</a>
     </div>
 </div>
+<br><br>
+<a href="#" class="btn"><i class="fas fa-chevron-up"></i></a>

@@ -1,6 +1,7 @@
 <footer class="text-center p-3">
-    <br>
-    <p class="lead m-0">Uran Kajtazaj &copy; 2019</p>
+    <br><br>
+    <a href="https://github.com/urankajtazaj/Timeline" title="Timeline on Github" target="_blank"><img src="assets/icons/github.svg" width="25" alt=""></a>
+    <p class="mt-3 m-0">&copy; 2019 Uran Kajtazaj</p>
     <br>
 </footer>
 
