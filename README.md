@@ -39,7 +39,7 @@
 #### Shembuj (2) të komunikimit asinkron klient-server duke përdorur AJAX
 - [x] [Përdorimi i AJAX-it për lexim dhe update-im nga një PHP skriptë](https://github.com/urankajtazaj/Timeline/tree/master/assets/js)
 - [x] [Përdorimi i AJAX-it për lexim dhe update-im nga një DB](https://github.com/urankajtazaj/Timeline/tree/master/assets/js)
-- [ ] Perdorimi i nje WEB API ne proekt (FB, Twitter ose ndonje rrjet tjeter social)
+- [ ] Perdorimi i nje WEB API ne projekt (FB, Twitter ose ndonje rrjet tjeter social)
 - [ ] Gaming
 - [x] Kodi burimor duhet te jete ne dispozicion ne github.
 
