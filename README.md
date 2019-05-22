@@ -24,7 +24,7 @@
 - [x] Perdorimi i klasave dhe objekteve (min. 3)
 - [x] Thirrja e konstruktoreve dhe destruktoreve
 - [x] Realizimi i enkapsulimit permes Get dhe Set
-- [x] Implementimi i nje trashegimie ne klasa
+- [x] [Implementimi i nje trashegimie ne klasa](https://github.com/urankajtazaj/Timeline/blob/8672d227e64f78b15f0acc247b78ba4e2ce67669/Src/Model/Upvoter.php#L4)
 - [ ] Perdorimi i funksioneve per shkrim dhe lexim nga fajllat, implementimi ne projekt i nje shembulli te tille
 
 #### PHP Sessions dhe Cookies
