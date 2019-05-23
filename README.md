@@ -70,3 +70,8 @@ discord
 ```
 admin
 ```
+
+#
+
+### Feed
+![Image](https://i.imgur.com/50Vcmjm.png)
