@@ -9,9 +9,6 @@ include 'includes/header.php';
     <div class="row justify-content-center">
         <div class="col-md-6 col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4>Register</h4>
-                </div>
                 <div class="card-body">
                     <form method="post" enctype="multipart/form-data" action="<?= Timeline::controllerPath("user") . "?action=createUser" ?>">
                         <div class="form-group">

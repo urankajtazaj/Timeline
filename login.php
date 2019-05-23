@@ -9,9 +9,6 @@
     <div class="row justify-content-center">
         <div class="col-md-4 col-12">
             <div class="card">
-                <div class="card-header">
-                    <h4>Login</h4>
-                </div>
                 <div class="card-body">
                     <form method="post" action="<?= Timeline::controllerPath("login") . "?action=login" ?>">
                         <div class="form-group">
