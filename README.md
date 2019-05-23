@@ -74,4 +74,9 @@ admin
 #
 
 ### Feed
-![Image](https://i.imgur.com/50Vcmjm.png)
+![Feed](https://i.imgur.com/50Vcmjm.png)
+
+
+
+### Single Post
+![Single Post](https://i.imgur.com/wswvmAC.png)
