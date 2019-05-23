@@ -3,26 +3,25 @@ var center = $("#center");
 
 form.on("submit", function (e) {
     e.preventDefault();
-    let query = $(this).find("input").val().trim();
+    let query = $(this).find("input");
 
     $.ajax({
         url: "Src/Service/HandleSearch.php",
         method: "GET",
         data: {
-            "q": query
+            "q": query.val().trim()
         },
         success: function (response) {
             center.html('');
             let users = JSON.parse(response);
 
             center.append(
-                '<div class="card">' +
-                '<div class="card-body"><h4 class="mb-0">' + users.length + ' search results for "' + query + '"</h4></div>' +
+                '<div class="card post">' +
+                '<div class="card-header"><h4 class="mb-0">' + users.length + ' search results for "' + query.val().trim() + '"</h4></div>' +
                 '</div>');
 
             for (index in users) {
                 let user = users[index];
-                console.log(user);
                 let card =
                 `<div class="card post">
                    <div class="card-body">
@@ -44,15 +43,10 @@ form.on("submit", function (e) {
 
             addFollowingEvents();
 
+            query.val('');
+
         }
     })
 
     return false;
 })
-
-function handleSearch() {
-
-    console.log($(this).find("input"));
-
-
-}

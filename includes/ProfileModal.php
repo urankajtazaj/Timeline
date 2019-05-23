@@ -1,8 +1,8 @@
 <div class="modal fade profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModal" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4>Edit profile</h4>
+                Edit profile
             </div>
             <form enctype="multipart/form-data" method="post" id="profileForm" action="<?= Timeline::controllerPath("user") . "?action=updateUser" ?>">
                 <div class="modal-body">

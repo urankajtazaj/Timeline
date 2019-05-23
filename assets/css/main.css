@@ -252,6 +252,17 @@ textarea.new-status::placeholder {
     border-radius: 15px !important;
 }
 
+#gh {
+    opacity: .2;
+    transition: 400ms ease;
+    display: inline-block;
+}
+
+#gh:hover {
+    opacity: .75;
+    transform: rotate(360deg);
+}
+
 /* Remove padding on a post on small screen sizes */
 @media (max-width: 480px) {
     .post-content {
