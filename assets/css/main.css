@@ -12,7 +12,7 @@ body {
 }
 
 .logo {
-    font-family: "Nanum Pen Script";
+    font-family: "Pacifico";
 }
 
 .logo a {
@@ -28,7 +28,7 @@ body {
 }
 
 h1.logo {
-    font-weight: bolder;
+    /*font-weight: bolder;*/
     font-size: 45px;
 }
 
@@ -254,13 +254,12 @@ textarea.new-status::placeholder {
 
 #gh {
     opacity: .2;
-    transition: 400ms ease;
+    transition: 300ms ease;
     display: inline-block;
 }
 
 #gh:hover {
-    opacity: .75;
-    transform: rotate(360deg);
+    opacity: .6;
 }
 
 /* Remove padding on a post on small screen sizes */

@@ -7,7 +7,7 @@ include 'includes/header.php';
     <h1 class="logo text-center">Timeline</h1>
     <br>
     <div class="row justify-content-center">
-        <div class="col-md-6 col-12">
+        <div class="col-md-4 col-12">
             <div class="card">
                 <div class="card-body">
                     <form method="post" enctype="multipart/form-data" action="<?= Timeline::controllerPath("user") . "?action=createUser" ?>">
@@ -24,12 +24,12 @@ include 'includes/header.php';
                             <input type="text" value="<?= isset($_GET['_name']) ? $_GET['_name'] : '' ?>" required name="_name" class="form-control" id="name">
                         </div>
                         <div class="form-group">
-                            <label for="bio" class="text-muted">Position (Optional)</label>
+                            <label for="bio" class="text-muted">Short Description <small>(Optional)</small></label>
                             <input type="text" value="<?= isset($_GET['_bio']) ? $_GET['_bio'] : '' ?>" class="form-control" name="_bio" id="bio" />
                         </div>
                         <div class="form-group">
-                            <label for="image" class="text-muted">Profile pic (Optional)</label>
-                            <input type="file" accept=".png,.jpg,.jpeg" name="image" class="form-control" id="image">
+                            <label for="image" class="text-muted">Profile pic <small>(Optional)</small></label>
+                            <input type="file" accept=".png,.jpg,.jpeg" name="image" id="image">
                         </div>
                         <small class="d-block text-center">
                             <a href="login.php">Already have an account? Login now!</a>

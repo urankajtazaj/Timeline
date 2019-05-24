@@ -4,7 +4,7 @@
             <div class="modal-header">
                 Edit profile
             </div>
-            <form enctype="multipart/form-data" method="post" id="profileForm" action="<?= Timeline::controllerPath("user") . "?action=updateUser" ?>">
+            <form class="mb-0" enctype="multipart/form-data" method="post" id="profileForm" action="<?= Timeline::controllerPath("user") . "?action=updateUser" ?>">
                 <div class="modal-body">
                     <div class="form-group">
                         <label for="image">Change image</label>
@@ -21,10 +21,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div>
-                        <br>
                         <button type="submit" class="btn btn-primary">Save changes</button>
-                    </div>
                 </div>
             </form>
         </div>

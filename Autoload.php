@@ -10,6 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
 }
 
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Service/Sessions.php";
+include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/includes/libs/Facebook/autoload.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Timeline.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/includes/Database.php";
 include_once $_SERVER['DOCUMENT_ROOT'] . "/Timeline/Src/Model/User.php";

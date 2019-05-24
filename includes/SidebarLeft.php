@@ -2,7 +2,7 @@
     <div class="card-header">
         <h1 class="logo text-center mb-0">
             <a href="index.php">
-                timeline
+                Timeline
             </a>
         </h1>
     </div>

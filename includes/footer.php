@@ -1,12 +1,11 @@
 <footer class="text-center p-3">
-    <br><br>
-    <p class="mt-3 m-0">&copy; 2019 Uran Kajtazaj</p>
-    <br>
+    <p class="mt-3 m-0 text-muted">&copy; <?= date_format(new DateTime(), "Y") ?> Uran Kajtazaj</p>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="assets/js/libs/jquery-3.4.1.min.js"></script>
+<script src="assets/js/libs/popper.min.js"></script>
+<script src="assets/js/libs/bootstrap.min.js"></script>
+
 <script src="assets/js/main.js"></script>
 <script src="assets/js/post_likes.js"></script>
 <script src="assets/js/post_modal.js"></script>
@@ -20,6 +19,35 @@
         $('[data-toggle="popover"]').popover()
     })
 </script>
+
+<!--<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>-->
+
+<!--<script>-->
+<!--    window.fbAsyncInit = function() {-->
+<!--        FB.init({-->
+<!--            appId      : '2040535216240224',-->
+<!--            cookie     : true,-->
+<!--            xfbml      : true,-->
+<!--            version    : 'v3.3'-->
+<!--        });-->
+<!---->
+<!--        FB.AppEvents.logPageView();-->
+<!---->
+<!--        FB.getLoginStatus(function(response) {-->
+<!--            console.log(response);-->
+<!--            statusChangeCallback(response);-->
+<!--        });-->
+<!---->
+<!--    };-->
+<!---->
+<!--    (function(d, s, id){-->
+<!--        var js, fjs = d.getElementsByTagName(s)[0];-->
+<!--        if (d.getElementById(id)) {return;}-->
+<!--        js = d.createElement(s); js.id = id;-->
+<!--        js.src = "https://connect.facebook.net/en_US/sdk.js";-->
+<!--        fjs.parentNode.insertBefore(js, fjs);-->
+<!--    }(document, 'script', 'facebook-jssdk'));-->
+<!--</script>-->
 
 </body>
 </html>
