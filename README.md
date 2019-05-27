@@ -36,7 +36,7 @@
 - [x] Trajtimi i gabimeve dhe perjashtimeve (exceptions), të paktën dy implementime si dhe riperdorimi i kodit ne pjese te ndryshme te projektit.
 - [x] Komunikimi me MySQL, të gjitha funksionet për lidhje me DB, DML komandat në MySQL përmes PHP - [Link](https://github.com/urankajtazaj/Timeline/blob/master/includes/Database.php)
 - [x] Implementimi i funksioneve përmes PHP në lidhje me sigurinë e aplikacionit. Mbrojtja nga SQL Injections, implementimi i nje rasti te pakten. - [Link](https://github.com/urankajtazaj/Timeline/blob/5b5e6ea3fbe136d3658b63796dd2563cb94e1e13/Src/Controller/UserController.php#L27)
-- [ ] Validimi i parametrave që ndërlidhen me komunikimin me bazën e të dhënave dhe implementimi i dergimit te nje email-i nga aplikacioni permes nje forme te zakonshme duke perdorur email nga “provideret” e njohur.
+- [x] Validimi i parametrave që ndërlidhen me komunikimin me bazën e të dhënave dhe implementimi i dergimit te nje email-i nga aplikacioni permes nje forme te zakonshme duke perdorur email nga “provideret” e njohur.
 
 #### Shembuj (2) të komunikimit asinkron klient-server duke përdorur AJAX
 - [x] Përdorimi i AJAX-it për lexim dhe update-im nga një PHP skriptë - [Link](https://github.com/urankajtazaj/Timeline/tree/master/assets/js)
