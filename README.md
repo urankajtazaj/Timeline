@@ -56,33 +56,7 @@
 
 
 #
-#### Usernames
-```
-urankajtazaj
-james
-jenna
-nasa
-9gag
-spacex
-ltt
-mkbhd
-css-tricks
-goal
-unboxtherapy 
-lenovo
-pewdiepie
-windows
-steamvr
-towelliee
-discord
-```
 
-#### Password
-```
-admin
-```
-
-#
 
 ### Feed
 ![Feed](https://i.imgur.com/50Vcmjm.png)
