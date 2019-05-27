@@ -37,7 +37,7 @@
                         $likeCount = $post->getLikeCount();
                         $upvoters = PostController::getUpvoters($post->getId());
                         $upvotersList = "";
-                        echo "<pre>";
+
                         foreach ($upvoters as $upvoter) {
                             $upvotersList .= $upvoter->getName() . "<br/>";
                         }
@@ -45,9 +45,7 @@
                         if ($likeCount > sizeof($upvoters)) {
                             $upvotersList .= "<b>" . ($likeCount - sizeof($upvoters)) . " more</b>";
                         }
-
-                        echo "</pre>";
-                    ?>
+                        ?>
                     <span class="=" id="comment-count-<?= $post->getId() ?>"><i class="far fa-comment"></i>
                         <span class="btn-sm comment-count"><?= $post->getReplyCount() ?></span>
                     </span>

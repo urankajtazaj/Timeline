@@ -4,6 +4,7 @@
     <list default="true" id="de8c73a5-762e-43d9-a600-34ba71ac7263" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/includes/MainContent.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/MainContent.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,15 +37,33 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Src/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="206" column="63" lean-forward="true" selection-start-line="206" selection-start-column="63" selection-end-line="206" selection-end-column="63" />
+            <state relative-caret-position="467">
+              <caret line="267" lean-forward="true" selection-start-line="267" selection-end-line="267" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/includes/MainContent.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/includes/header.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -162,7 +181,6 @@
         <option value="$PROJECT_DIR$/includes/CreatePost.php" />
         <option value="$PROJECT_DIR$/timeline.sql" />
         <option value="$PROJECT_DIR$/Src/Model/Upvoter.php" />
-        <option value="$PROJECT_DIR$/includes/MainContent.php" />
         <option value="$PROJECT_DIR$/assets/icons/github.svg" />
         <option value="$PROJECT_DIR$/assets/js/search_user.js" />
         <option value="$PROJECT_DIR$/assets/js/libs/jquery-3.4.1.min.js" />
@@ -189,6 +207,7 @@
         <option value="$PROJECT_DIR$/includes/ProfileModal.php" />
         <option value="$PROJECT_DIR$/includes/SidebarRight.php" />
         <option value="$PROJECT_DIR$/Src/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/includes/MainContent.php" />
       </list>
     </option>
   </component>
@@ -323,12 +342,12 @@
       <workItem from="1558595183128" duration="14042000" />
       <workItem from="1558681366226" duration="2884000" />
       <workItem from="1558943649889" duration="18614000" />
-      <workItem from="1558983479964" duration="557000" />
+      <workItem from="1558983479964" duration="1409000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222322000" />
+    <option name="totallyTimeSpent" value="223174000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -527,13 +546,6 @@
     <entry file="file://$PROJECT_DIR$/assets/icons/github.svg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/MainContent.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="29" column="71" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/search_user.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -645,13 +657,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/includes/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/user_follow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -722,14 +727,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/includes/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="31" lean-forward="true" selection-start-line="30" selection-start-column="31" selection-end-line="30" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="206" column="63" lean-forward="true" selection-start-line="206" selection-start-column="63" selection-end-line="206" selection-end-column="63" />
+        <state relative-caret-position="467">
+          <caret line="267" lean-forward="true" selection-start-line="267" selection-end-line="267" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/includes/MainContent.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
         </state>
       </provider>
     </entry>

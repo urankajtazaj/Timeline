@@ -194,28 +194,6 @@ class UserController extends Timeline {
         return $posts;
     }
 
-    public static function downloadPosts() {
-        $dirpath = "../../export/" . Session::Get('user')->getId() . "/";
-        $filename = $dirpath . "Posts-" . date_format(new DateTime(), "Y-m-d-H-i-s") . ".csv";
-
-        if (!is_dir($dirpath)) {
-            mkdir($dirpath, 0775, true);
-        }
-
-        $file = fopen($filename, "w");
-
-        $posts = self::getPosts(Session::Get('user')->getId());
-
-        fwrite($file, "User, Post, Image\r\n");
-        foreach ($posts as $post) {
-            $line = $post->getUser()->getName() . ", " . $post->getContent() . ", " . $post->getImage() . "\r\n";
-            fwrite($file, $line);
-        }
-        fclose($file);
-        echo "<h1 class='display-4' style='text-align: center; padding-top: 50px;'>File has been saved successfully</h1>";
-        echo "<a href='{$filename}' download style='display: block; text-align: center'>Download file</a>";
-    }
-
     public static function follow($id) {
         $userId = Session::Get('user')->getId();
 
@@ -285,6 +263,30 @@ class UserController extends Timeline {
     public static function getFollowers($id) {
         $result = self::$con->query("select count(follows.userId) as total from user, follows where follows.followerId = {$id} and user.id = follows.userId");
         return $result->fetch_assoc()['total'];
+    }
+
+
+    // Create a file and make it downloadable
+    public static function downloadPosts() {
+        $dirpath = "../../export/" . Session::Get('user')->getId() . "/";
+        $filename = $dirpath . "Posts-" . date_format(new DateTime(), "Y-m-d-H-i-s") . ".csv";
+
+        if (!is_dir($dirpath)) {
+            mkdir($dirpath, 0775, true);
+        }
+
+        $file = fopen($filename, "w");
+
+        $posts = self::getPosts(Session::Get('user')->getId());
+
+        fwrite($file, "User, Post, Image\r\n");
+        foreach ($posts as $post) {
+            $line = $post->getUser()->getName() . ", " . $post->getContent() . ", " . $post->getImage() . "\r\n";
+            fwrite($file, $line);
+        }
+        fclose($file);
+        echo "<h1 class='display-4' style='text-align: center; padding-top: 50px;'>File has been saved successfully</h1>";
+        echo "<a href='{$filename}' download style='display: block; text-align: center'>Download file</a>";
     }
 
 }
