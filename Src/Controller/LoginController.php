@@ -51,7 +51,7 @@ class LoginController extends Timeline
     public function logout() {
         $_SESSION['user'] = null;
         session_unset($_SESSION['user']);
-        session_destroy($_SESSION['user']);
+        session_destroy();
 
         self::redirect("login");
     }

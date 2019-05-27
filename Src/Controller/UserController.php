@@ -23,38 +23,36 @@ class UserController extends Timeline {
 
     // Create a new user
     public static function createUser($post, $file, $redirect = true) {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $username = mysqli_real_escape_string(self::$con, trim($post['_username']));
-            $password = mysqli_real_escape_string(self::$con, trim($post['password']));
-            $name = mysqli_real_escape_string(self::$con, trim($post['_name']));
-            $newImageName = self::uploadImage($file['image'], $name, false);
-            $image = mysqli_real_escape_string(self::$con, $newImageName);
-            $bio = mysqli_real_escape_string(self::$con, trim(['_bio']));
+        $username = mysqli_real_escape_string(self::$con, trim($post['_username']));
+        $password = mysqli_real_escape_string(self::$con, trim($post['password']));
+        $name = mysqli_real_escape_string(self::$con, trim($post['_name']));
+        $newImageName = substr($file['image'], 0, 4) != "http" ? self::uploadImage($file['image'], $name, false) : $file['image'];
+        $image = mysqli_real_escape_string(self::$con, $newImageName);
+        $bio = mysqli_real_escape_string(self::$con, trim($post['_bio']));
 
-            $invalid = false;
-            $invalid_msg = "";
+        $invalid = false;
+        $invalid_msg = "";
 
-            if (strlen($username) < 3) {
-                $invalid = true;
-                $invalid_msg .= "Username should be longer than 3 characters<br/>";
-            }
+        if (strlen($username) < 3) {
+            $invalid = true;
+            $invalid_msg .= "Username should be longer than 3 characters<br/>";
+        }
 
-            if (strlen($name) < 3) {
-                $invalid = true;
-                $invalid_msg .= "Name should be longer than 3 characters<br/>";
-            }
+        if (strlen($name) < 3) {
+            $invalid = true;
+            $invalid_msg .= "Name should be longer than 3 characters<br/>";
+        }
 
-            if ($invalid) {
-                self::redirect("register", "message={$invalid_msg}&_username={$username}&_name={$name}&_bio={$bio}");
-            }
+        if ($invalid) {
+            self::redirect("register", "message={$invalid_msg}&_username={$username}&_name={$name}&_bio={$bio}");
+        }
 
-            $password = password_hash($password, PASSWORD_BCRYPT);
+        $password = password_hash($password, PASSWORD_BCRYPT);
 
-            self::$con->query("insert into user values(null, '{$username}', '{$password}', '{$name}', '{$name}', '{$bio}')");
+        self::$con->query("insert into user values(null, '{$username}', '{$password}', '{$name}', '{$newImageName}', '{$bio}')");
 
-            if ($redirect) {
-                self::redirect("login");
-            }
+        if ($redirect) {
+            self::redirect("login");
         }
     }
 
@@ -78,39 +76,35 @@ class UserController extends Timeline {
 
     // Upload an image form a new post or from the user profile
     public static function uploadImage($file, $folderName = null, $echo = true) {
-        if ( 0 < $file['error'] ) {
-            echo 'Error: ' . $file['error'] . '<br>';
+
+        $now = new DateTime();
+        $year = date_format($now, 'Y');
+        $month = date_format($now, 'm');
+        $day = date_format($now, 'd');
+
+        $time = date_format($now, 'H:i:s');
+
+        $dateDirs = '/' . $year . '/' . $month . '/' . $day . '/';
+
+        if (!$folderName) {
+            $user = Session::Get('user')->getName();
+        } else {
+            $user = $folderName;
         }
-        else {
-            $now = new DateTime();
-            $year = date_format($now, 'Y');
-            $month = date_format($now, 'm');
-            $day = date_format($now, 'd');
 
-            $time = date_format($now, 'H:i:s');
+        $filename = md5($time) . '-' . $file['name'];
+        $path = 'uploads/' . $user . $dateDirs;
 
-            $dateDirs = '/' . $year . '/' . $month . '/' . $day . '/';
+        if (!is_dir("../../" . $path)) {
+            mkdir("../../" . $path, 0775, true);
+        }
 
-            if (!$folderName) {
-                $user = Session::Get('user')->getName();
-            } else {
-                $user = $folderName;
-            }
+        move_uploaded_file($file['tmp_name'], "../../" . $path . $filename);
 
-            $filename = md5($time) . '-' . $file['name'];
-            $path = 'uploads/' . $user . $dateDirs;
-
-            if (!is_dir("../../" . $path)) {
-                mkdir("../../" . $path, 0777, true);
-            }
-
-            move_uploaded_file($file['tmp_name'], "../../" . $path . $filename);
-
-            if ($echo) {
-                echo $path . $filename;
-            } else {
-                return $path . $filename;
-            }
+        if ($echo) {
+            echo $path . $filename;
+        } else {
+            return $path . $filename;
         }
     }
 
@@ -156,7 +150,7 @@ class UserController extends Timeline {
         }
     }
 
-    public static function getByUsername($username, $file = null) {
+    public static function getByUsername($username, $file = null, $redirect = true) {
         $username = trim($username);
         $result = self::$con->query("select * from user where user.username = '{$username}' limit 1");
 
@@ -172,7 +166,7 @@ class UserController extends Timeline {
                 $data['bio']
             );
             return $user;
-        } else {
+        } else if ($redirect) {
             self::redirect("login", 'message=invalid&_username=' . $username);
         }
     }

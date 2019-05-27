@@ -34,7 +34,7 @@ class Timeline {
     }
 
     // Checks every word of the post if it's a url
-    public static function validateUrl($text) : string {
+    public static function validateUrl($text) {
         $pattern = "/^(http:\\/\\/www\.|https:\\/\\/www\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/";
         $mentionPattern = "/([\n]+)?[#|@][\w\d]+/";
         $words = explode(' ', $text);

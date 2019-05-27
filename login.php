@@ -1,5 +1,5 @@
 <?php
-    include 'includes/header.php';
+    include_once 'includes/header.php';
 
     $fb_login = new Facebook\Facebook([
         'app_id' => '2040535216240224', // Replace {app-id} with your app id
@@ -9,11 +9,10 @@
 
     $helper = $fb_login->getRedirectLoginHelper();
 
-    $permissions = ['email', 'name']; // Optional permissions
-    $loginUrl = $helper->getLoginUrl('https://localhost/', $permissions);
+    $permissions = ['public_profile']; // Optional permissions
+    $loginUrl = $helper->getLoginUrl('https://rabbit-llc.com/Timeline/fb-callback.php', $permissions);
 
     echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
-
 ?>
 
 <div class="container">
@@ -41,7 +40,6 @@
                             <button type="submit" class="btn btn-primary" style="width: 100%">Login</button>
                         </div>
                         <div id="fb-root"></div>
-<!--                        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=2040535216240224&autoLogAppEvents=1"></script>-->
                         <p class="text-danger text-center">
                             <?= isset($_GET['message']) ? 'Username or password is incorrect' : '' ?>
                         </p>

@@ -1,10 +1,6 @@
 <?php
-
-use Facebook\Exceptions\FacebookResponseException;
-use Facebook\Exceptions\FacebookSDKException;
-use Facebook\Facebook;
-
-include_once "includes/header.php";
+//include_once "includes/header.php";
+require "Autoload.php";
 
 $fb = new Facebook\Facebook([
     'app_id' => '2040535216240224', // Replace {app-id} with your app id
@@ -40,17 +36,11 @@ if (! isset($accessToken)) {
     exit;
 }
 
-// Logged in
-echo '<h3>Access Token</h3>';
-var_dump($accessToken->getValue());
-
 // The OAuth 2.0 client handler helps us manage access tokens
 $oAuth2Client = $fb->getOAuth2Client();
 
 // Get the access token metadata from /debug_token
 $tokenMetadata = $oAuth2Client->debugToken($accessToken);
-echo '<h3>Metadata</h3>';
-var_dump($tokenMetadata);
 
 // Validation (these will throw FacebookSDKException's when they fail)
 $tokenMetadata->validateAppId('2040535216240224'); // Replace {app-id} with your app id
@@ -81,7 +71,7 @@ $fb = new Facebook\Facebook([
 
 try {
     // Returns a `Facebook\FacebookResponse` object
-    $response = $fb->get('/me?fields=id,name', $_SESSION['fb_access_token']);
+    $response = $fb->get('/me?fields=id,name,picture', $_SESSION['fb_access_token']);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
@@ -92,10 +82,20 @@ try {
 
 $user = $response->getGraphUser();
 
-var_dump($user);
+$newUser = UserController::getByUsername($user->getId(), null, false);
 
-//Timeline::redirect('login');
+if (!$newUser) {
+    $userArr['_name'] = $user->getName();
+    $fileArr['image'] = $user->getPicture()->getUrl();
+    $userArr['_bio'] = '';
+    $userArr['password'] = $user->getId();
+    $userArr['_username'] = $user->getId();
 
-// User is logged in with a long-lived access token.
-// You can redirect them to a members-only page.
-//header('Location: https://example.com/members.php');
+    UserController::createUser($userArr, $fileArr, false);
+
+    $newUser = UserController::getByUsername($user->getId(), null, false);
+
+}
+
+Session::Add('user', $newUser);
+Timeline::redirectAbs('index');
