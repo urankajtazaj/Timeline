@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="col-6">
                                     <a href="<?= htmlspecialchars($loginUrl) ?>" class="btn btn-primary" style="width: 100%">
-                                        <img src="assets/icons/facebook.svg" width="25" />
+                                        <img src="assets/icons/facebook.svg" width="23" />
                                     </a>
                                 </div>
                             </div>
