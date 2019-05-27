@@ -2,6 +2,8 @@
 
 #
 
+[Live Preview](https://rabbit-llc.com/Timeline)
+
 ### Kërkesat e projektit
 
 #### PHP konceptet themelore
