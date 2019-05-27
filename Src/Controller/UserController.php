@@ -50,10 +50,7 @@ class UserController extends Timeline {
 
             $password = password_hash($password, PASSWORD_BCRYPT);
 
-            $stmt = self::$con->prepare("insert into user values(null, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssss", $username, $password, $name, $image, $bio);
-            $stmt->execute();
-            $stmt->close();
+            self::$con->query("insert into user values(null, '{$username}', '{$password}', '{$name}', '{$name}', '{$bio}')");
 
             if ($redirect) {
                 self::redirect("login");
@@ -70,10 +67,7 @@ class UserController extends Timeline {
 
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->prepare("update user set image = ?, name = ?, bio = ? where id = ?");
-        $stmt->bind_param("sssi", $image, $name, $bio, $userId);
-        $stmt->execute();
-        $stmt->close();
+        self::$con->query("update user set image = '{$image}', name = '{$name}', bio = '{$bio}' where id = {$userId}");
 
         $updatedUser = new User($userId, Session::Get('user')->getUsername(), Session::Get('user')->getPassword(), $name, $image, $bio);
 
@@ -122,11 +116,7 @@ class UserController extends Timeline {
 
     // Get a user by id
     public static function getById($id, $file = null) : User {
-        $stmt = self::$con->prepare("select * from user where user.id = ?");
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $result = self::$con->query("select * from user where user.id = {$id}");
 
         $data = $result->fetch_assoc();
 
@@ -147,10 +137,7 @@ class UserController extends Timeline {
     public static function getPopular() {
         $users = [];
 
-        $stmt = self::$con->prepare("select distinct user.*, count(follows.userId) as followers from user, follows where user.id = follows.followerId group by user.id order by followers desc limit 8");
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $result = self::$con->query("select distinct user.*, count(follows.userId) as followers from user, follows where user.id = follows.followerId group by user.id order by followers desc limit 8");
 
         if ($result->num_rows > 0) {
             while ($data = $result->fetch_assoc()) {
@@ -170,11 +157,8 @@ class UserController extends Timeline {
     }
 
     public static function getByUsername($username, $file = null) : User {
-        $stmt = self::$con->prepare("select * from user where user.username = ? limit 1");
-        $stmt->bind_param("s", trim($username));
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $username = trim($username);
+        $result = self::$con->query("select * from user where user.username = '{$username}' limit 1");
 
         $data = $result->fetch_assoc();
 
@@ -194,11 +178,7 @@ class UserController extends Timeline {
     }
 
     public static function getPosts($userId, $file = null) {
-        $stmt = self::$con->prepare("select * from post where post.userId = ?");
-        $stmt->bind_param("i", $userId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $result = self::$con->query("select * from post where post.userId = {$userId}");
 
         $posts = [];
 
@@ -218,31 +198,25 @@ class UserController extends Timeline {
     public static function follow($id) {
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->prepare("insert into follows values(null, ?, ?)");
-        $stmt->bind_param("ii",$userId, $id);
-        $stmt->execute();
+        $stmt = self::$con->query("insert into follows values(null, {$userId}, {$id}");
 
-        if ($stmt->affected_rows > 0) {
+        if (self::$con->affected_rows > 0) {
             return true;
         } else {
             return false;
         }
-        $stmt->close();
     }
 
     public static function unfollow($id) {
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->prepare("delete from follows where userId = ? and followerId = ?");
-        $stmt->bind_param("ii",$userId, $id);
-        $stmt->execute();
+        $stmt = self::$con->query("delete from follows where userId = {$userId} and followerId = {$id}");
 
-        if ($stmt->affected_rows > 0) {
+        if (self::$con->affected_rows > 0) {
             return true;
         } else {
             return false;
         }
-        $stmt->close();
     }
 
     public static function followStatus($id) {
@@ -252,11 +226,7 @@ class UserController extends Timeline {
             return true;
         }
 
-        $stmt = self::$con->prepare("select count(id) as total from follows where followerId = ? and userId = ? limit 1");
-        $stmt->bind_param("ii", $id, $userId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $result = self::$con->query("select count(id) as total from follows where followerId = {$id} and userId = {$userId} limit 1");
 
         if ($result->fetch_assoc()['total'] > 0) {
             return true;
@@ -270,10 +240,7 @@ class UserController extends Timeline {
         $users = [];
 
         $name = "%" . trim($name) . "%";
-        $stmt = self::$con->prepare("select * from user where name like ?");
-        $stmt->bind_param("s", $name);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $result = self::$con->query("select * from user where name like '{$name}'");
 
         while ($row = $result->fetch_assoc()) {
             $users[] = new User(
@@ -286,28 +253,16 @@ class UserController extends Timeline {
             );
         }
 
-        $stmt->close();
         return $users;
     }
 
     public static function getFollowing($id) {
-        $stmt = self::$con->prepare("select count(user.id) as total from user, follows where follows.userId = ? and user.id = follows.followerId");
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
-
+        $result = self::$con->query("select count(user.id) as total from user, follows where follows.userId = {$id} and user.id = follows.followerId");
         return $result->fetch_assoc()['total'];
     }
 
     public static function getFollowers($id) {
-        $stmt = self::$con->prepare("select count(follows.userId) as total from user, follows where follows.followerId = ? and user.id = follows.userId");
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        $stmt->close();
-
+        $result = self::$con->query("select count(follows.userId) as total from user, follows where follows.followerId = {$id} and user.id = follows.userId");
         return $result->fetch_assoc()['total'];
     }
 

@@ -18,11 +18,7 @@ class PostController extends Timeline {
     public static function getPost($id) {
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->prepare("select * from post where id = ? limit 1");
-        $stmt->bind_param("i", $id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $result = self::$con->query("select * from post where id = {$id} limit 1");
 
         $p = $result->fetch_assoc();
         return new Post(
@@ -41,10 +37,7 @@ class PostController extends Timeline {
         $userId = Session::Get('user')->getId();
         $image = $post['file_path'];
 
-        $stmt = self::$con->prepare("insert into post (id, content, image, userId) values(null, ?, ?, ?)");
-        $stmt->bind_param("ssi", $content, $image, $userId);
-        $stmt->execute();
-        $stmt->close();
+        self::$con->query("insert into post (id, content, image, userId) values(null, '{$content}', '{$image}', {$userId})");
 
         if ($redirect) {
             self::redirect('index');
@@ -62,10 +55,7 @@ class PostController extends Timeline {
 
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->prepare("insert into answer values (null, ?, ?, ?, now())");
-        $stmt->bind_param("iis", $postId, $userId, $comment);
-        $stmt->execute();
-        $stmt->close();
+        self::$con->query("insert into answer values (null, {$postId}, {$userId}, '{$comment}', now())");
 
         return json_encode([
             "user" => Session::Get('user'),
@@ -77,11 +67,7 @@ class PostController extends Timeline {
     public static function getReplies($post) {
         $postId = mysqli_real_escape_string(self::$con, $post['postId']);
 
-        $stmt = self::$con->prepare("select * from answer, user where answer.post_id = ? and answer.user_id = user.id order by answer.date desc");
-        $stmt->bind_param("i", $postId);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
+        $result = self::$con->query("select * from answer, user where answer.post_id = {$postId} and answer.user_id = user.id order by answer.date desc");
 
         $replies = [];
 
@@ -101,12 +87,7 @@ class PostController extends Timeline {
 
     // Get replies count of a single post
     public static function getRepliesCount($post_id) {
-        $stmt = self::$con->prepare("select count(id) as total from answer where answer.post_id = ? order by answer.date desc");
-        $stmt->bind_param("i", $post_id);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $stmt->close();
-
+        $result = self::$con->query("select count(id) as total from answer where answer.post_id = {$post_id} order by answer.date desc");
         return $result->fetch_assoc()['total'];
     }
 
@@ -116,13 +97,10 @@ class PostController extends Timeline {
 
         $userId = Session::get('user')->getId();
 
-        $stmt = self::$con->prepare("
+        $result = self::$con->query("
                 select DISTINCT post.* from post, follows
-                where post.userId = follows.followerId and follows.userId = ?
-                or post.userId = ? order by post.date desc limit ?");
-        $stmt->bind_param("iii", $userId, $userId, $limit);
-        $stmt->execute();
-        $result = $stmt->get_result();
+                where post.userId = follows.followerId and follows.userId = {$userId}
+                or post.userId = {$userId} order by post.date desc limit {$limit}");
 
         while ($row = $result->fetch_assoc()) {
             $posts[] = new Post(
@@ -134,8 +112,6 @@ class PostController extends Timeline {
                     );
         }
 
-        $stmt->close();
-
         return $posts;
     }
 
@@ -143,31 +119,24 @@ class PostController extends Timeline {
     public static function toggleLike($post) {
         $userId = Session::get('user')->getId();
 
-        $stmt = self::$con->prepare(
+        self::$con->query(
             "update post_like
                     set status = case when status = 1 then 0 else 1 end
-                    where postId = ? and 
-                    userId = ?"
+                    where postId = {$post} and 
+                    userId = {$userId}"
         );
-        $stmt->bind_param("ii", $post, $userId);
-        $stmt->execute();
 
-        if ($stmt->affected_rows == 0) {
+        if (self::$con->affected_rows == 0) {
             self::addNewLike($post);
         } else {
             echo self::isLikedByMe($post) ? "1" : "0";
         }
-
-        $stmt->close();
     }
 
     // Get a list of upvoters
     public static function getUpvoters($postId) {
         $upvoters = [];
-        $stmt = self::$con->prepare("select user.* from user, post_like where user.id = post_like.userId and status = 1 and post_like.postId = ? limit 4");
-        $stmt->bind_param("i", $postId);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $result = self::$con->query("select user.* from user, post_like where user.id = post_like.userId and status = 1 and post_like.postId = {$postId} limit 4");
 
         while ($data = $result->fetch_assoc()) {
             $upvoters[] = new Upvoter(
@@ -180,35 +149,25 @@ class PostController extends Timeline {
             );
         }
 
-        $stmt->close();
         return $upvoters;
-
     }
 
     // Add a new like to a post
     public static function addNewLike($post) {
         $userId = Session::get('user')->getId();
 
-        $stmt = self::$con->prepare(
-            "insert into post_like values(null, ?, ?, 1)"
+        self::$con->query(
+            "insert into post_like values(null, {$userId}, {$post}, 1)"
         );
 
-        $stmt->bind_param("ii", $userId, $post);
-        $stmt->execute();
-
         echo "1";
-        $stmt->close();
     }
 
     // Get like count of a single post
     public static function getLikeCount($post) {
-        $stmt = self::$con->prepare("select sum(status) as total from post_like where postId = ?");
-        $stmt->bind_param("i",  $post);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $result = self::$con->query("select sum(status) as total from post_like where postId = {$post}");
 
         $row = $result->fetch_assoc();
-        $stmt->close();
 
         return $row['total'] ? $row['total'] : "0";
     }
@@ -216,20 +175,14 @@ class PostController extends Timeline {
     // Check if the post is liked by the current user
     public static function isLikedByMe($post) : bool {
         $userId = Session::get('user')->getId();
-        $stmt = self::$con->prepare("select status from post_like where postId = ? and userId = ?");
-        $stmt->bind_param("ii",  $post, $userId);
-        $stmt->execute();
-        $result = $stmt->get_result();
+        $result = self::$con->query("select status from post_like where postId = {$post} and userId = {$userId}");
 
-        if ($stmt->affected_rows > 0) {
-            $stmt->close();
+        if (self::$con->affected_rows > 0) {
             $row = $result->fetch_assoc();
             return $row['status'] == "1" ? true : false;
-        } else {
-            $stmt->close();
-            return false;
         }
 
+        return false;
     }
 }
 
