@@ -10,7 +10,7 @@ $popular = UserController::getPopular();
         Snapshot
     </div>
     <div class="card-body">
-        <p class="lead"><?= sizeof($posts) ?> Posts</p>
+        <p class="lead"><?= sizeof($posts) ?> Posts <small class="float-right pt-2"><a href="<?= Timeline::goToFunction("user", "downloadPosts") ?>" target="_blank"><i class="fas fa-download"></i></a></small></p>
         <p class="lead"><?= $following ?> Following</p>
         <p class="lead"><?= $followers ?> Followers</p>
     </div>

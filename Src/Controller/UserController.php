@@ -194,6 +194,21 @@ class UserController extends Timeline {
         return $posts;
     }
 
+    public static function downloadPosts() {
+        $file = fopen($_SERVER['DOCUMENT_ROOT'] . "/Timeline/export/" . date_format(new DateTime(), "Posts - Y-m-d H-i-s") . ".csv", "w");
+
+        $posts = self::getPosts(Session::Get('user')->getId());
+
+        fwrite($file, "User,\tPost,\tImage\r\n");
+        foreach ($posts as $post) {
+            $line = $post->getUser()->getName() . ", " . $post->getContent() . ", " . $post->getImage() . "\r\n";
+            fwrite($file, $line);
+        }
+        fclose($file);
+        echo "<h1 class='display-4' style='text-align: center; padding-top: 50px;'>File has been saved to the <code>export</code> folder</h1>";
+        echo "<a href='#' style='display: block; text-align: center' onclick='window.close();return false;'>Close Tab</a>";
+    }
+
     public static function follow($id) {
         $userId = Session::Get('user')->getId();
 
