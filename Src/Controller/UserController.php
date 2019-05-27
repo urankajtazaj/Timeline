@@ -192,7 +192,7 @@ class UserController extends Timeline {
     public static function follow($id) {
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->query("insert into follows values(null, {$userId}, {$id}");
+        self::$con->query("insert into follows values(null, {$userId}, {$id})");
 
         if (self::$con->affected_rows > 0) {
             return true;
@@ -204,7 +204,7 @@ class UserController extends Timeline {
     public static function unfollow($id) {
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->query("delete from follows where userId = {$userId} and followerId = {$id}");
+        self::$con->query("delete from follows where userId = {$userId} and followerId = {$id}");
 
         if (self::$con->affected_rows > 0) {
             return true;

@@ -14,6 +14,7 @@ function handleFollow(id, btn) {
             "userId": id
         },
         success: function (response) {
+            console.log(response);
             if (btn.hasClass("btn")) {
                 btn.removeClass("btn-primary");
                 btn.addClass("btn-danger");

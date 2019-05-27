@@ -11,8 +11,6 @@
 
     $permissions = ['public_profile']; // Optional permissions
     $loginUrl = $helper->getLoginUrl('https://rabbit-llc.com/Timeline/fb-callback.php', $permissions);
-
-    echo '<a href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
 ?>
 
 <div class="container">
@@ -37,7 +35,16 @@
                         </small>
                         <br>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-primary" style="width: 100%">Login</button>
+                            <div class="row">
+                                <div class="col-6">
+                                    <button type="submit" class="btn btn-primary" style="width: 100%">Login</button>
+                                </div>
+                                <div class="col-6">
+                                    <a href="<?= htmlspecialchars($loginUrl) ?>" class="btn btn-primary" style="width: 100%">
+                                        <img src="assets/icons/facebook.svg" width="25" />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                         <div id="fb-root"></div>
                         <p class="text-danger text-center">
