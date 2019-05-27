@@ -1,12 +1,4 @@
 <?php
-
-//spl_autoload_register(function ($class) {
-//    require "../Model/" . $class . ".php";
-//});
-
-//require 'includes/Database.php';
-//require 'Src/Model/User.php';
-
 include $_SERVER['DOCUMENT_ROOT'] . '/Timeline/Autoload.php';
 
 class UserController extends Timeline {
@@ -23,15 +15,26 @@ class UserController extends Timeline {
 
     // Create a new user
     public static function createUser($post, $file, $redirect = true) {
+
+        $emailPattern = "/^[\w\._]+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/";
+
         $username = mysqli_real_escape_string(self::$con, trim($post['_username']));
         $password = mysqli_real_escape_string(self::$con, trim($post['password']));
+        $email = mysqli_real_escape_string(self::$con, trim($post['_email']));
         $name = mysqli_real_escape_string(self::$con, trim($post['_name']));
-        $newImageName = substr($file['image'], 0, 4) != "http" ? self::uploadImage($file['image'], $name, false) : $file['image'];
+        $newImageName = !is_array($file['image'])
+            ? (substr($file['image'], 0, 4) != "http" ? self::uploadImage($file['image'], $name, false) : $file['image'])
+            : $file['image']['error'] == 0 ? self::uploadImage($file['image'], $name, false) : '';
         $image = mysqli_real_escape_string(self::$con, $newImageName);
         $bio = mysqli_real_escape_string(self::$con, trim($post['_bio']));
 
         $invalid = false;
         $invalid_msg = "";
+
+        if (!preg_match($emailPattern, $email)) {
+            $invalid = true;
+            $invalid_msg .= "Email is not valid<br/>";
+        }
 
         if (strlen($username) < 3) {
             $invalid = true;
@@ -44,15 +47,18 @@ class UserController extends Timeline {
         }
 
         if ($invalid) {
-            self::redirect("register", "message={$invalid_msg}&_username={$username}&_name={$name}&_bio={$bio}");
+            self::redirect("register", "message={$invalid_msg}&_username={$username}&_name={$name}&_bio={$bio}&_email={$email}");
         }
 
         $password = password_hash($password, PASSWORD_BCRYPT);
 
-        self::$con->query("insert into user values(null, '{$username}', '{$password}', '{$name}', '{$newImageName}', '{$bio}')");
+        self::$con->query("insert into user values(null, '{$username}', '{$password}', '{$name}', '{$newImageName}', '{$bio}', '{$email}')");
+
+        Timeline::sendEmail($email, $name);
 
         if ($redirect) {
-            self::redirect("login");
+            Session::Add('user', new User(self::$con->insert_id, $username, "secret", $name, $email, $image, $bio));
+            self::redirect("index");
         }
     }
 
@@ -72,7 +78,7 @@ class UserController extends Timeline {
 
         self::$con->query("update user set image = '{$image}', name = '{$name}', bio = '{$bio}' where id = {$userId}");
 
-        $updatedUser = new User($userId, Session::Get('user')->getUsername(), Session::Get('user')->getPassword(), $name, $image, $bio);
+        $updatedUser = new User($userId, Session::Get('user')->getUsername(), Session::Get('user')->getPassword(), $name, Session::Get('user')->getEmail(), $image, $bio);
 
         Session::Add('user', $updatedUser);
 
@@ -125,6 +131,7 @@ class UserController extends Timeline {
                 $data['username'],
                 $data['password'],
                 $data['name'],
+                $data['email'],
                 $data['image'],
                 $data['bio']
             );
@@ -145,6 +152,7 @@ class UserController extends Timeline {
                     $data['username'],
                     "secret",
                     $data['name'],
+                    $data['email'],
                     $data['image'],
                     $data['bio']
                 );
@@ -167,6 +175,7 @@ class UserController extends Timeline {
                 $data['username'],
                 $data['password'],
                 $data['name'],
+                $data['email'],
                 $data['image'],
                 $data['bio']
             );
@@ -247,6 +256,7 @@ class UserController extends Timeline {
                 $row['username'],
                 "secret",
                 $row['name'],
+                $data['email'],
                 $row['image'],
                 $row['bio']
             );

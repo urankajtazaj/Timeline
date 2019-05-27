@@ -24,6 +24,13 @@ include 'includes/header.php';
                             <input type="text" value="<?= isset($_GET['_name']) ? $_GET['_name'] : '' ?>" required name="_name" class="form-control" id="name">
                         </div>
                         <div class="form-group">
+                            <label for="email" class="text-muted">Email</label>
+                            <input type="email" value="<?= isset($_GET['_email']) ? $_GET['_email'] : '' ?>" required name="_email" class="form-control" id="email">
+                        </div>
+                        <br>
+                        <hr>
+                        <br>
+                        <div class="form-group">
                             <label for="bio" class="text-muted">Short Description <small>(Optional)</small></label>
                             <input type="text" value="<?= isset($_GET['_bio']) ? $_GET['_bio'] : '' ?>" class="form-control" name="_bio" id="bio" />
                         </div>
