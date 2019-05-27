@@ -27,7 +27,7 @@
 - [x] Thirrja e konstruktoreve dhe destruktoreve
 - [x] Realizimi i enkapsulimit permes `Get` dhe `Set`
 - [x] Implementimi i nje trashegimie ne klasa - [Link](https://github.com/urankajtazaj/Timeline/blob/8672d227e64f78b15f0acc247b78ba4e2ce67669/Src/Model/Upvoter.php#L4)
-- [x] Perdorimi i funksioneve per shkrim dhe lexim nga fajllat, implementimi ne projekt i nje shembulli te tille
+- [x] Perdorimi i funksioneve per shkrim dhe lexim nga fajllat, implementimi ne projekt i nje shembulli te tille - [Link](https://github.com/urankajtazaj/Timeline/blob/530d17b0c585693630f0e6ed2923b7c113300afb/Src/Controller/UserController.php#L270)
 
 #### PHP Sessions dhe Cookies
 - [ ] Definimi dhe përdorimi i `COOKIES` me të gjitha specifikat (krijim, fshirja, ruajtja në varg)
