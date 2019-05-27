@@ -71,7 +71,7 @@ $fb = new Facebook\Facebook([
 
 try {
     // Returns a `Facebook\FacebookResponse` object
-    $response = $fb->get('/me?fields=id,name,picture', $_SESSION['fb_access_token']);
+    $response = $fb->get('/me?fields=id,name,picture.height(400)', $_SESSION['fb_access_token']);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
