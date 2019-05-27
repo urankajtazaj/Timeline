@@ -4,7 +4,6 @@
     <list default="true" id="de8c73a5-762e-43d9-a600-34ba71ac7263" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/Src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/includes/SidebarRight.php" beforeDir="false" afterPath="$PROJECT_DIR$/includes/SidebarRight.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,7 +22,7 @@
         <entry file="file://$PROJECT_DIR$/login.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="119">
-              <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+              <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -32,16 +31,16 @@
         <entry file="file://$PROJECT_DIR$/fb-callback.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+              <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Src/Controller/UserController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="203" column="76" selection-start-line="203" selection-start-column="76" selection-end-line="203" selection-end-column="76" />
+            <state relative-caret-position="331">
+              <caret line="206" column="63" lean-forward="true" selection-start-line="206" selection-start-column="63" selection-end-line="206" selection-end-column="63" />
               <folding>
                 <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
@@ -53,8 +52,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Autoload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="52" />
+            <state relative-caret-position="119">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="52" />
               <folding>
                 <element signature="e#6#64#0#PHP" expanded="true" />
               </folding>
@@ -62,11 +61,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/includes/SidebarRight.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="221">
-              <caret line="13" column="55" lean-forward="true" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
+              <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -188,8 +187,8 @@
         <option value="$PROJECT_DIR$/includes/footer.php" />
         <option value="$PROJECT_DIR$/fb-callback.php" />
         <option value="$PROJECT_DIR$/includes/ProfileModal.php" />
-        <option value="$PROJECT_DIR$/Src/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/includes/SidebarRight.php" />
+        <option value="$PROJECT_DIR$/Src/Controller/UserController.php" />
       </list>
     </option>
   </component>
@@ -221,6 +220,11 @@
               <item name="Timeline" type="b2602c69:ProjectViewProjectNode" />
               <item name="Timeline" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Timeline" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Timeline" type="462c0819:PsiDirectoryNode" />
+              <item name="export" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Timeline" type="b2602c69:ProjectViewProjectNode" />
@@ -319,11 +323,12 @@
       <workItem from="1558595183128" duration="14042000" />
       <workItem from="1558681366226" duration="2884000" />
       <workItem from="1558943649889" duration="18614000" />
+      <workItem from="1558983479964" duration="557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="221540000" />
+    <option name="totallyTimeSpent" value="222322000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -338,7 +343,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1716418" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -668,17 +673,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/js/post_modal.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="714">
           <caret line="42" column="57" lean-forward="true" selection-start-line="42" selection-start-column="57" selection-end-line="42" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/export/2019-05-27 20-41-46.csv" />
+    <entry file="file://$PROJECT_DIR$/export/2019-05-27 20-45-40.csv" />
+    <entry file="file://$PROJECT_DIR$/export/2019-05-27 20-46-52.csv" />
+    <entry file="file://$PROJECT_DIR$/export/2019-05-27 20-50-53.csv" />
+    <entry file="file://$PROJECT_DIR$/fb-callback.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="52" />
+          <folding>
+            <element signature="e#6#64#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -689,54 +708,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Autoload.php">
+    <entry file="file://$PROJECT_DIR$/includes/SidebarRight.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="13" lean-forward="true" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="52" />
-          <folding>
-            <element signature="e#6#64#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="221">
+          <caret line="13" column="55" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/export/2019-05-27 20-41-46.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/export/2019-05-27 20-45-40.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/export/2019-05-27 20-46-52.csv">
+    <entry file="file://$PROJECT_DIR$/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/export/2019-05-27 20-50-53.csv">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fb-callback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        <state relative-caret-position="119">
+          <caret line="7" column="7" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Src/Controller/UserController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="203" column="76" selection-start-line="203" selection-start-column="76" selection-end-line="203" selection-end-column="76" />
+        <state relative-caret-position="331">
+          <caret line="206" column="63" lean-forward="true" selection-start-line="206" selection-start-column="63" selection-end-line="206" selection-end-column="63" />
           <folding>
             <element signature="n#style#0;n#h1#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/includes/SidebarRight.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="55" lean-forward="true" selection-start-line="13" selection-start-column="55" selection-end-line="13" selection-end-column="55" />
         </state>
       </provider>
     </entry>

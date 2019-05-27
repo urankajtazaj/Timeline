@@ -195,18 +195,25 @@ class UserController extends Timeline {
     }
 
     public static function downloadPosts() {
-        $file = fopen($_SERVER['DOCUMENT_ROOT'] . "/Timeline/export/" . date_format(new DateTime(), "Posts - Y-m-d H-i-s") . ".csv", "w");
+        $dirpath = "../../export/" . Session::Get('user')->getId() . "/";
+        $filename = $dirpath . "Posts-" . date_format(new DateTime(), "Y-m-d-H-i-s") . ".csv";
+
+        if (!is_dir($dirpath)) {
+            mkdir($dirpath, 0775, true);
+        }
+
+        $file = fopen($filename, "w");
 
         $posts = self::getPosts(Session::Get('user')->getId());
 
-        fwrite($file, "User,\tPost,\tImage\r\n");
+        fwrite($file, "User, Post, Image\r\n");
         foreach ($posts as $post) {
             $line = $post->getUser()->getName() . ", " . $post->getContent() . ", " . $post->getImage() . "\r\n";
             fwrite($file, $line);
         }
         fclose($file);
-        echo "<h1 class='display-4' style='text-align: center; padding-top: 50px;'>File has been saved to the <code>export</code> folder</h1>";
-        echo "<a href='#' style='display: block; text-align: center' onclick='window.close();return false;'>Close Tab</a>";
+        echo "<h1 class='display-4' style='text-align: center; padding-top: 50px;'>File has been saved successfully</h1>";
+        echo "<a href='{$filename}' download style='display: block; text-align: center'>Download file</a>";
     }
 
     public static function follow($id) {
