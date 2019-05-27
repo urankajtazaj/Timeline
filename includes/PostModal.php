@@ -17,7 +17,7 @@
                 </div>
                 <div class="post-content">
                     <p class="lead"></p>
-                    <img src="" />
+                    <img src="" class="d-none" />
                     <br><br>
                     <div class="post-footer text-right text-muted">
                         <span class=""><i class="far fa-comment"></i><span class="btn-sm comment-count">0</span></span>

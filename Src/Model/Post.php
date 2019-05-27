@@ -26,11 +26,11 @@ class Post implements JsonSerializable {
         $this->replyCount = PostController::getRepliesCount($this->id);
     }
 
-    public function getId() : int {
+    public function getId() {
         return $this->id;
     }
 
-    public function getContent() : string {
+    public function getContent() {
         return $this->content;
     }
 
@@ -42,11 +42,11 @@ class Post implements JsonSerializable {
         $this->image = $image;
     }
 
-    public function getUserId() : int {
+    public function getUserId() {
         return $this->userId;
     }
 
-    public function getUser() : User {
+    public function getUser() {
         return $this->user;
     }
 

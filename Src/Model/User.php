@@ -25,23 +25,23 @@ class User implements JsonSerializable {
         $this->following = UserController::getFollowing($this->id);
     }
 
-    public function getId() : int {
+    public function getId() {
         return $this->id;
     }
 
-    public function getUsername(): string {
+    public function getUsername() {
         return $this->username;
     }
 
-    public function getName(): string {
+    public function getName() {
         return $this->name;
     }
 
-    public function getImage(): string {
+    public function getImage() {
         return $this->image;
     }
 
-    public function getBio(): string {
+    public function getBio() {
         return $this->bio;
     }
 

@@ -48,9 +48,9 @@ function prependPost(post) {
             <div class="post-content" data-toggle="modal" data-target=".postModal">
                 <p>
                     ${post.content.replace(/\n/g, "<br />")}
-                </p>
-                <img src="${post.image}" alt="">
-                <input type="hidden" name="post_id" id="post_id" value="${post.id}" >
+                </p>` +
+                (post.image ? `<img src="${post.image}" alt="">` : ``)
+                + `<input type="hidden" name="post_id" id="post_id" value="${post.id}" >
             </div>
         </div>
         <div class="post-footer text-right text-muted">

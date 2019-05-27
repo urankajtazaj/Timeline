@@ -18,6 +18,11 @@ function activateModal() {
 
         el.find(".card-body").on("click", function () {
             image.attr('src', '');
+            if (!$(this).find(".post-content img").attr('src')) {
+                image.addClass("d-none")
+            } else {
+                image.removeClass("d-none");
+            }
             content.html(el.find("p").html());
             user.text(el.find(".user").text());
             time.html(el.find(".time").html());
