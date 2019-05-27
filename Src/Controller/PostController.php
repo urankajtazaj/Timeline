@@ -92,7 +92,7 @@ class PostController extends Timeline {
     }
 
     // Get all post made from the users that you follow
-    public static function getPosts($order = "desc", $limit = 15) : array {
+    public static function getPosts($order = "desc", $limit = 15) {
         $posts = [];
 
         $userId = Session::get('user')->getId();
@@ -173,7 +173,7 @@ class PostController extends Timeline {
     }
 
     // Check if the post is liked by the current user
-    public static function isLikedByMe($post) : bool {
+    public static function isLikedByMe($post) {
         $userId = Session::get('user')->getId();
         $result = self::$con->query("select status from post_like where postId = {$post} and userId = {$userId}");
 

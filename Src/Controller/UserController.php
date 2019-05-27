@@ -115,7 +115,7 @@ class UserController extends Timeline {
     }
 
     // Get a user by id
-    public static function getById($id, $file = null) : User {
+    public static function getById($id, $file = null) {
         $result = self::$con->query("select * from user where user.id = {$id}");
 
         $data = $result->fetch_assoc();
@@ -156,7 +156,7 @@ class UserController extends Timeline {
         }
     }
 
-    public static function getByUsername($username, $file = null) : User {
+    public static function getByUsername($username, $file = null) {
         $username = trim($username);
         $result = self::$con->query("select * from user where user.username = '{$username}' limit 1");
 
