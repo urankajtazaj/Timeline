@@ -65,7 +65,7 @@ $fb = new Facebook\Facebook([
 ]);
 
 try {
-    $response = $fb->get('/me?fields=id,name,picture.height(400)', $_SESSION['fb_access_token']);
+    $response = $fb->get('/me?fields=id,name,email,picture.height(400)', $_SESSION['fb_access_token']);
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
     echo 'Graph returned an error: ' . $e->getMessage();
     exit;
@@ -80,15 +80,16 @@ $newUser = UserController::getByUsername($user->getId(), null, false);
 
 if (!$newUser) {
     $userArr['_name'] = $user->getName();
-    $fileArr['image'] = $user->getPicture()->getUrl();
     $userArr['_bio'] = '';
-    $userArr['password'] = $user->getId();
     $userArr['_username'] = $user->getId();
+    $userArr['_email'] = $user->getEmail();
+    $userArr['password'] = $user->getId();
+
+    $fileArr['image'] = $user->getPicture()->getUrl();
 
     UserController::createUser($userArr, $fileArr, false);
 
     $newUser = UserController::getByUsername($user->getId(), null, false);
-
 }
 
 Session::Add('user', $newUser);

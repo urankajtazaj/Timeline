@@ -9,7 +9,7 @@
 
     $helper = $fb_login->getRedirectLoginHelper();
 
-    $permissions = ['public_profile']; // Optional permissions
+    $permissions = ['email']; // Optional permissions
     $loginUrl = $helper->getLoginUrl('https://rabbit-llc.com/Timeline/fb-callback.php', $permissions);
 ?>
 

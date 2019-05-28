@@ -24,7 +24,7 @@ class UserController extends Timeline {
         $name = mysqli_real_escape_string(self::$con, trim($post['_name']));
         $newImageName = !is_array($file['image'])
             ? (substr($file['image'], 0, 4) != "http" ? self::uploadImage($file['image'], $name, false) : $file['image'])
-            : $file['image']['error'] == 0 ? self::uploadImage($file['image'], $name, false) : '';
+            : ($file['image']['error'] == 0 ? self::uploadImage($file['image'], $name, false) : '');
         $image = mysqli_real_escape_string(self::$con, $newImageName);
         $bio = mysqli_real_escape_string(self::$con, trim($post['_bio']));
 
