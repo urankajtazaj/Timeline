@@ -30,7 +30,7 @@
 - [x] Perdorimi i funksioneve per shkrim dhe lexim nga fajllat, implementimi ne projekt i nje shembulli te tille - [Link](https://github.com/urankajtazaj/Timeline/blob/530d17b0c585693630f0e6ed2923b7c113300afb/Src/Controller/UserController.php#L270)
 
 #### PHP Sessions dhe Cookies
-- [ ] Definimi dhe përdorimi i `COOKIES` me të gjitha specifikat (krijim, fshirja, ruajtja në varg)
+- [x] Definimi dhe përdorimi i `COOKIES` me të gjitha specifikat (krijim, fshirja, ruajtja në varg)
 - [x] Definimi dhe përdorimi i `SESSIONS` në PHP me të gjitha specifikat (krijimi, ruajtja e vlerave, leximi i vlerave etj) - [Link](https://github.com/urankajtazaj/Timeline/blob/master/Src/Service/Sessions.php)
 - [x] Manipulimi me PHP Sesione (psh ruajtje të ndryshme të vlerave, pastaj ndryshimi i tyre dhe manipulime të ngjashme) - [Link](https://github.com/urankajtazaj/Timeline/blob/5b5e6ea3fbe136d3658b63796dd2563cb94e1e13/Src/Controller/UserController.php#L78)
 - [x] Trajtimi i gabimeve dhe perjashtimeve (exceptions), të paktën dy implementime si dhe riperdorimi i kodit ne pjese te ndryshme te projektit.
