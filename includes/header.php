@@ -4,7 +4,11 @@ require "Autoload.php";
 $basename = basename($_SERVER['PHP_SELF']);
 $redirect = false;
 
-if ($basename != 'login.php' && $basename != 'register.php' && !$_SESSION['user'] && $basename != 'fb-callback.php' ) {
+if (isset($_COOKIE['user'])) {
+    Session::Add('user', Session::GetCookie('user'));
+}
+
+if ($basename != 'login.php' && $basename != 'register.php' && !isset($_SESSION['user']) && $basename != 'fb-callback.php' ) {
     $redirect = true;
 }
 

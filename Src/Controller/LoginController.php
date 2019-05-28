@@ -24,6 +24,7 @@ class LoginController extends Timeline
     public function login($post) {
         $username = mysqli_real_escape_string($this->con, $post['username']);
         $password = $post['password'];
+        $remember = $post['remember'];
 
         $user = UserController::getByUsername($username);
 
@@ -32,6 +33,15 @@ class LoginController extends Timeline
                 /**
                  * User logged in
                  */
+
+                $user->setPassword("secret");
+
+                if ($remember) {
+                    if (!isset($_COOKIE['user'])) {
+                        Session::AddCookie("user", $user);
+                    }
+                }
+
                 Session::Add('user', $user);
                 $this::redirect("index");
             } else {
@@ -49,8 +59,8 @@ class LoginController extends Timeline
     }
 
     public function logout() {
-        $_SESSION['user'] = null;
-        session_unset($_SESSION['user']);
+        Session::DestroyCookie("user");
+        Session::DestroySession("user");
         session_destroy();
 
         self::redirect("login");

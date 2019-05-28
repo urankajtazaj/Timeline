@@ -30,10 +30,10 @@
                             <label for="username" class="text-muted">Password</label>
                             <input type="password" required name="password" class="form-control" id="password">
                         </div>
-                        <small class="d-block text-center">
-                            <a href="register.php">Don't have an account? Register now!</a>
-                        </small>
-                        <br>
+                        <div class="form-group text-muted">
+                            <input type="checkbox" name="remember" id="remember">
+                            <label for="remember">Remember me?</label>
+                        </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-6">
@@ -46,6 +46,9 @@
                                 </div>
                             </div>
                         </div>
+                        <small class="d-block text-center">
+                            <a href="register.php">Don't have an account? Register now!</a>
+                        </small>
                         <div id="fb-root"></div>
                         <p class="text-danger text-center">
                             <?= isset($_GET['message']) ? 'Username or password is incorrect' : '' ?>

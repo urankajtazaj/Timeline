@@ -75,6 +75,10 @@ class User implements JsonSerializable {
         $this->bio = $bio;
     }
 
+    public function setPassword(string $password) {
+        $this->password = $password;
+    }
+
 
     public function jsonSerialize()
     {
