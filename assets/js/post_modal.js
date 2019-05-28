@@ -65,8 +65,8 @@ function getReplies(container, post_id) {
                 let comment = comments[i];
 
                 container.append(
-                    `<div class="card post pb-0">
-                        <div class="card-body">
+                    `<div class="card condensed pb-0">
+                        <div class="card-body pb-2 pt-2">
                             <div class="d-flex align-items-center">
                                 <div class="profile-pic small d-inline-flex">
                                     <img class="pic" src="${comment.image}" alt="${comment.name}">

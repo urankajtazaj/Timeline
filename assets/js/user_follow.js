@@ -7,6 +7,10 @@ function addFollowingEvents() {
 
 
 function handleFollow(id, btn) {
+
+    btn.text("Following...");
+    btn.prop("disabled", true);
+
     $.ajax({
         method: "POST",
         url: "Src/Service/HandleFollow.php",
@@ -18,6 +22,7 @@ function handleFollow(id, btn) {
             if (btn.hasClass("btn")) {
                 btn.removeClass("btn-primary");
                 btn.addClass("btn-danger");
+                btn.prop("disabled", false);
             }
             btn.text("Unfollow");
             addFollowingEvents();
@@ -26,6 +31,10 @@ function handleFollow(id, btn) {
 }
 
 function handleUnfollow(id, btn) {
+
+    btn.text("Unfollowing...");
+    btn.prop("disabled", true);
+
     $.ajax({
         method: "POST",
         url: "Src/Service/HandleUnfollow.php",
@@ -37,6 +46,7 @@ function handleUnfollow(id, btn) {
                 if (btn.hasClass("btn")) {
                     btn.removeClass("btn-danger");
                     btn.addClass("btn-primary");
+                    btn.prop("disabled", false);
                 }
                 btn.text("Follow");
                 addFollowingEvents();
