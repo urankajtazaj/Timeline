@@ -46,10 +46,10 @@
                             $upvotersList .= "<b>" . ($likeCount - sizeof($upvoters)) . " more</b>";
                         }
                         ?>
-                    <span class="=" id="comment-count-<?= $post->getId() ?>"><i class="far fa-comment"></i>
+                    <span id="comment-count-<?= $post->getId() ?>"><i class="far fa-comment"></i>
                         <span class="btn-sm comment-count"><?= $post->getReplyCount() ?></span>
                     </span>
-                    <span onclick="handleLike(<?= $post->getId() ?>, this)" class="btn btn-like <?= $post->isLiked() ? "liked" : "" ?> ml-4" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" data-content="<?= $upvotersList ?>"><i class="far fa-heart"></i><span class="btn-sm count"><?= $likeCount ?></span></span>
+                    <span onclick="handleLike(<?= $post->getId() ?>, this)" class="btn-like <?= $post->isLiked() ? "liked" : "" ?> ml-4" data-toggle="popover" data-trigger="hover" data-html="true" data-placement="top" data-content="<?= $upvotersList ?>"><i class="far fa-heart"></i><span class="btn-sm count"><?= $likeCount ?></span></span>
                 </div>
             </div>
             <?php

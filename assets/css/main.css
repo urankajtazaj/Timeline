@@ -2,8 +2,18 @@
     transition: 250ms ease;
 }
 
-h1, h2, h3, h4, h5 {
-    font-weight: lighter;
+@font-face {
+    src: url("../fonts/OpenSans-Light.ttf");
+    font-family: "Open Sans Light";
+}
+
+@font-face {
+    src: url("../fonts/OpenSans-Regular.ttf");
+    font-family: "Open Sans";
+}
+
+h1, h2, h3, h4, h5, .lead {
+    font-family: "Open Sans Light";
 }
 
 body {
