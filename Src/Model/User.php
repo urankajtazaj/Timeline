@@ -67,15 +67,15 @@ class User implements JsonSerializable {
         $this->name = $name;
     }
 
-    public function setImage(string $image) {
+    public function setImage($image) {
         $this->image = $image;
     }
 
-    public function setBio(string $bio) {
+    public function setBio($bio) {
         $this->bio = $bio;
     }
 
-    public function setPassword(string $password) {
+    public function setPassword($password) {
         $this->password = $password;
     }
 
