@@ -11,7 +11,7 @@
                             <img class="pic" src="<?= !empty($post->getUser()->getImage()) ? $post->getUser()->getImage() : 'uploads/avatar.png' ?>" alt="<?= $post->getUser()->getName() ?>">
                         </div>
                         <span class="d-block full-width ml-3">
-                            <b class="mr-1 user"><?= $post->getUser()->getName() ?></b> <small id="uname" class="text-muted">@<?= $post->getUser()->getUsername() ?></small>
+                            <b class="mr-1 user"><?= $post->getUser()->getName() ?></b>
                             -
                             <small class="ml-1 text-muted time">
                                 <?php if ($post->getUser()->getId() != Session::Get('user')->getId()) { ?>
