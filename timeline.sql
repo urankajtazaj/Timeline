@@ -223,7 +223,8 @@ CREATE TABLE `user` (
   `password` varchar(100) NOT NULL,
   `name` varchar(100) NOT NULL,
   `image` varchar(250) NOT NULL,
-  `bio` varchar(700) NOT NULL
+  `bio` varchar(700) NOT NULL,
+  `email` varchar(50) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
