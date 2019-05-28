@@ -291,7 +291,7 @@ class UserController extends Timeline {
 
         fwrite($file, "User, Post, Image\r\n");
         foreach ($posts as $post) {
-            $line = $post->getUser()->getName() . ", " . $post->getContent() . ", " . $post->getImage() . "\r\n";
+            $line = $post->getUser()->getName() . ", " . str_replace(",", "", $post->getContent()) . ", " . $post->getImage() . "\r\n";
             fwrite($file, $line);
         }
         fclose($file);
