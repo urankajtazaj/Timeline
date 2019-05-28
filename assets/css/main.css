@@ -68,8 +68,9 @@ h1.logo {
 .card.post {
     position: relative;
     border: 1px solid #e9e9e9;
-    border-bottom: none;
-    border-radius: 0;
+    /*border-bottom: none;*/
+    /*border-radius: 0;*/
+    margin-bottom: 20px;
 }
 
 .card.post .btn-danger, .modal .btn-danger {
@@ -104,8 +105,14 @@ h1.logo {
 }
 
 .card {
+    box-shadow: 0 2px 4px rgba(0,0,0,.07);
     border-radius: 15px;
     overflow: hidden;
+}
+
+.card.condensed {
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,.05);
 }
 
 .card-header,
@@ -139,7 +146,7 @@ h1.logo {
     align-items: center;
     height: 130px;
     width: 130px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);*/
 }
 
 .profile-pic.square {

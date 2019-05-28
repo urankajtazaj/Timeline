@@ -256,7 +256,7 @@ class UserController extends Timeline {
                 $row['username'],
                 "secret",
                 $row['name'],
-                $data['email'],
+                $row['email'],
                 $row['image'],
                 $row['bio']
             );

@@ -16,14 +16,14 @@ form.on("submit", function (e) {
             let users = JSON.parse(response);
 
             center.append(
-                '<div class="card post">' +
+                '<div class="card condensed">' +
                 '<div class="card-header"><h4 class="mb-0">' + users.length + ' search results for "' + query.val().trim() + '"</h4></div>' +
                 '</div>');
 
             for (index in users) {
                 let user = users[index];
                 let card =
-                `<div class="card post">
+                `<div class="card condensed">
                    <div class="card-body">
                        <div class="d-flex align-items-center">
                            <div class="profile-pic small d-inline-flex">
