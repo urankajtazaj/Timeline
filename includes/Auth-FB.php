@@ -1,7 +1,4 @@
 <?php
-
-use Facebook\Facebook;
-
 $fb_login = new Facebook\Facebook([
     'app_id' => '2040535216240224',
     'app_secret' => 'a859caed0cf83cc96ad880d0a8832668',

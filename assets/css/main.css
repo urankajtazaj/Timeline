@@ -206,8 +206,9 @@ textarea.new-status {
     border-color: transparent;
     transition: 300ms ease;
     padding: 20px;
-    height: 80px;
+    height: 55px;
     border-radius: 10px !important;
+    overflow: hidden;
 }
 
 textarea.new-status:focus {
@@ -218,6 +219,7 @@ textarea.new-status:focus {
 
 textarea.resizable {
     height: 220px;
+    overflow: auto;
 }
 
 textarea.new-status::placeholder {
