@@ -1,16 +1,6 @@
 <?php
     include_once 'includes/header.php';
-
-    $fb_login = new Facebook\Facebook([
-        'app_id' => '2040535216240224', // Replace {app-id} with your app id
-        'app_secret' => 'a859caed0cf83cc96ad880d0a8832668',
-        'default_graph_version' => 'v3.2',
-    ]);
-
-    $helper = $fb_login->getRedirectLoginHelper();
-
-    $permissions = ['email']; // Optional permissions
-    $loginUrl = $helper->getLoginUrl('https://rabbit-llc.com/Timeline/fb-callback.php', $permissions);
+    include_once 'includes/Auth-FB.php';
 ?>
 
 <div class="container">
