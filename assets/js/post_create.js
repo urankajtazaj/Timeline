@@ -1,10 +1,10 @@
 var container = $("#post-list");
 var form = $("#post-new");
+var content = $("textarea#content");
 
 form.on("submit", function (e) {
     e.preventDefault();
 
-    let content = $("textarea#content");
     let image = $("input#file_path");
 
     if (content.val().length > 0 || image.val().length > 0) {
@@ -25,8 +25,19 @@ form.on("submit", function (e) {
         });
     }
 
-})
+});
 
+content.on("focusout", function (e) {
+    if ($(this).val() == "") {
+        $(this).removeClass("resizable");
+    } else {
+        $(this).addClass("resizable");
+    }
+});
+
+content.on("focusin", function (e) {
+    $(this).addClass("resizable");
+});
 
 function prependPost(post) {
     let card =

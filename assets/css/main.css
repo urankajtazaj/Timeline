@@ -204,15 +204,20 @@ h1.logo {
 
 textarea.new-status {
     border-color: transparent;
-    transition: 1000ms ease;
+    transition: 300ms ease;
     padding: 20px;
-    border-width: 5px;
+    height: 80px;
+    border-radius: 10px !important;
 }
 
 textarea.new-status:focus {
     box-shadow: none;
     border-color: transparent;
-    border-color: rgba(29, 161, 242, .5);
+    z-index: 9999;
+}
+
+textarea.resizable {
+    height: 220px;
 }
 
 textarea.new-status::placeholder {
