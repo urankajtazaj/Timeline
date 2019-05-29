@@ -22,19 +22,6 @@
         </div>
     </div>
 </div>
-<br>
-<div class="card text-left">
-    <div class="card-header">
-        Search users
-    </div>
-    <div class="card-body">
-        <form class="mb-0" id="searchForm" method="get">
-            <div class="mb-0 form-group">
-                <input type="text" name="q" class="form-control" />
-            </div>
-        </form>
-    </div>
-</div>
 <br><br>
 <div class="text-center">
     <a id="gh" href="https://github.com/urankajtazaj/Timeline" title="Timeline on Github" target="_blank"><img src="assets/icons/github.svg" width="25" alt=""></a>

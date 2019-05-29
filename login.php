@@ -32,7 +32,7 @@
                         </div>
                         <div class="form-group text-muted">
                             <input type="checkbox" name="remember" id="remember">
-                            <label for="remember">Remember me?</label>
+                            <label for="remember">Keep me logged in</label>
                         </div>
                         <div class="form-group">
                             <div class="row">
@@ -41,7 +41,7 @@
                                 </div>
                                 <div class="col-6">
                                     <a href="<?= htmlspecialchars($loginUrl) ?>" class="btn btn-primary" style="width: 100%">
-                                        <img src="assets/icons/facebook.svg" width="23" />
+                                        <img src="assets/icons/facebook.svg" width="23" />acebook
                                     </a>
                                 </div>
                             </div>

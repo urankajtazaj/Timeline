@@ -4,8 +4,14 @@ $following = UserController::getFollowing(Session::Get('user')->getId());
 $followers = UserController::getFollowers(Session::Get('user')->getId());
 $popular = UserController::getPopular();
 ?>
-
-<div class="card d-none d-md-block" style="top: 20; margin-bottom: 8px">
+<br>
+<form class="mb-0 d-block" id="searchForm" method="get"  style="top: 20; margin-bottom: 8px">
+    <div class="mb-0 form-group">
+        <input type="text" name="q" class="form-control" placeholder="Search for users" />
+    </div>
+</form>
+<br>
+<div class="card d-none d-md-block">
     <div class="card-header">
         Snapshot
     </div>
