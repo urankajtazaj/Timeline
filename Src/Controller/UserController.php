@@ -140,10 +140,10 @@ class UserController extends Timeline {
         }
     }
 
-    public static function getPopular() {
+    public static function getPopular($limit = 5) {
         $users = [];
 
-        $result = self::$con->query("select distinct user.*, count(follows.userId) as followers from user, follows where user.id = follows.followerId group by user.id order by followers desc limit 8");
+        $result = self::$con->query("select distinct user.*, count(follows.userId) as followers from user, follows where user.id = follows.followerId group by user.id order by followers desc limit {$limit}");
 
         if ($result->num_rows > 0) {
             while ($data = $result->fetch_assoc()) {
@@ -248,7 +248,7 @@ class UserController extends Timeline {
         $users = [];
 
         $name = "%" . trim($name) . "%";
-        $result = self::$con->query("select * from user where name like '{$name}'");
+        $result = self::$con->query("select * from user where name like '{$name}' or username like '{$name}' or bio like '{$name}'");
 
         while ($row = $result->fetch_assoc()) {
             $users[] = new User(

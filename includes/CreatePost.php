@@ -2,7 +2,7 @@
     <div class="card-body p-0">
         <form method="post" id="post-new" enctype="multipart/form-data" action="<?= Timeline::goToFunction('post', 'createPost') ?>">
             <div class="form-group">
-                <textarea class="form-control full-width new-status" name="content" id="content" placeholder="#How is the day going?"></textarea>
+                <textarea class="form-control pb-0 full-width new-status" name="content" id="content" placeholder="#How is the day going?"></textarea>
             </div>
             <div class="row align-items-center">
                 <div class="col-6">
@@ -14,7 +14,7 @@
                     <small class="reset-pic text-muted ml-3" id="reset_thumb">Reset image</small>
                 </div>
                 <div class="col-6 text-right">
-                    <button type="submit" class="btn btn-primary btn-circle float-right mr-3"><i class="fas fa-paper-plane"></i></button>
+                    <button type="submit" class="btn btn-primary btn-circle float-right mr-3 btn-post no-content"><i class="fas fa-paper-plane"></i></button>
                 </div>
             </div>
         </form>

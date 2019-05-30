@@ -21,5 +21,5 @@ $posts = PostController::getPosts();
         </div>
     </div>
 </div>
-
-<?php include 'includes/footer.php' ?>
+<br><br>
+<?php include 'includes/scripts.php' ?>

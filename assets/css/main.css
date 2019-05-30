@@ -12,8 +12,18 @@
     font-family: "Open Sans";
 }
 
+@font-face {
+    src: url("../fonts/OpenSans-ExtraBold.ttf");
+    font-family: "Open Sans ExtraBold";
+}
+
 h1, h2, h3, h4, h5, .lead {
     font-family: "Open Sans Light";
+}
+
+.big-name {
+    font-family: "Open Sans ExtraBold";
+    text-transform: uppercase;
 }
 
 body {
@@ -26,7 +36,7 @@ body {
 }
 
 .logo a {
-    color: #444;
+    color: rgb(29, 161, 242);
 }
 
 .logo a:hover {
@@ -38,7 +48,7 @@ body {
 }
 
 h1.logo {
-    font-size: 45px;
+    font-size: 35px;
 }
 
 .btn {
@@ -48,6 +58,10 @@ h1.logo {
     padding-right: 20px;
     font-weight: bolder;
     font-size: 15px;
+}
+
+.card .btn:hover {
+    background-color: rgba(0,0,0,0.05);
 }
 
 .btn:focus {
@@ -78,6 +92,7 @@ h1.logo {
 
 .card-header {
     background-color: #fff;
+    font-family: "Open Sans ExtraBold";
 }
 
 .card.post {
@@ -179,7 +194,13 @@ h1.logo {
 }
 
 .btn-circle {
-    padding: 15px 50px;
+    padding: 15px 60px;
+    transition: 250ms ease;
+}
+
+.btn-circle.no-content {
+    opacity: 0;
+    padding: 15px 20px;
 }
 
 .btn-like {

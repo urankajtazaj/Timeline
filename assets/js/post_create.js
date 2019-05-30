@@ -30,13 +30,17 @@ form.on("submit", function (e) {
 content.on("focusout", function (e) {
     if ($(this).val() == "") {
         $(this).removeClass("resizable");
+        $(".btn-post").addClass("no-content")
+        $(".btn-post").prop("disabled", true);
     } else {
-        $(this).addClass("resizable");
+        $(this).addClass("resizable")
     }
 });
 
 content.on("focusin", function (e) {
     $(this).addClass("resizable");
+    $(".btn-post").removeClass("no-content")
+    $(".btn-post").prop("disabled", false);
 });
 
 function prependPost(post) {
