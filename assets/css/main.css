@@ -76,7 +76,7 @@ h1.logo {
 
 .btn-primary:hover {
     color: rgb(29, 161, 242);
-    background-color: rgba(29, 161, 242, .1);
+    background-color: rgba(29, 161, 242, .1) !important;
 }
 
 .btn-danger {
@@ -87,7 +87,7 @@ h1.logo {
 
 .btn-danger:hover {
     color: rgb(242, 69, 87);
-    background-color: rgba(242, 69, 87, 0.1);
+    background-color: rgba(242, 69, 87, 0.1) !important;
 }
 
 .card-header {
