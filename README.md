@@ -42,7 +42,7 @@
 - [x] Përdorimi i AJAX-it për lexim dhe update-im nga një PHP skriptë - [Link](https://github.com/urankajtazaj/Timeline/tree/master/assets/js)
 - [x] Përdorimi i AJAX-it për lexim dhe update-im nga një DB - [Link](https://github.com/urankajtazaj/Timeline/tree/master/assets/js)
 - [x] Perdorimi i nje WEB API ne projekt (FB, Twitter ose ndonje rrjet tjeter social)
-- [ ] Gaming
+- [x] Gaming
 - [x] Kodi burimor duhet te jete ne dispozicion ne github.
 
 
