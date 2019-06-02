@@ -49,6 +49,10 @@
         </div>
     </div>
 </div>
+<br>
+<div class="text-center">
+    <small><a href="TicTacToe/index.php">Tic Tac Toe</a></small>
+</div>
 <?php include 'includes/footer.php' ?>
 <?php include 'includes/scripts.php' ?>
 
