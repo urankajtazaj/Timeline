@@ -1,6 +1,13 @@
 <br>
 <div id="post-list">
+    <?php if (!empty($post_title)) { ?>
+        <div class="card post">
+            <div class="card-body">
+                <?= $post_title ?>
+            </div>
+        </div>
     <?php
+    }
     if (sizeof($posts) > 0) {
         foreach ($posts as $post) {
             ?>
@@ -11,7 +18,9 @@
                             <img class="pic" src="<?= !empty($post->getUser()->getImage()) ? $post->getUser()->getImage() : 'uploads/avatar.png' ?>" alt="<?= $post->getUser()->getName() ?>">
                         </div>
                         <span class="d-block full-width ml-3">
-                            <b class="mr-1 user"><?= $post->getUser()->getName() ?></b>
+                            <a class="text-dark" href="index.php?user=<?= $post->getUser()->getUsername() ?>">
+                                <b class="mr-1 user"><?= $post->getUser()->getName() ?></b>
+                            </a>
                             -
                             <small class="ml-1 text-muted time">
                                 <?php if ($post->getUser()->getId() != Session::Get('user')->getId()) { ?>
@@ -56,8 +65,8 @@
         }
     } else { ?>
         <div class="card" id="no-posts">
-            <div class="card-body">
-                <p class="lead text-center">No posts in your feed<br><small class="text-muted">Start by following someone</small></p>
+            <div class="card-body text-center">
+                <p class="lead pt-3">Wow, such clean</p>
             </div>
         </div>
     <?php } ?>

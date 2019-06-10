@@ -1,11 +1,10 @@
 var container = $("#post-list");
 var form = $("#post-new");
 var content = $("textarea#content");
+var image = $("input#file_path");
 
 form.on("submit", function (e) {
     e.preventDefault();
-
-    let image = $("input#file_path");
 
     if (content.val().length > 0 || image.val().length > 0) {
         $.ajax({
@@ -24,16 +23,21 @@ form.on("submit", function (e) {
             }
         });
     }
-
 });
 
 content.on("focusout", function (e) {
     if ($(this).val() == "") {
         $(this).removeClass("resizable");
+    } else {
+        $(this).addClass("resizable")
+    }
+
+    if (image.val() == "" && $(this).val() == "") {
         $(".btn-post").addClass("no-content")
         $(".btn-post").prop("disabled", true);
     } else {
-        $(this).addClass("resizable")
+        $(".btn-post").removeClass("no-content")
+        $(".btn-post").prop("disabled", false);
     }
 });
 

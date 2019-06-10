@@ -8,11 +8,11 @@
     </div>
     <div class="card-body">
         <div class="profile-pic ml-auto mr-auto">
-            <img src="<?= Session::Get('user')->getImage() ? Session::Get('user')->getImage() : 'uploads/avatar.png' ?>" alt="<?= Session::Get('user')->getName() ?>">
+            <img src="<?= Session::Get('user')->getImage() ? $user->getImage() : 'uploads/avatar.png' ?>" alt="<?= $user->getName() ?>">
         </div>
         <br>
-        <h3 class="text-center big-name"><?= Session::Get('user')->getName() ?></h3>
-        <small class="text-muted d-block text-center"><?= Session::Get('user')->getBio() ?></small>
+        <h3 class="text-center big-name"><?= $user->getName() ?></h3>
+        <small class="text-muted d-block text-center"><?= $user->getBio() ?></small>
         <div class="text-center">
             <br>
             <span>

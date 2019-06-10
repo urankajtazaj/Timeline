@@ -1,6 +1,20 @@
 <?php
 include_once 'includes/header.php';
-$posts = PostController::getPosts();
+$post_title = "";
+$user = Session::Get('user');
+
+if (isset($_GET['user'])) {
+    $username = trim($_GET['user']);
+
+    $user = UserController::getByUsername($username);
+    $id = $user->getId();
+    $name = $user->getName();
+    $posts = UserController::getPosts($id);
+
+    $post_title = "<h5 class='mb-0'>" . ucwords($name) . "'s activity</h5>";
+} else {
+    $posts = PostController::getPosts();
+}
 ?>
 
 <div class="container">

@@ -30,7 +30,7 @@ form.on("submit", function (e) {
                                <img class="pic" src="${user.image ? user.image : "uploads/avatar.png"}" alt="${user.name}">
                            </div>
                            <span class="d-inline ml-3">
-                               <b class="mr-1 user">${user.name}</b> - <small class="text-muted pl-1">${user.followers} Follower${user.followers > 1 || user.followers == 0 ? 's' : ''}</small><br>
+                               <a class="text-dark" href="index.php?user=${user.username}"><b class="mr-1 user">${user.name}</b></a> - <small class="text-muted pl-1">${user.followers} Follower${user.followers > 1 || user.followers == 0 ? 's' : ''}</small><br>
                                <small class="text-muted">${user.bio}</small>
                            </span>
                            <a href="#!" id="follow-btn-${user.id}" class="btn btn-primary ml-auto btn-follow" data-id="${user.id}">Follow</a>

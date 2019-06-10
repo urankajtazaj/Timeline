@@ -1,7 +1,7 @@
 <?php
-$posts = UserController::getPosts(Session::Get('user')->getId());
-$following = UserController::getFollowing(Session::Get('user')->getId());
-$followers = UserController::getFollowers(Session::Get('user')->getId());
+$posts = UserController::getPosts($user->getId());
+$following = UserController::getFollowing($user->getId());
+$followers = UserController::getFollowers($user->getId());
 $popular = UserController::getPopular(3);
 ?>
 <br>
@@ -10,20 +10,17 @@ $popular = UserController::getPopular(3);
         <input type="text" name="q" class="form-control" placeholder="Search for users"/>
     </div>
 </form>
-<br>
-<div class="card d-none d-md-block">
-    <div class="card-header">
-        Snapshot
-    </div>
-    <div class="card-body">
-        <p class="lead"><?= sizeof($posts) ?> Posts
-            <small class="float-right pt-2"><a href="<?= Timeline::goToFunction("user", "downloadPosts") ?>"
-                                               target="_blank"><i class="fas fa-download"></i></a></small>
-        </p>
-        <p class="lead"><?= $following ?> Following</p>
-        <p class="lead"><?= $followers ?> Followers</p>
-    </div>
-</div>
+<!--<br>-->
+<!--<div class="card d-none d-md-block">-->
+<!--    <div class="card-header">-->
+<!--        Snapshot-->
+<!--    </div>-->
+<!--    <div class="card-body">-->
+<!--        <p class="lead">--><?//= sizeof($posts) ?><!-- Posts</p>-->
+<!--        <p class="lead">--><?//= $following ?><!-- Following</p>-->
+<!--        <p class="lead">--><?//= $followers ?><!-- Followers</p>-->
+<!--    </div>-->
+<!--</div>-->
 <br>
 <div class="card d-none d-md-block">
     <div class="card-header">
