@@ -52,7 +52,6 @@
 2. Unzip it on the `htdocs` folder
 3. Create database `timeline`
 4. Import the database data from `timeline.sql`
-5. Use one of the usernames below
 
 
 #
