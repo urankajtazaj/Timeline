@@ -10,17 +10,6 @@ $popular = UserController::getPopular(3);
         <input type="text" name="q" class="form-control" placeholder="Search for users"/>
     </div>
 </form>
-<!--<br>-->
-<!--<div class="card d-none d-md-block">-->
-<!--    <div class="card-header">-->
-<!--        Snapshot-->
-<!--    </div>-->
-<!--    <div class="card-body">-->
-<!--        <p class="lead">--><?//= sizeof($posts) ?><!-- Posts</p>-->
-<!--        <p class="lead">--><?//= $following ?><!-- Following</p>-->
-<!--        <p class="lead">--><?//= $followers ?><!-- Followers</p>-->
-<!--    </div>-->
-<!--</div>-->
 <br>
 <div class="card d-none d-md-block">
     <div class="card-header">

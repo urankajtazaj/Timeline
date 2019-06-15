@@ -13,7 +13,12 @@ if (isset($_GET['user'])) {
 
     $post_title = "<h5 class='mb-0'>" . ucwords($name) . "'s activity</h5>";
 } else {
-    $posts = PostController::getPosts();
+    if (isset($_GET['post'])) {
+        $post_id = $_GET['post'];
+        $posts = [ PostController::getPost($post_id) ];
+    } else {
+        $posts = PostController::getPosts();
+    }
 }
 ?>
 
@@ -25,8 +30,12 @@ if (isset($_GET['user'])) {
             </div>
         </div>
         <div class="col-md-6 col-12 pl-1 pr-1 position-relative" id="center" style="top: 20">
-            <?php include 'includes/CreatePost.php'; ?>
-            <?php include 'includes/MainContent.php'; ?>
+            <?php
+                if (!isset($_GET['post'])) {
+                    include 'includes/CreatePost.php';
+                }
+                include 'includes/MainContent.php';
+            ?>
         </div>
         <div class="col-md-3 col-12 pl-1 position-relative">
             <div class="position-sticky" style="top: 0">
