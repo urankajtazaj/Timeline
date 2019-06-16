@@ -32,7 +32,7 @@ if ($redirect) {
 <body>
 <?php
 if (isset($_SESSION['user'])) {
-    include 'includes/PostModal.php';
+//    include 'includes/PostModal.php';
     include 'includes/ProfileModal.php';
 }
 ?>

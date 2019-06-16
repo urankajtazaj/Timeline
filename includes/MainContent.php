@@ -1,4 +1,3 @@
-<br>
 <div id="post-list">
     <?php if (!empty($post_title)) { ?>
         <div class="card post">

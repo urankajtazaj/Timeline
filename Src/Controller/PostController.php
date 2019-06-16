@@ -97,7 +97,7 @@ class PostController extends Timeline {
         }
 
         $stmt->close();
-        return json_encode($replies);
+        return $replies;
     }
 
     // Get replies count of a single post

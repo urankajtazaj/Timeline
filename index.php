@@ -15,7 +15,8 @@ if (isset($_GET['user'])) {
 } else {
     if (isset($_GET['post'])) {
         $post_id = $_GET['post'];
-        $posts = [ PostController::getPost($post_id) ];
+        $post = PostController::getPost($post_id);
+        $replies = PostController::getReplies(["postId" => $post_id]);
     } else {
         $posts = PostController::getPosts();
     }
@@ -33,8 +34,10 @@ if (isset($_GET['user'])) {
             <?php
                 if (!isset($_GET['post'])) {
                     include 'includes/CreatePost.php';
+                    include 'includes/MainContent.php';
+                } else {
+                    include 'includes/PostSingle.php';
                 }
-                include 'includes/MainContent.php';
             ?>
         </div>
         <div class="col-md-3 col-12 pl-1 position-relative">
