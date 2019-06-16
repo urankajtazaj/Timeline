@@ -34,7 +34,7 @@
                     </div>
                     <a href="index.php?post=<?= $post->getId() ?>">
                         <div class="post-content">
-                            <?= Timeline::validateUrl($post->getContent()) ?>
+                            <?= Timeline::validateUrl($post->getContent(), false) ?>
                             <?php if ($post->getImage()) { ?>
                                 <img src="<?= $post->getImage() ?>" alt="">
                             <?php } ?>

@@ -50,7 +50,7 @@ class Timeline {
     }
 
     // Checks every word of the post if it's a url
-    public static function validateUrl($text) {
+    public static function validateUrl($text, $anchor = true) {
         $pattern = "/^(http:\\/\\/www\.|https:\\/\\/www\.|http:\\/\\/|https:\\/\\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\\/.*)?$/";
         $mentionPattern = "/([\n]+)?[#|@][\w\d]+/";
         $words = explode(' ', $text);
@@ -61,9 +61,9 @@ class Timeline {
             $word = trim($word);
             $nlstr = nl2br(stripcslashes($word));
             $url = str_replace('\n', '', $word);
-            if (preg_match($pattern, $url)) {
+            if (preg_match($pattern, $url) && $anchor) {
                 $finalHtml .= "<a style='word-break: break-word' target=\"_blank\" href=\"" . (substr($url, 0, 4) == "http" ? $url : "http://" . $url) . "\">" . $nlstr . " </a>";
-            } else if (preg_match($mentionPattern, $word)) {
+            } else if (preg_match($mentionPattern, $word) && $anchor) {
                 $finalHtml .= "<a href='#!'>{$nlstr}</a> ";
             } else {
                 $finalHtml .= $nlstr . " ";
@@ -85,18 +85,15 @@ class Timeline {
 
         $diff = $now->diff($datetime, true);
 
-        if ($diff->d == 1) {
-            return "Yesterday at " . $fullDate->format("H:i");
-        } else if ($diff->d == 0) {
-
+        if ($diff->d == 0) {
             if ($now->diff($fullDate)->i == 0) {
                 return "Just now";
             }
 
             if ($now->diff($fullDate)->h < 1) {
-                return $now->diff($fullDate)->format("%i") . " minutes ago";
+                return $now->diff($fullDate)->format("%i") . "m";
             }
-            return "Today at " . $fullDate->format("H:i");
+            return $now->diff($fullDate)->h . "h";
         } else {
             return  $fullDate->format('d/m/Y');
         }

@@ -50,7 +50,7 @@
                     <img src="<?= Session::Get('user')->getImage() ?>">
                 </div>
                 <input type="hidden" name="user" id="user_id" value="<?= Session::Get('user')->getId() ?>">
-                <input type="hidden" name="post" id="post_id" value="">
+                <input type="hidden" name="post" id="post_id" value="<?= $post->getId() ?>">
                 <input required type="text" id="comment_new" name="comment_new" class="form-control ml-3 mr-3"
                        placeholder="Say something nice">
                 <button type="submit" class="btn btn-primary">Reply</button>

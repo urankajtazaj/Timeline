@@ -17,7 +17,7 @@ form.on("submit", function (e) {
         },
         success: function (response) {
             input.val('');
-            // getReplies($("#replies"), postId.val());
+            getReplies($("#replies"), postId.val());
         }
     });
 })

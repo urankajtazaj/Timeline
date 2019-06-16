@@ -58,12 +58,13 @@ class PostController extends Timeline {
 
     // Create a new comment on a post
     public static function createComment($post) {
+
         $comment = mysqli_real_escape_string(self::$con, $post['comment']);
         $postId = mysqli_real_escape_string(self::$con, $post['postId']);
 
         $userId = Session::Get('user')->getId();
 
-        $stmt = self::$con->query("insert into answer values (null, ?, ?, ?, now())");
+        $stmt = self::$con->prepare("insert into answer values (null, ?, ?, ?, now())");
         $stmt->bind_param("iis", $postId, $userId, $comment);
         $stmt->execute();
         $stmt->close();
@@ -75,7 +76,7 @@ class PostController extends Timeline {
     }
 
     // Get all replies for a single post
-    public static function getReplies($post) {
+    public static function getReplies($post, $json = false) {
         $postId = mysqli_real_escape_string(self::$con, $post['postId']);
 
         $stmt = self::$con->prepare("select * from answer, user where answer.post_id = ? and answer.user_id = user.id order by answer.date desc");
@@ -97,6 +98,11 @@ class PostController extends Timeline {
         }
 
         $stmt->close();
+
+        if ($json) {
+            return json_encode($replies);
+        }
+
         return $replies;
     }
 
