@@ -159,13 +159,15 @@ class PostController extends Timeline {
 
         $stmt->bind_param("ii", $post, $userId);
         $stmt->execute();
-        $stmt->close();
 
-        if (self::$con->affected_rows == 0) {
+        if ($stmt->affected_rows == 0) {
             self::addNewLike($post);
         } else {
             echo self::isLikedByMe($post) ? "1" : "0";
         }
+
+        $stmt->close();
+
     }
 
     // Get a list of upvoters
@@ -224,7 +226,7 @@ class PostController extends Timeline {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if (self::$con->affected_rows > 0) {
+        if ($stmt->affected_rows > 0) {
             $row = $result->fetch_assoc();
             $stmt->close();
             return $row['status'] == "1" ? true : false;
