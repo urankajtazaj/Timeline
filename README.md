@@ -8,7 +8,7 @@
 1. Clone the poject
 2. Unzip it on the `htdocs` folder
 3. Create database `timeline`
-4. Import the database data from `timeline.sql`
+4. Import the database from `timeline.sql`
 
 
 #
