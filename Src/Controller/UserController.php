@@ -234,14 +234,9 @@ class UserController extends Timeline {
         $stmt = self::$con->prepare("insert into follows values(null, ?, ?)");
         $stmt->bind_param("ii", $userId, $id);
         $stmt->execute();
-
-        if ($stmt->affected_rows > 0) {
-            $stmt->close();
-            return true;
-        } else {
-            $stmt->close();
-            return false;
-        }
+        $stmt->close();
+        
+        return $stmt->affected_rows > 0;
     }
 
     public static function unfollow($id) {
@@ -250,14 +245,9 @@ class UserController extends Timeline {
         $stmt = self::$con->prepare("delete from follows where userId = ? and followerId = ?");
         $stmt->bind_param("ii", $userId, $id);
         $stmt->execute();
-
-        if ($stmt->affected_rows > 0) {
-            $stmt->close();
-            return true;
-        } else {
-            $stmt->close();
-            return false;
-        }
+        $stmt->close();
+        
+        return $stmt->affected_rows > 0);
     }
 
     public static function followStatus($id) {
@@ -271,14 +261,9 @@ class UserController extends Timeline {
         $stmt->bind_param("ii", $id, $userId);
         $stmt->execute();
         $result = $stmt->get_result();
-
-        if ($result->fetch_assoc()['total'] > 0) {
-            $stmt->close();
-            return true;
-        } else {
-            $stmt->close();
-            return false;
-        }
+        $stmt->close();
+        
+        return $result->fetch_assoc()['total'] > 0;
     }
 
     public static function searchUserByName($name, $file = null) {
